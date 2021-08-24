@@ -1,0 +1,96 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InspectionTrainingOfficeDashboard.aspx.cs" Inherits="Inspection_InspectionTrainingOfficeDashboard" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="eluc" TagName="Error" Src="~/UserControls/UserControlErrorMessage.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="TabStrip" Src="~/UserControls/UserControlTabsTelerik.ascx" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <title>Training Office Dashboard</title>
+      <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+        <%: Scripts.Render("~/bundles/js") %>
+        <%: Styles.Render("~/bundles/css") %>
+        <script type="text/javascript">
+           function Resize() {
+               setTimeout(function () {
+                   TelerikGridResize($find("<%= gvTrainingofiicedashboard.ClientID %>"));
+                }, 200);
+           }
+            window.onresize = window.onload = Resize;
+
+           function pageLoad(sender, eventArgs) {
+                Resize();
+            }
+        </script>
+    </telerik:RadCodeBlock>
+</head>
+<body>
+    <form id="form1" runat="server">
+       <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
+    <telerik:RadSkinManager ID="RadSkinManager1" runat="server" />
+        <telerik:RadFormDecorator RenderMode="Lightweight" ID="RadFormDecorator1" runat="server"
+        DecorationZoneID="gvTrainingofiicedashboard" DecoratedControls="All" EnableRoundedCorners="true" />
+     <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1" >
+    <telerik:RadAjaxLoadingPanel runat="server" ID="RadAjaxLoadingPanel1" />
+    <telerik:RadWindowManager RenderMode="Lightweight" ID="RadWindowManager1" runat="server"
+        EnableShadow="true">
+    </telerik:RadWindowManager>
+        <eluc:Error ID="ucError" runat="server" Text="" Visible="false"></eluc:Error>
+    <eluc:TabStrip ID="TabstripTrainingofficedashboardmenu" runat="server" OnTabStripCommand="Trainingjobregistermenu_TabStripCommand"
+        TabStrip="true"></eluc:TabStrip>
+    <telerik:RadGrid RenderMode="Lightweight" runat="server" ID="gvTrainingofiicedashboard" AutoGenerateColumns="false"
+            AllowPaging="true" AllowCustomPaging="true" OnNeedDataSource="gvTrainingofiicedashboard_NeedDataSource"
+            OnItemDataBound="gvTrainingofiicedashboard_ItemDataBound" ShowFooter="false">
+            <MasterTableView  DataKeyNames="FLDTRAININGID" AutoGenerateColumns="false" EnableColumnsViewState ="false"
+                TableLayout="Fixed" CommandItemDisplay="None" ShowHeadersWhenNoRecords="true"
+                InsertItemPageIndexAction="ShowItemOnCurrentPage" >
+                <NoRecordsTemplate>
+                        <table width="100%" border="0">
+                            <tr>
+                                <td align="center">
+                                    <telerik:RadLabel ID="noRecordFound" runat="server" Text="No Records Found" Font-Size="Larger" Font-Bold="true" ></telerik:RadLabel>
+                                </td>
+                            </tr>
+                        </table>
+                    </NoRecordsTemplate>
+                <Columns>
+                <telerik:GridTemplateColumn HeaderText="Mandatory Trainings">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                        <ItemStyle HorizontalAlign="Left" Wrap="true" />
+                        
+                        <ItemTemplate>
+                            <telerik:RadLabel ID="RadlblTrainingName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.FLDTRAININGNAME")%>'>
+                            </telerik:RadLabel>
+                        </ItemTemplate>
+                        
+                    </telerik:GridTemplateColumn>
+
+                    <telerik:GridTemplateColumn HeaderText="Over Due">
+                        <HeaderStyle HorizontalAlign="Center" BackColor="Red" Font-Bold="true"/>
+                        <ItemStyle HorizontalAlign="Center" />
+                         <FooterStyle HorizontalAlign="Center" />
+                        <ItemTemplate>
+                            <a id="overdueanchor" runat="server"  style="text-decoration:none;color:black"><%# DataBinder.Eval(Container, "DataItem.FLDOVERDUE")%></a>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                        <a id="overduecsanchor" runat="server"  style="text-decoration:none;color:black">
+                        <telerik:RadLabel ID="Radlblcompanyspecifiedoverdue" runat="server" >
+                            </telerik:RadLabel></a>
+                        </FooterTemplate>
+                    </telerik:GridTemplateColumn>
+                </Columns>
+                <PagerStyle Mode="NextPrevNumericAndAdvanced" PagerTextFormat="{4}<strong>{5}</strong> Records matching your search criteria"
+                        PageSizeLabelText="Records per page:" CssClass=" RadGrid_Default rgPagerTextBox" AlwaysVisible="true" />
+            </MasterTableView>
+            <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="true" ReorderColumnsOnClient="true" AllowColumnHide="true" ColumnsReorderMethod="Reorder">
+                    <Selecting AllowRowSelect="true" EnableDragToSelectRows="false" UseClientSelectColumnOnly="true" />
+                    <Scrolling AllowScroll="true" UseStaticHeaders="true" SaveScrollPosition="true" />
+                    <Resizing EnableRealTimeResize="true" AllowResizeToFit="true" AllowColumnResize="true" />
+                </ClientSettings>
+        
+        </telerik:RadGrid>
+   
+         </telerik:RadAjaxPanel>
+    </form>
+</body>
+</html>

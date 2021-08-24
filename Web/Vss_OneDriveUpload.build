@@ -1,0 +1,41 @@
+<project name ="patch"  default="GetData" >
+
+  <!-- VSS Config --> 
+  <property name="vss.name" value="PhoenixTelerikWorking" />
+  <property name="vss.path" value="VSSPhoenixTelerik" />
+
+  <!-- DB Config -->
+  <property name="sql.data.source" value="30.30.30.2" />
+  <property name="sql.uid" value="dev" />
+  <property name="sql.pwd" value="snss" />
+  <property name="target.database" value="ProductSupport" />
+
+  <property name = "target.connection.string" value="Provider=SQLOLEDB;Password=${sql.pwd};Persist Security Info=True;User ID=${sql.uid};Initial Catalog=${target.database};Data Source=${sql.data.source}" />
+
+  <property name="utilities.dir" value="${utilities}" />
+
+  <target name="GetData" >
+   
+  	  <loadtasks assembly="${utilities.dir}\nantcontrib-0.85-bin\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+  
+          <sql
+              	connstring="${target.connection.string}"
+             	transaction="false"
+    		delimiter=";"
+    		delimstyle="Normal"
+    		print="true"   
+		cmdtimeout="0" 
+              >
+              <![CDATA[	
+
+			UPDATE TBLPRODUCTSOURCESAFE
+			SET FLDSTATUS = '${status}'
+			OUTPUT 1, 1, GETUTCDATE(), 'PRODUCTSOURCESAFE_UPDATE', NULL,INSERTED.* INTO TBLAUDITPRODUCTSOURCESAFE
+			WHERE FLDVSSNAME = '${vss.name}'
+			AND FLDVSSPATH = '${vss.path}'
+             ]]>
+            </sql>
+
+   </target>
+
+</project>

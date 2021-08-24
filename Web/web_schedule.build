@@ -1,0 +1,161 @@
+<project name ="phoenix" default = "phoenixelogbuild">
+
+  <!--Directory Path-->
+  <property name = "current_directory" value="${directory::get-current-directory()}" />
+  <property name = "Drive_letter" value="${directory::get-directory-root(current_directory)}" />
+
+  <property name = "hosted.drive" value="${Drive_letter}" />
+  <property name = "deployment.dir" value="${Drive_letter}\PhoenixDeployment" />
+  <property name = "product.dir" value="${deployment.dir}\PhoenixBuild"/>
+
+  <property name = "phoenix.application.dir" value = "${product.dir}" />
+  <property name = "phoenix.utilities.dir" value="${Drive_letter}\Phoenix\Utilities"/>
+
+  <property name = "scripts.dir" value="${product.dir}"/>
+  <property name = "web.build.dir" value="${scripts.dir}\Web"/>
+  <property name = "buildschedule" value = "${Drive_letter}\Phoenix-Dev-W-V1.1\BuildSchedule" />
+
+  <property name = "buildconfigpath" value = "\\30.30.30.7\PhoenixRelease\Office\ProductSupport\Attachments\BuildConfiguration" />
+  <property name = "file" value = "${buildschedule}\BuildSchedule.xml" />
+
+  <property name = "buildcall" value = "E:\PhoenixDeployment\PhoenixBuild\PhoenixBuild.bat" />
+  
+  <loadtasks assembly = "${phoenix.utilities.dir}\nantcontrib-0.85-bin\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+
+  <target name="phoenixelogbuild">
+
+   <echo message = "Copying Build Configuration...."  />
+    <copy todir="${buildschedule}" overwrite="true">
+      <fileset basedir="${buildconfigpath}">
+        <include name="**/*" />
+      </fileset>
+    </copy> 
+
+    <script language="C#" prefix="packagefiles" >
+      <imports>
+        <import namespace="System.Xml" />
+        <import namespace="System.Collections" />
+        <import namespace="System" />
+      </imports>
+      <code>
+        <![CDATA[
+
+            public static XmlDocument xDoc = new XmlDocument();
+            [Function("get-build-no")]
+            public static String Getbuildno(string patchpath) {
+
+	          xDoc.Load(patchpath);	         	           
+	          XmlNode node = xDoc.SelectSingleNode("BUILDCONFIGURATION/PROPERTY/BUILNUMBER");
+		        String buildno = node.InnerText;
+		        return buildno;
+            }
+
+            [Function("get-build-date")]
+            public static String Getbuilddate(string patchpath) {
+
+	          xDoc.Load(patchpath);	         	           
+	          XmlNode node = xDoc.SelectSingleNode("BUILDCONFIGURATION/PROPERTY/DATE");
+		        String buildno = node.InnerText;
+		        return buildno;
+            }
+
+
+      	    [Function("get-today-date")]
+            public static bool Gettodaydate(string patchpath) {
+
+            xDoc.Load(patchpath);	         
+            XmlNode node = xDoc.SelectSingleNode("BUILDCONFIGURATION/PROPERTY/DATE");
+            String builddate = node.InnerText;
+	    Console.WriteLine("{0}",builddate);
+   		
+		        if(DateTime.Parse(builddate).Date == DateTime.Now.Date)
+		        {
+			          return true;
+		        }
+		        return false;
+          }
+
+      	    [Function("get-build-time")]
+            public static String Gettodaytime(string patchpath) {
+
+            xDoc.Load(patchpath);	         
+            XmlNode node = xDoc.SelectSingleNode("BUILDCONFIGURATION/PROPERTY/DATE");
+            DateTime builddate = DateTime.Parse(node.InnerText);
+	    
+	    Console.WriteLine("{0}",builddate.ToString("HH:mm"));  		
+	    return builddate.ToString("HH:mm");
+          }          
+
+        ]]>
+      </code>
+    </script>
+    
+    <property name="buildno" value="${packagefiles::get-build-no(file)}" />
+    <echo message = "${buildno}" />
+
+    <property name="builddate" value="${packagefiles::get-build-date(file)}" />
+    <echo message = "${builddate}" />
+
+    <property name="checkdate" value="${packagefiles::get-today-date(file)}" />
+    <echo message = "${checkdate}" />
+
+    <property name="checktime" value="${packagefiles::get-build-time(file)}" />
+    <echo message = "${checktime}" />
+
+   <if test="${checkdate == 'True'}">
+
+      <echo message = "Copying Build Configuration files to build folder...."  />
+
+        <copy todir="${product.dir}\SQL" overwrite="true">
+          <fileset basedir="${buildconfigpath}">
+            <include name="baseline_modules.txt" />
+            <include name="deploymentconfiguration.txt" />
+          </fileset>
+        </copy>
+
+        <copy todir="${product.dir}" overwrite="true">
+          <fileset basedir="${buildconfigpath}">
+            <include name="phoenixconfiguration.build" />
+          </fileset>
+        </copy>
+
+        <copy todir="${product.dir}\Web" overwrite="true">
+          <fileset basedir="${buildconfigpath}">
+            <include name="BuildSchedule.xml" />
+          </fileset>
+        </copy>
+
+        <echo message = "Scheduling..Build...."  />
+        <echo file="buildstart.bat">
+@echo off
+pushd "%~dp0"
+SchTasks /RUN /TN "PhoenixBuild"
+SchTasks /Change /TN "PhoenixBuildInitiate" /DISABLE
+popd
+        </echo>
+
+        <echo message = "Scheduling..Build...."  />
+        <echo file="buildstartinitiate.bat">
+@echo off
+pushd "%~dp0"
+SchTasks /Change /TN "PhoenixBuildInitiate" /DISABLE
+popd
+        </echo>
+    
+        <echo message = "Schedule..Build..Run.."  />       
+        <exec program = "buildstart.bat" />
+    
+        <echo message = "Schedule..Build..Run.."  />       
+        <exec program = "buildstartinitiate.bat" />
+	
+	<delete>
+          <fileset>
+            <include name="${buildconfigpath}\*.*" />
+	  </fileset>
+	</delete>
+
+     </if> 
+
+  </target>
+
+</project>

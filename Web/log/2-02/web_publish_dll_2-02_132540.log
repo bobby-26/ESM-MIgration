@@ -1,0 +1,233 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_publish_dll.build
+Target framework: Microsoft .NET Framework 2.0
+Target(s) specified: phoenixelogbuild 
+
+   [tstamp] 19 February 2021 13:25:40.
+ [property] Target framework changed to "Microsoft .NET Framework 3.5".
+
+phoenixelogbuild:
+
+     [echo] ***********************************************************
+     [echo]    Databasename       :: PhoenixUACCEAGLEOFFICE
+     [echo]    Execute Status     :: true
+     [echo]    Deploy folder Path :: F:\PhoenixRelease\PhoenixTest
+     [echo]    IISRESET status    :: 0
+     [echo] ***********************************************************
+     [echo] Patch deploying in F:\PhoenixRelease\PhoenixTest...
+     [copy] Copying 21590 files to 'F:\PhoenixRelease\PhoenixTest'.
+     [echo] Database Patch Applying In PhoenixUACCEAGLEOFFICE...
+     [nant] E:\Phoenix\Working\Build\Sql\db_execute_patch_in_client_db.build 
+            Buildfile: file:///E:/Phoenix/Working/Build/Sql/db_execute_patch_in_client_db.build
+            Target framework: Microsoft .NET Framework 3.5
+            Target(s) specified: execute__patch 
+            
+                 [echo] .
+                 [echo] PhoenixUACCEAGLEOFFICE
+            
+            init:
+            
+            [loadtasks] Scanning assembly "NAnt.Contrib.Tasks" for extensions.
+                 [echo] E:\\Phoenix\Working\Build\Sql
+            
+            define_execute_patch_routine:
+            
+               [script] Scanning assembly "ywzlrcwu" for extensions.
+            
+            execute_alter_table_patch_in_release:
+            
+                 [echo] Alter Table
+            [executepatch]  
+            [executepatch]   IF NOT EXISTS (
+            [executepatch]     SELECT * FROM INFORMATION_SCHEMA.COLUMNS              
+            [executepatch]     WHERE TABLE_NAME = 'TBLPMSACTIVITYMEMBERS' AND  COLUMN_NAME ='FLDACTIVE' )
+            [executepatch]   BEGIN
+            [executepatch]   ALTER TABLE DBO.TBLPMSACTIVITYMEMBERS ADD FLDACTIVE TINYINT NULL END
+            [executepatch]   ELSE
+            [executepatch]   BEGIN
+            [executepatch]   ALTER TABLE DBO.TBLPMSACTIVITYMEMBERS ALTER COLUMN FLDACTIVE TINYINT NULL END
+            [executepatch] 
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: The object 'DF_TBLPMSACTIVITYMEMBERS_FLDACTIVE' is dependent on column 'FLDACTIVE'.
+            [executepatch] ALTER TABLE ALTER COLUMN FLDACTIVE failed because one or more objects access this column.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+            
+            execute__patch:
+            
+                 [echo] table
+                 [echo] E:\\Phoenix\Working\Build\Sql
+                 [echo] function
+                 [echo] view
+                 [echo] proc
+                 [echo] default
+            [executepatch] 
+            [executepatch]  IF  NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE OBJECT_NAME(id) = 'DF_TBLPROSPERMEASUREMAPPING_FLDMEASUREMAPPINGID' AND type = 'D')
+            [executepatch] BEGIN
+            [executepatch] ALTER TABLE DBO.TBLPROSPERMEASUREMAPPING ADD CONSTRAINT [DF_TBLPROSPERMEASUREMAPPING_FLDMEASUREMAPPINGID] DEFAULT (newsequentialid()) FOR FLDMEASUREMAPPINGID
+            [executepatch] END
+            [executepatch]   
+            [executepatch] 
+            [executepatch] PRINT 'TBLINSPECTIONNCWORKORDER'
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: Column already has a DEFAULT bound to it.
+            [executepatch] Could not create constraint or index. See previous errors.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+            [executepatch] 
+            [executepatch]  IF  NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE OBJECT_NAME(id) = 'DF_TBLPHOENIXFEATRUELIST_FLDDTKEY' AND type = 'D')
+            [executepatch] BEGIN
+            [executepatch] ALTER TABLE DBO.TBLPHOENIXFEATRUELIST ADD CONSTRAINT [DF_TBLPHOENIXFEATRUELIST_FLDDTKEY] DEFAULT (newsequentialid()) FOR FLDDTKEY
+            [executepatch] END
+            [executepatch]   
+            [executepatch] 
+            [executepatch] PRINT 'TBLCREWFLAGMEDICAL'
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: Column already has a DEFAULT bound to it.
+            [executepatch] Could not create constraint or index. See previous errors.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+                 [echo] trigger
+                 [echo] meta
+                 [echo] execute permission
+               [script] Scanning assembly "7_enqplc" for extensions.
+                  [sql] PRMENUPHOENIX
+                  [sql] PRREPORTFIELDSPHOENIX
+                  [sql] 2169 records affected
+            
+            BUILD SUCCEEDED - 3 non-fatal error(s), 0 warning(s)
+            
+            Total time: 21.4 seconds.
+            
+     [echo] IISRESET status 0...
+     [echo] ***********************************************************
+     [echo] ***********************************************************
+     [echo] DB Patch applying in .\SQLEXPRESS Phoenix working staging...
+     [echo] ***********************************************************
+     [nant] E:\Phoenix\Working\Build\Sql\db_execute_patch_in_client_db.build 
+            Buildfile: file:///E:/Phoenix/Working/Build/Sql/db_execute_patch_in_client_db.build
+            Target framework: Microsoft .NET Framework 3.5
+            Target(s) specified: execute__patch 
+            
+                 [echo] .
+                 [echo] PhoenixWorkingStaging
+            
+            init:
+            
+            [loadtasks] Scanning assembly "NAnt.Contrib.Tasks" for extensions.
+                 [echo] E:\\Phoenix\Working\Build\Sql
+                  [sql] Changed database context to 'master'.
+                  [sql] E:\\Phoenix\Working\Backup\Database\DEVRELEASE\PhoenixWorkingStaging20210219132705.BAK
+                  [sql] Processed 146944 pages for database 'PhoenixWorkingStaging', file 'PhoenixWorkingStaging' on file 1.
+                  [sql] Processed 2 pages for database 'PhoenixWorkingStaging', file 'PhoenixWorkingStaging_log' on file 1.
+                  [sql] BACKUP DATABASE successfully processed 146946 pages in 17.964 seconds (63.906 MB/sec).
+            
+            define_execute_patch_routine:
+            
+               [script] Scanning assembly "qc3gguyu" for extensions.
+            
+            execute_alter_table_patch_in_release:
+            
+                 [echo] Alter Table
+            [executepatch]  
+            [executepatch]   IF NOT EXISTS (
+            [executepatch]     SELECT * FROM INFORMATION_SCHEMA.COLUMNS              
+            [executepatch]     WHERE TABLE_NAME = 'TBLPMSACTIVITYMEMBERS' AND  COLUMN_NAME ='FLDACTIVE' )
+            [executepatch]   BEGIN
+            [executepatch]   ALTER TABLE DBO.TBLPMSACTIVITYMEMBERS ADD FLDACTIVE TINYINT NULL END
+            [executepatch]   ELSE
+            [executepatch]   BEGIN
+            [executepatch]   ALTER TABLE DBO.TBLPMSACTIVITYMEMBERS ALTER COLUMN FLDACTIVE TINYINT NULL END
+            [executepatch] 
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: The object 'DF_TBLPMSACTIVITYMEMBERS_FLDACTIVE' is dependent on column 'FLDACTIVE'.
+            [executepatch] ALTER TABLE ALTER COLUMN FLDACTIVE failed because one or more objects access this column.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+            
+            execute__patch:
+            
+                 [echo] table
+                 [echo] E:\\Phoenix\Working\Build\Sql
+                 [echo] function
+                 [echo] view
+                 [echo] proc
+                 [echo] default
+            [executepatch] 
+            [executepatch]  IF  NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE OBJECT_NAME(id) = 'DF_TBLWORKORDEREXTN_FLDDTKEY' AND type = 'D')
+            [executepatch] BEGIN
+            [executepatch] ALTER TABLE DBO.TBLWORKORDEREXTN ADD CONSTRAINT [DF_TBLWORKORDEREXTN_FLDDTKEY] DEFAULT (newsequentialid()) FOR FLDDTKEY
+            [executepatch] END
+            [executepatch]   
+            [executepatch] 
+            [executepatch] PRINT 'TBLWORKORDEREXTN'
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: Column already has a DEFAULT bound to it.
+            [executepatch] Could not create constraint or index. See previous errors.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+            [executepatch] 
+            [executepatch]  IF  NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE OBJECT_NAME(id) = 'DF_TBLWORKORDEREXTN_FLDRAMAPPINGID' AND type = 'D')
+            [executepatch] BEGIN
+            [executepatch] ALTER TABLE DBO.TBLWORKORDEREXTN ADD CONSTRAINT [DF_TBLWORKORDEREXTN_FLDRAMAPPINGID] DEFAULT (newsequentialid()) FOR FLDRAMAPPINGID
+            [executepatch] END
+            [executepatch]   
+            [executepatch] 
+            [executepatch] PRINT 'TBLWORKFLOWREQUESTDATA'
+            [executepatch] 
+            [executepatch] System.Data.SqlClient.SqlException: Column already has a DEFAULT bound to it.
+            [executepatch] Could not create constraint or index. See previous errors.
+            [executepatch]    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+            [executepatch]    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+            [executepatch]    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            [executepatch]    at nant2c91a5d33d4b4ed088092ef283c7327f.ExecutePatchTask.ExecuteTask()
+                 [echo] trigger
+                 [echo] meta
+                 [echo] execute permission
+               [script] Scanning assembly "gn1bcykr" for extensions.
+                  [sql] PRMENUPHOENIX
+                  [sql] PRREPORTFIELDSPHOENIX
+                  [sql] 2169 records affected
+            
+            BUILD SUCCEEDED - 3 non-fatal error(s), 0 warning(s)
+            
+            Total time: 34.6 seconds.
+            
+
+BUILD SUCCEEDED
+
+Total time: 115.8 seconds.
+

@@ -1,0 +1,128 @@
+<project name ="phoenix" default = "phoenixbuildxsdclass">
+
+ <include buildfile = "web_configuration.build" />
+
+ <target name="init">
+
+   <echo message="${datetime::now()}"/>
+
+   <loadtasks assembly="${phoenix.utilities85.dir}\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+
+ </target>
+
+ <target name="phoenixbuildxsdclass" depends="init">
+	
+    <echo message = "******************************************" />
+    <echo message = "BUILD CONFIGURATION" />
+    <echo message = "******************************************" />
+    <echo message = "Vss Get...:: ${vss.get.required}" />
+    <echo message = "SourceSafe:: ${ss.path}" />
+    <echo message = "******************************************" />
+
+
+
+    <script language="C#">
+      <imports>
+        <import namespace="System.Xml" />
+        <import namespace="System.IO" />
+        <import namespace="System" />
+      </imports>
+      <references>
+        <include name="System.Data.dll" />
+        <include name="System.Xml.dll" />
+      </references>
+      <code>
+        <![CDATA[
+		[TaskName("BuildUpadate")]
+		public class DBVSSTimestamp : Task
+		{
+
+			protected override void ExecuteTask()
+			{	
+				XmlDocument xdoc = new XmlDocument();
+				XmlDocument newxdoc = new XmlDocument();
+
+				String filename = "buildstatus.xml";
+		    		xdoc.Load(filename);	   
+      
+			    	XmlNode node = xdoc.SelectSingleNode("BUILDSTATUS/BUILDSTARTTIME");
+		    		String buiddate = node.InnerText;
+				xdoc.Save(filename);
+
+				//if(DateTime.Parse(buiddate).Date == DateTime.Now.Date)
+				//{
+				//	Console.WriteLine("Build Current Date :: {0}",buiddate);		
+				//}
+				//else
+				//{
+					XmlNode Root = newxdoc.AppendChild(newxdoc.CreateElement("BUILDSTATUS"));
+					XmlNode startime = Root.AppendChild(newxdoc.CreateElement("BUILDSTARTTIME"));				
+					XmlNode webbuild = Root.AppendChild(newxdoc.CreateElement("APPBUILDSTATUS"));	
+					XmlNode sqlbuild = Root.AppendChild(newxdoc.CreateElement("SQLBUILDSTATUS"));
+					startime.InnerText = System.DateTime.Now.ToString();
+					webbuild.InnerText = "2";
+					sqlbuild.InnerText = "2";
+					newxdoc.Save("buildstatus.xml");			
+				//}
+			}
+		}
+		]]>
+      </code>
+    </script>
+
+   <BuildUpadate /> 
+
+
+    <if test="${vss.get.required=='true'}">
+
+      <echo message = "Deleting ${phoenix.solution.web.dir} Folder Files..." />
+      <!-- <delete>
+        <fileset basedir="${phoenix.solution.web.dir}" >
+          <include name= "**/*" />   
+	  <exclude name= "web.config" />
+        </fileset> 
+      </delete> -->
+
+
+      <echo message="::..${datetime::now()}"/>
+
+      <delete dir="${phoenix.solution.web.dir}" />
+
+      <vssget
+         username="${ss.username}"
+         password="${ss.password}"
+         localpath="${phoenix.solution.web.dir}"
+         recursive="true"
+         replace="true"
+         writable="true"
+         removedeleted="false"
+         dbpath="${ss.path}"
+         path="$/Phoenix/Solution/Web"
+	      /> 
+
+      <echo message="::..${datetime::now()}"/>
+
+      <delete dir="${phoenix.web.dir}" />
+ 
+      <mkdir dir="${phoenix.web.dir}"/>
+      <mkdir dir="${phoenix.web.dir}\bin"/>
+
+      <copy todir="${phoenix.web.dir}" overwrite="true">
+       <fileset basedir="${phoenix.solution.web.dir}">
+        <include name="**/*" />
+       </fileset>
+      </copy>
+
+      <copy todir="${phoenix.web.dir}" overwrite="true">
+        <fileset basedir="${product.dir}">
+          <include name="web.config" />
+        </fileset>
+      </copy> 
+
+      <echo message="::..${datetime::now()}"/>
+
+    </if> 
+
+ </target>
+
+</project>

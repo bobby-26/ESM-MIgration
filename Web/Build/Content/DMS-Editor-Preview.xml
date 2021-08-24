@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <modules>
+        <module name="TrackChangesInfo" visible="true" />
+        <module name="RadEditorStatistics" enabled="true" visible="true"/>
+        <module name="RadEditorDomInspector" enabled="false" visible="false" />
+        <module name="RadEditorNodeInspector" enabled="false" visible="false" />
+        <module name="RadEditorHtmlInspector"  enabled="false" visible="false"  />
+    </modules>
+    
+</root>

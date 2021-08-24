@@ -1,0 +1,446 @@
+﻿@import "../../Content/OpenSans.css";
+
+html,
+body,
+form {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+form {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font: 100 13px Arial,Helvetica,sans-serif;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.hidden {
+    display: none !important;
+}
+
+html form {
+    white-space: nowrap;
+}
+/*----Main Layout-----*/
+
+
+html .sidebar {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    float: left;
+}
+
+.slider {
+    width: 0;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    transition: width 0.07s 0.07s ease;
+}
+
+.expandedSlider .slider {
+    width: 15%;
+    overflow: initial;
+}
+
+.expandedSlider .slider + div {
+    width: 85%;        
+}
+
+.slider .logo {
+    text-transform: capitalize;
+    color: inherit;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 16px 10px;
+    text-align: center;
+}
+
+html .sidebar .btn-new-node {
+    color: #25a0da;
+}
+
+html .slider,
+html .page {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+html .page {
+    width: 100%;
+    margin-left: -4px;
+    padding-top: 56px;
+    white-space: normal;
+    overflow: hidden;
+}
+
+    html .page > div {
+        min-width: 960px;
+        box-sizing: border-box;
+    }
+
+/*html .main-header {
+    background-image: url("images/header_blue.gif");
+}*/
+
+html .main-header {
+    margin-top: -56px;
+}
+
+.main-header {
+    /*padding: 2px 10px;*/
+    color: #fff;
+}
+
+    .main-header .icon {
+        font-size: 2em;
+        line-height: 32px;
+    }
+
+    .main-header .home-btn {
+        cursor: pointer;
+    }
+
+        .main-header .home-btn .icon {
+            margin-right: 5px;
+        }
+
+        .main-header .home-btn div {
+            float: right;
+        }
+
+        .main-header .home-btn .text {
+            vertical-align: top;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .main-header .home-btn:before {
+            font-size: 1.08333em;
+        }
+
+    .main-header .header-info {
+        width: 670px;
+        float: right;
+    }
+
+        .main-header .header-info .rnvRootGroupWrapper,
+        .main-header .header-info .rnvRootLink {
+            border: 0;
+        }
+
+        .main-header .header-info > span {
+            margin-right: 30px;
+        }
+
+/*html .RadNavigation {
+    font-size: 16px;
+}*/
+
+html .RadNavigation .rnvRootGroup {
+    display: block;
+}
+
+    html .RadNavigation .rnvRootGroup .rnvItem {
+        vertical-align: middle;
+    }
+
+    html .RadNavigation .rnvRootGroup:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+html .RadNavigation .rnvFocused > .rnvLink {
+    box-shadow: none;
+}
+
+html .RadNavigation .rnvLink,
+html .RadNavigation .rnvText {
+    cursor: pointer;
+}
+
+html .RadNavigation .rwzSprite + .rnvText {
+    margin-left: 10px;
+}
+
+html .RadNavigation .user .rnvLink {
+    padding-right: 20px;
+}
+
+html .RadNavigation .user .rnvText {
+    margin: 0;
+}
+
+html .RadNavigation .user .rwzSprite {
+    position: absolute;
+    right: 0;
+    font-size: 1.5em;
+}
+
+html .RadNavigation .user .icon {
+    font-size: 1.2em;
+}
+
+html .RadNavigation .rwzSprite {
+    display: inline-block;
+    vertical-align: top;
+}
+
+html .RadNavigation .icon {
+    font-size: 2em;
+    line-height: 22px;
+}
+
+html .RadToolTip {
+    color: #000;
+    background: #fff;
+    border-color: #cdcdcd;
+}
+
+    html .RadToolTip .rtCalloutTopCenter {
+        border-bottom-color: #cdcdcd;
+        left: auto;
+        right: 38px;
+    }
+
+        html .RadToolTip .rtCalloutTopCenter:before {
+            border-bottom-color: #fff;
+        }
+
+    html .RadToolTip .rtContent {
+        padding: 15px;
+        white-space: nowrap;
+    }
+
+        html .RadToolTip .rtContent * {
+            vertical-align: top;
+        }
+
+        html .RadToolTip .rtContent > div:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    html .RadToolTip img {
+        display: inline-block;
+        margin-right: 17px;
+    }
+
+    html .RadToolTip .content {
+        display: inline-block;
+    }
+
+        html .RadToolTip .content > span {
+            display: block;
+        }
+
+    html .RadToolTip .addBtn {
+        padding: 5px 0;
+        margin: 10px 0;
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: #cdcdcd;
+        cursor: pointer;
+    }
+
+        html .RadToolTip .addBtn * {
+            vertical-align: middle;
+        }
+
+        html .RadToolTip .addBtn .icon {
+            font-size: 2em;
+        }
+
+.slider .RadMenu .rmRootGroup {
+    padding: 0;
+    /*background: transparent;*/
+    border: 0;
+}
+
+    .slider .RadMenu .rmRootGroup .rmRootLink {
+        border: 0;
+    }
+/****************************/
+.input {
+    background-color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #333333;
+    border: 1px solid #9f9fff;
+    height: inherit;
+}
+
+.riTextBox.riEnabled.input_mandatory {
+    background-color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #333333;
+    border: 1px solid #ff9191; /*ff0000*/
+    height: inherit;
+}
+
+.riTextBox.riFocused.input_mandatory {
+    background-color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #333333;
+    border: 1px solid #ff9191; /*ff0000*/
+    height: inherit;
+}
+
+.riSingle {
+    display: inline-block;
+    white-space: nowrap;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.riTextBox.riRead.input {
+    background-color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #333333;
+    border: 1px solid #9f9fff;
+    height: inherit;
+}
+
+
+.RadInput, .RadInputMgr {
+    vertical-align: middle;
+}
+
+.RadComboBox {
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+.RadAsyncUpload.RadUpload.RadUpload_Metro {
+    background-color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #333333;
+    border: 1px solid #9f9fff;
+    height: inherit;
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 28px;
+    width: 180px;
+}
+
+.RadAsyncUpload {
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 28px;
+}
+
+.DropZone1 {
+    width: 100%;
+    height: 50px;
+    background-color: #b9b6b6;
+    border-color: ThreeDLightShadow;
+    color: grey;
+    float: left;
+    text-align: center;
+    glyph-orientation-horizontal: inherit;
+    font-size: 18px;
+    color: black;
+}
+
+/******************Layout******************/
+
+#dragBG {
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    opacity: .10;
+    filter: alpha(opacity=10);
+    -moz-opacity: .10;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.right {
+    float: right;
+}
+/******************End Layout*******************/
+#radMenuTree {
+    overflow: auto !important;
+    font-weight: bold;
+}
+.RadAjaxPanel:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.rmLink img, .rtIn img, .rpLink img {
+    height: 15px;
+    width: 15px;
+}
+
+.searchWrapper .rnvText:before {
+    content: url("../Theme1/images/search.png");
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.eventWrapper .rnvText:before {
+    content: url("../Theme1/images/74.png");
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.logoWrapper .rnvText:before {
+    content: "";
+    display: inline-block;
+    margin-right: 5px;    
+    background-image: url("../Theme1/images/esmlogo4_small.png");
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+}
+
+.officeWrapper .rnvText:before {
+    content: "";
+    display: inline-block;
+    margin-right: 5px;
+    background-image: url("../Theme1/images/home.png");
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+}
+
+.RadNavigation .rnvRootLink {
+    padding: 5px !important;
+}

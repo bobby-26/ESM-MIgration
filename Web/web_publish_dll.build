@@ -1,0 +1,73 @@
+<project name ="phoenix" default = "phoenixelogbuild">
+
+  <include buildfile = "web_property.build" />
+
+  <property name = "nant.settings.currentframework" value="net-3.5" />
+
+  <target name="phoenixelogbuild">
+   
+      <foreach item="Line" delim="," in="${sql.build.dir}\deploymentconfiguration.txt" property="databasename,status,deploypath,iisreset">
+        <do>
+          <if test ="${status=='true'}">
+            <echo message = "***********************************************************" />
+            <echo message = "   Databasename       :: ${databasename}" />
+            <echo message = "   Execute Status     :: ${status}" />
+            <echo message = "   Deploy folder Path :: ${deploypath}" />
+            <echo message = "   IISRESET status    :: ${iisreset}" />
+            <echo message = "***********************************************************" />
+            <echo message = "Patch deploying in ${deploypath}..." />
+
+            <copy todir="${deploypath}" overwrite="true">
+              <fileset basedir="${COMPILATION_TARGET_DIRECTORY}">
+                <include name="**" />
+                <exclude name="**/*.config" />
+              </fileset>
+            </copy> 
+<!-- <exec program="powershell" workingdir="${web.build.dir}" verbose="true">
+    <arg value=".\powerstart.ps1"/>
+</exec> -->
+
+            <echo message = "Database Patch Applying In ${databasename}..." />
+            <nant buildfile="${sql.build.dir}\db_execute_patch_in_client_db.build">
+              <properties>
+                <property name="client.release.database" value="${databasename}" />
+                <property name="apply_patch" value="${status}" />
+	 	<property name = "sql.data.source" value="."/>
+		<property name = "sql.uid" value="sa" />
+		<property name = "sql.pwd" value="Esm@1234" />  
+              </properties>
+            </nant> 
+            <echo message = "IISRESET status ${iisreset}..." />
+            <if test ="${iisreset=='1'}">
+              <echo message = "IISRESET..." />
+              <iisapppool action="Restart" pool="DefaultAppPool" server="SERVER" />
+            </if>
+          </if>         
+          <echo message = "***********************************************************" />
+          <if test ="${status=='false'}">
+            <echo message = "***********************************************************" />
+            <echo message = "   Databasename       :: ${databasename}" />
+            <echo message = "   Execute Status     :: ${status}" />
+            <echo message = "   Deploy folder Path :: ${deploypath}" />
+            <echo message = "   IISRESET status    :: ${iisreset}" />
+            <echo message = "***********************************************************" />
+            <echo message = "DB AND APP PATCH NOT APPLIED IN ${databasename}" />
+            <echo message = "***********************************************************" />
+          </if>
+        </do>
+      </foreach>
+      <echo message = "***********************************************************" />
+      <echo message = "DB Patch applying in .\SQLEXPRESS Phoenix working staging..." />	
+      <echo message = "***********************************************************" />
+      <nant buildfile="${sql.build.dir}\db_execute_patch_in_client_db.build">
+       <properties>
+         <property name = "sql.data.source" value="."/>
+	   <property name = "sql.uid" value="sa" />
+	   <property name = "sql.pwd" value="Esm@1234" /> 
+	   <property name = "client.release.database" value = "PhoenixWorkingStaging"  />
+         </properties>
+      </nant>
+
+  </target>
+
+</project>

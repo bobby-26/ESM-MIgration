@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>HONGKONG APPLICATION</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.44792in</Top>
+            <Left>2.3875in</Left>
+            <Height>0.25in</Height>
+            <Width>2.35417in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The following are the two steps for Hongkong documentation:
+</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>A) Fax or email
+B) Courier.</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value xml:space="preserve">
+</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>A) Fax : </Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>Below mentioned documents is needed to be Fax to Hongkong Authority (Fax No. 00852 25416751 / 31021227) or to email address crt_mdd@mardep.gov.hk 
+1) Consolidated form
+2) Copy of COC 
+3) Copy of GOC + Endorsement
+4) Copy of Familiarisation Training for junior officers + Dangerous Cargo Endorsement (as per vessel type)
+                                                                                                      </Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  Or </Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>
+Copy of Specialized Training courses for Top 04 officers + Dangerous Cargo Endorsement (as per vessel type)
+
+</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>B) Courier :</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>
+
+Following documents need to be couriered on the same day upon receipt of cra :
+1) Covering Letter 
+2) Application Form 
+3) Medicals (ILO page)          
+4) CRA copy
+5) PPT
+6) COC
+7) GOC + Endorsement
+8) Copy of Familiarisation Training for junior officers + Dangerous Cargo Endorsement (as per vessel type)
+                                                                                                       </Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>Or </Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>
+Copy of Specialized Training courses for Top 04 officers + Dangerous Cargo Endorsement (as per vessel type)
+9] 03 PPT size photographs with name &amp; rank written on the back side.
+
+All the above copies except CRA should duly signed by authorized signatory of the company.
+</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.85625in</Top>
+            <Left>0.32292in</Left>
+            <Height>4.64583in</Height>
+            <Width>6.6875in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>i)	Address for couriering the documents:
+TO,
+MISS. CHEUNG
+THE SEAFARERS' CERTIFICATION SECTION
+MARINE DEPARTMENT, 
+ROOM 303, 3RD FLOOR, 
+HARBOUR BUILDING, 
+38 PIER ROAD, 
+HONG KONG
+TEL: 00 852 28523069 / 28523052</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>
+
+ii)Email address : crt_mdd@mardep.gov.hk
+
+iii)We have remitted deposit of HKG 20,000 to Hong Kong Shipping Registry. Our entire HKG applications payment has been adjusted against these deposits. Also, we have to maintain a minimum sum of HKG2000 with HKG Shipping Registry. Hence, we need to inform to head office one week in advance with our excel sheet (rank/name/vsl of the candidate’s) as soon as minimum balance is of HKG 2000. 
+
+iv)Hongkong Cost is HKG 400/- per application
+
+v)Duplicate Hongkong Cost is HKG 220/- per application.</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox3</rd:DefaultName>
+            <Top>5.69028in</Top>
+            <Left>0.32292in</Left>
+            <Height>3.51389in</Height>
+            <Width>6.6875in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.07167in</Top>
+        <Left>0.06125in</Left>
+        <Height>9.25in</Height>
+        <Width>7.07292in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>9.46875in</Height>
+    <Style />
+  </Body>
+  <Width>7.25in</Width>
+  <Page>
+    <LeftMargin>0.333in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.333in</TopMargin>
+    <BottomMargin>0.25in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <ReportParameters>
+    <ReportParameter Name="imagepath">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Version">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>591aa79b-ca22-41f2-a50a-72a8f1023990</rd:ReportID>
+</Report>

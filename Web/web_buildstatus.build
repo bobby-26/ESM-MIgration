@@ -1,0 +1,240 @@
+<project name="Build_Validation_and_Deployment" default="build.validation">
+
+  <include buildfile = "web_property.build" />
+  <property name = "nant.settings.currentframework" value="net-3.5" />
+
+  <property name = "hosted.drive" value="${Drive_letter}" />
+  <property name = "phoenix.utilities85.dir" value="${Drive_letter}\Phoenix\Utilities\nantcontrib-0.85-bin"/>
+
+  <property name = "phoenix.application.dir" value = "${product.dir}" />
+  <property name = "web.dir" value="${web.build.dir}" />
+  <property name = "sql.dir" value="${sql.build.dir}" />
+  <property name = "sep.dir" value="${sep.attachments.dir}" />
+
+  <property name = "control.build" value="${Drive_letter}\Phoenix\Control" />
+  <property name = "SQL.Diff.build" value="\\30.30.30.8\WorkingSQLlog" />
+  <property name = "Web.Diff.build" value="\\30.30.30.8\WorkingWeblog" />
+
+  <property name="s.data.source" value="30.30.30.2" />
+  <property name="s.uid" value="build" />
+  <property name="s.pwd" value="build123*" />
+  <property name="support.database" value="ProductSupport" />
+
+  <property name = "support.connection.string" value="Provider=SQLOLEDB;Password=${s.pwd};Persist Security Info=True;User ID=${s.uid};Initial Catalog=${support.database};Data Source=${s.data.source}" />
+
+  <tstamp>
+    <formatter property="timestamp" pattern="yyyyMMdd" />
+  </tstamp>
+
+  <if test="${not property::exists('sqlbuild')}">
+    <property name = "sqlbuild" value="" />
+  </if>
+
+  <if test="${not property::exists('webbuild')}">
+    <property name = "webbuild" value="" />
+  </if>
+
+  <target name="init">
+   <loadtasks assembly="${phoenix.utilities85.dir}\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+  </target>
+
+  <target name="success" depends="init">
+
+    <script language="c#" prefix="test">
+      <imports>
+        <import namespace="System.IO" />
+        <import namespace="System.Text.RegularExpressions" />
+        <import namespace="System.Data.SqlClient" />
+        <import namespace="System.Data" />
+        <import namespace="System.Xml" />
+      </imports>
+      <references>
+        <include name="System.Data.dll" />
+        <include name="System.Xml.dll" />
+        <include name="System.dll" />
+      </references>
+      <code>
+        <![CDATA[
+	        [Function("success")]
+	        public static void csuccess(int successstatus,string build,string webdir)
+	        {
+		          string file = "buildstatus.xml";
+		          string filename = Path.Combine(webdir,file);
+
+		          XmlDocument doc = new XmlDocument();
+
+		          doc.Load(filename);
+		          DateTime now = DateTime.Now;		
+		          if (build == "WEBBUILD")
+		          {
+			            XmlNode node = doc.SelectSingleNode("BUILDSTATUS/APPBUILDSTATUS");									
+	 		            node.InnerText = successstatus.ToString();						
+			            doc.DocumentElement.AppendChild(node);
+			            doc.Save(filename);	
+		           }
+		           else
+		           {
+			            XmlNode node = doc.SelectSingleNode("BUILDSTATUS/SQLBUILDSTATUS");										
+	 		            node.InnerText = successstatus.ToString();							
+			            doc.DocumentElement.AppendChild(node);
+			            doc.Save(filename);		
+		           }
+	        }
+          ]]>
+      </code>
+    </script>
+
+    <if test="${webbuild=='WEBBUILD'}">
+      <property name="comparefiles" value = "${test::success(successstatus,webbuild,web.dir)}" />
+      <echo message = "${comparefiles}" />
+    </if>
+
+    <if test="${sqlbuild=='SQLBUILD'}">
+      <property name="comparefiles" value = "${test::success(successstatus,sqlbuild,web.dir)}" />
+      <echo message = "${comparefiles}" />
+    </if>
+
+  </target>
+
+  <target name = "build.validation" depends = "success">
+
+    <script language="C#" prefix="packagefiles" >
+      <imports>
+        <import namespace="System.Xml" />
+        <import namespace="System.Collections" />
+        <import namespace="System" />
+      </imports>
+      <references>
+         <include name="System.Data.dll" />
+         <include name="System.Xml.dll" />
+      </references>
+      <code>
+        <![CDATA[
+
+            public static XmlDocument xDoc = new XmlDocument();
+
+            [Function("get-web-status")]
+            public static int Getwebstatus(string patchpath) {
+			
+		        String file = "buildstatus.xml";
+                	String filename = Path.Combine(patchpath,file);
+	              	xDoc.Load(filename);	         
+	              	XmlNode node = xDoc.SelectSingleNode("BUILDSTATUS/APPBUILDSTATUS");
+		        int success = Convert.ToInt32(node.InnerText);
+		        return success;
+	          }
+
+            [Function("get-sql-status")]
+            public static int Getsqlstatus(string patchpath) {
+
+	            	String file = "buildstatus.xml";
+		        String filename = Path.Combine(patchpath,file);
+	            	xDoc.Load(filename);	         	           
+	            	XmlNode node = xDoc.SelectSingleNode("BUILDSTATUS/SQLBUILDSTATUS");
+		        int success = Convert.ToInt32(node.InnerText);
+		        return success;
+            }
+	
+      	    [Function("wss-get-today-date")]
+            public static bool WssGettodaydate(string patchpath) {
+
+              		String file = "buildstatus.xml";
+              		String filename = Path.Combine(patchpath,file);
+              		xDoc.Load(filename);	         
+              		XmlNode node = xDoc.SelectSingleNode("BUILDSTATUS/BUILDSTARTTIME");
+              		String buiddate = node.InnerText;
+		          		
+		          if(DateTime.Parse(buiddate).Date == DateTime.Now.Date)
+		          {
+			            return true;
+		          }
+		          return false;
+          }
+
+	        [Function("css-get-today-date")]
+          		public static bool CssGettodaydate(string patchpath) {
+
+            		String file = "buildstatus.xml";
+            		String filename = Path.Combine(patchpath,file);
+	          	xDoc.Load(filename);	         
+		        XmlNode node = xDoc.SelectSingleNode("BUILDSTATUS/BUILDSTARTTIME");
+		        String buiddate = node.InnerText;
+		          		
+		        if(DateTime.Parse(buiddate).Date == DateTime.Now.Date)
+		        {
+			          return true;
+		        }
+		            return false;
+          }
+           
+        ]]>
+      </code>
+    </script>
+
+    <echo message="Working Build..." />
+    <property name="builddate" value="${packagefiles::wss-get-today-date(web.dir)}" />
+    <echo message="Build Start Date Today : ${builddate}"/>
+
+    <property name="websuccess" value="${packagefiles::get-web-status(web.dir)}" />
+    <echo message="WEB Build : ${websuccess}"/>
+    <echo message = "" />
+
+    <property name="sqlsuccess" value="${packagefiles::get-sql-status(web.dir)}" />
+    <echo message="SQL Build : ${sqlsuccess}"/>
+    <echo message = "" />
+  
+      <if test="${websuccess =='0'}">
+        <if test="${sqlsuccess =='0'}">   
+       
+	   <echo message="Working Build Success..." />
+
+        </if>
+      </if>
+
+     <foreach item="Line" in="logfile.txt" property="a">
+       <property name="a" value="${string::trim(a)}" />
+        <if test= "${a != ''}">
+         <if test= "${string::contains(a, '.log')}">
+           <property name="web.logfile" value="${string::trim(a)}" />
+           <echo message="${web.logfile}"></echo>
+         </if>     
+        </if>     
+      </foreach>
+
+      <foreach item="Line" in="${sql.dir}\logfile.txt" property="s">
+       <property name="s" value="${string::trim(s)}" />
+        <if test= "${s != ''}">
+         <if test= "${string::contains(s, '.log')}">
+           <property name="sql.logfile" value="${string::trim(s)}" />
+           <echo message="${sql.logfile}"></echo>
+         </if>     
+        </if>     
+      </foreach>
+	<echo message="${SQL.Diff.build}\${sql.logfile}" />
+	<echo message="${Web.Diff.build}\${web.logfile}" />
+      <sql
+        connstring="${support.connection.string}"
+        transaction="false"
+        delimstyle="Normal"
+        delimiter=";"
+        print="true"
+        showheaders="false"
+        failonerror="false"
+        append="true"
+    	>
+
+	EXEC PRPRODUCTBUILDSTATUS 'PHOENIX',${websuccess},${sqlsuccess},'${SQL.Diff.build}\${sql.logfile}','${Web.Diff.build}\${web.logfile}'
+
+      </sql> 
+
+    <if test="${sqlsuccess=='2'}">
+      <echo message = "SQL Build Running..........." />
+    </if>
+
+    <if test = "${builddate == 'False'}">
+      <echo message = "Trying to Apply and upload a OldPatch" />
+    </if>
+
+  </target>
+
+</project>

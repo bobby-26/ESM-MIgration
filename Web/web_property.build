@@ -1,0 +1,99 @@
+<project name = "Webbuildproperty">
+
+  <property name="current_directory" value="${directory::get-current-directory()}" />
+  <property name="Drive_letter" value="${directory::get-directory-root(current_directory)}" />
+
+  <property name="baseline.database" value="DEVBASELINE"/>
+  <property name="release.database" value="DEVRELEASE"/>
+  <property name="base.release.database" value="PhoenixWorkingStaging"/>
+  <property name="create.baseline.sql" value="CREATEDEVBASELINEDB.sql"/>
+  <property name="create.release.sql" value="CREATEDEVRELEASEDB.sql"/>
+
+  <property name="ss.path" value="E:\Vss\srcsafe.ini"/>
+  <property name="ss.startfolder" value="$/phoenix/solution/SQL"/>
+
+  <property name="working.build" value="true"/>
+  <property name="vss.get.required" value="true"/>
+
+  <property name = "ss.username" value = "guest" />
+  <property name = "ss.password" value = "guest$" />
+
+  <!-- Chart Reference Path -->
+  <property name = "phoenix.charts.reference.dir" value="C:\Program Files (x86)\Microsoft Chart Controls\Assemblies" />
+
+  <!--Framework Directory-->
+  <property name = "windows.system.dir" value="c:\windows\system32"/>
+  <property name = "net.dir" value="C:\Windows\Microsoft.NET\Framework\v4.0.30319"/>
+  
+  <!-- Directory Path-->
+  <property name = "hosted.drive" value="${Drive_letter}" />
+  <property name = "deployment.dir" value="${Drive_letter}\Phoenix\Working" />
+  <property name = "product.dir" value="${deployment.dir}\Build"/>
+  <property name = "sep.attachments.dir" value="E:\"/>
+ 
+  <property name = "phoenix.application.dir" value = "${product.dir}" />
+  <property name = "phoenix.utilities.dir" value="${Drive_letter}\Phoenix\Utilities"/>
+  <property name = "utilities.dir" value="${Drive_letter}\Phoenix\Utilities" />
+
+  <property name = "scripts.dir" value="${product.dir}"/>
+  <property name = "web.build.dir" value="${product.dir}\Web"/>
+  <property name = "sql.build.dir" value = "${product.dir}\Sql" />
+
+  <property name = "phoenix.solution.web.dir" value="${deployment.dir}\Solution\Web"/>
+  <property name = "phoenix.solution.sql.dir" value="${deployment.dir}\Solution\SQL"/>
+ 
+  <!-- Backup Directory Path-->
+  <property name = "phoenix.backup.dir" value="${deployment.dir}\Backup"/>
+  <property name = "phoenix.backup" value="${phoenix.backup.dir}\Application\Source" />
+  <property name = "archive.filename" value="${phoenix.backup}\PHOENIXSOURCE"/>
+  <property name = "phoenix.compiled.backup" value="${phoenix.backup.dir}\Application\Published" />
+  <property name = "archive.compiled" value="${phoenix.compiled.backup}\PHOENIXPUBLISH"/>
+
+  <!--<property name = "phoenix.dir" value = "${deployment.dir}\Solution" />
+  <property name = "phoenix.reference.dir" value = "${phoenix.application.dir}\Web\Reference" />
+  <property name = "phoenix.web.dir" value = "${phoenix.dir}\Web" />
+  <property name = "phoenix.web.dir.xsd" value = "${phoenix.dir}\Web\App_Code\Xsd" />
+  <property name = "phoenix.modules.dir" value="${phoenix.web.dir}\App_Code"/>
+  <property name = "phoenix.build.dir" value = "${web.build.dir}\Build" />
+  <property name = "phoenix.build.bin.dir" value = "${phoenix.build.dir}\bin"/>-->
+
+  <property name = "phoenix.dir" value = "${deployment.dir}\Build\Web" />
+  <property name = "phoenix.reference.dir" value = "${phoenix.dir}\Reference" />
+
+  <property name = "phoenix.web.dir" value = "${phoenix.dir}\Build" />
+  <property name = "phoenix.web.dir.xsd" value = "${phoenix.web.dir}\App_Code\Xsd" />
+  <property name = "phoenix.modules.dir" value="${phoenix.web.dir}\App_Code"/>
+
+  <property name = "phoenix.build.dir" value = "${web.build.dir}\Build" />
+  <property name = "phoenix.build.bin.dir" value = "${phoenix.build.dir}\bin"/>
+
+  <!--IIS Configuration -->
+  <property name ="COMPILATION_VIRTUAL_DIRECTORY" value="/PhoenixTelerikBuild" />
+
+  <!-- Deploy Path   -->
+  <property name ="COMPILATION_TARGET_DIRECTORY" value="${deployment.dir}\Deploy\Web" />
+
+  <if test="${not property::exists('working.build')}">
+    <property name = "working.build" value="false" />
+  </if>
+
+  <if test="${not property::exists('control.build')}">
+    <property name = "control.build" value="false" />
+  </if>
+
+  <if test="${not property::exists('release.build')}">
+    <property name = "release.build" value="false" />
+  </if>
+
+  <property name="vss.build.name" value="PhoenixWorking" />
+  <property name="vss.upload.path" value="VSSPhoenixTelerik" />
+  <property name="vss.upload.filepath" value="E:\BuildLog" />
+
+  <property name="FTP.uploaddir" value="${phoenix.backup.dir}\FTP" />
+  <property name="livepatch.ftpupload" value="true" />
+
+  <tstamp>
+    <formatter property="filedate" pattern="yyyyMMdd" />
+  </tstamp>
+
+</project>

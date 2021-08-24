@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>SAMUNDRA INSTITUTE OF MARITIME STUDIES</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>0.00694in</Top>
+            <Left>0.77094in</Left>
+            <Height>0.27083in</Height>
+            <Width>6.12886in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox16">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>COURSE EVALUATION REPORT</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>0.27778in</Top>
+            <Left>0.76955in</Left>
+            <Height>0.25in</Height>
+            <Width>6.13025in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Course Name</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">	                     </Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox17</rd:DefaultName>
+            <Top>0.72314in</Top>
+            <Left>0.29166in</Left>
+            <Height>0.25in</Height>
+            <Width>1.5in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox18">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Batch Number 	                   </Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox17</rd:DefaultName>
+            <Top>0.9898in</Top>
+            <Left>0.29166in</Left>
+            <Height>0.25in</Height>
+            <Width>1.5in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox19">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Semester 	                           </Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox17</rd:DefaultName>
+            <Top>1.25716in</Top>
+            <Left>0.29166in</Left>
+            <Height>0.25in</Height>
+            <Width>1.5in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>5.86111in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.25347in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox20">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Course Evaluation</Value>
+                                  <Style>
+                                    <FontFamily>times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="FLDQUESTION">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FLDQUESTION.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FLDQUESTION</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="FLDAVERAGE">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FLDAVERAGE.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FLDAVERAGE</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>1.57661in</Top>
+            <Left>0.29166in</Left>
+            <Height>0.5in</Height>
+            <Width>7.11458in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>: </Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FLDCOURSENAME.Value</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox28</rd:DefaultName>
+            <Top>0.72939in</Top>
+            <Left>1.83333in</Left>
+            <Height>0.25in</Height>
+            <Width>5.5625in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox29">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>: </Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FLDBATCHNAME.Value</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox28</rd:DefaultName>
+            <Top>0.99327in</Top>
+            <Left>1.83332in</Left>
+            <Height>0.25in</Height>
+            <Width>5.5625in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox30">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>: </Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FLDSEMESTERNAME.Value</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox28</rd:DefaultName>
+            <Top>1.25716in</Top>
+            <Left>1.83332in</Left>
+            <Height>0.25in</Height>
+            <Width>5.5625in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Subreport Name="ReportsPreSeaCourseFeedbackComments">
+            <ReportName>ReportsPreSeaCourseFeedbackComments</ReportName>
+            <Top>2.14605in</Top>
+            <Height>0.28125in</Height>
+            <Width>7.60417in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsPreSeaCourseImprovementComments">
+            <ReportName>ReportsPreSeaCourseImprovementComments</ReportName>
+            <Top>2.4273in</Top>
+            <Height>0.26041in</Height>
+            <Width>7.60417in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Image Name="Image2">
+            <Source>Embedded</Source>
+            <Value>sims</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.02778in</Top>
+            <Height>0.67153in</Height>
+            <Width>0.75705in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image3">
+            <Source>Embedded</Source>
+            <Value>dnv</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.01388in</Top>
+            <Left>6.8998in</Left>
+            <Height>0.65301in</Height>
+            <Width>0.70437in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.13764in</Top>
+        <Left>0.155in</Left>
+        <Height>2.71202in</Height>
+        <Width>7.64351in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>2.95155in</Height>
+    <Style />
+  </Body>
+  <Width>7.85058in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.31945in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox14">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!Version.Value</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox14</rd:DefaultName>
+          <Top>0.04167in</Top>
+          <Left>0.155in</Left>
+          <Height>0.27778in</Height>
+          <Width>0.9349in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ReportsPreSeaCourseFeedback">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>d7f4232c-e54c-42ac-9eee-3ebe9d94eb55</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>ReportsPreSeaCourseFeedback</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FLDQUESTION">
+          <DataField>FLDQUESTION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDBATCHNAME">
+          <DataField>FLDBATCHNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDCOURSENAME">
+          <DataField>FLDCOURSENAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDSEMESTERNAME">
+          <DataField>FLDSEMESTERNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDAVERAGE">
+          <DataField>FLDAVERAGE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FLDBATCHID">
+          <DataField>FLDBATCHID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ReportsPreSeaCourseFeedback</rd:DataSetName>
+        <rd:SchemaPath>D:\PhoenixWorking\Solution\Web\App_Code\Xsd\ReportsPreSeaCourseFeedback.xsd</rd:SchemaPath>
+        <rd:TableName>DataTable1</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="Version">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="imagepath">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="sims">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="dnv">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>1656136c-4063-428d-bd61-1138860e0d41</rd:ReportID>
+</Report>

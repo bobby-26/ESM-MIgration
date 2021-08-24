@@ -1,0 +1,956 @@
+<project name ="phoenix" default = "phoenixbuild">
+
+  <include buildfile = "web_property.build" />
+
+  <property name = "nant.settings.currentframework" value="net-4.0" />
+
+  <property name = "last.build.major" value = "2"/>
+  <property name = "last.build.minor" value = "0"/>
+  <property name = "last.build.revision" value = "0"/>
+  <property name = "last.build.revision.1" value="0"/>
+
+  <property name = "CurrentModule" value="None"/>
+  <property name = "debug"       value = "false"/>
+  <property name = "net.dir" value="C:\Windows\Microsoft.NET\Framework\v4.0.30319"/>
+  
+  <property name = "nant.onsuccess" value="onsuccess"/>
+  <property name = "nant.onfailure" value="onfailure"/>
+
+  <property name = "webbuildcheck" value = "${web.build.dir}" />
+ 
+  <property name ="ref.dll" value="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" />
+
+  <property name ="cntrl.diff" value="E:\Phoenix\PhoenixSourcesafeDiff\TelerikWeb\Phoenix\Solution\Web" />
+
+  <target name="onsuccess">
+
+    <echo message="phoenix working ss"/>
+
+    <copy todir="${COMPILATION_TARGET_DIRECTORY}\bin" overwrite="true">
+      <fileset basedir="${phoenix.web.dir}">
+        <include name="version.xml" />
+      </fileset>
+    </copy>
+
+    <zip zipfile="${archive.compiled}.${last.build.major}.0.${last.build.minor}.${last.build.revision.1}.ZIP">
+        <fileset basedir="${COMPILATION_TARGET_DIRECTORY}">
+          <include name="**/*" />
+	  <exclude name="web.config" />
+	  <exclude name="**/Attachments/**" />
+        </fileset>
+    </zip>
+
+    <zip zipfile="${archive.filename}.${last.build.major}.0.${last.build.minor}.${last.build.revision.1}.ZIP">
+        <fileset basedir="${phoenix.dir}\Web">
+          <include name="**/*" />
+        </fileset>
+    </zip>
+
+    <echo file="buildmessage.txt">Success,${datetime::now()}</echo>
+
+    <echo message="Configuring.For.One.Drive.Upload..." />
+    <nant buildfile="${webbuildcheck}\Vss_OneDriveUpload.build" >
+      <properties>      
+	<property name="status" value="0" />
+	<property name="utilities" value="${phoenix.utilities.dir}" />
+      </properties>
+    </nant>
+
+    <nant buildfile="${webbuildcheck}\web_buildcheck.build" >
+      <properties>
+        <property name="webbuild" value="WEBBUILD" />
+        <property name="successstatus" value="0" />
+      </properties>
+    </nant> 
+
+   <xmlpoke
+    file="buildstatus.xml"
+    xpath="/BUILDSTATUS/APPBUILDSTATUS"
+    value="0" />
+
+   <!-- <echo message="Deploying Patch... " />
+    <nant buildfile="web_publish_servers.build"></nant>
+    <echo message="Uploading.Patch.Live.. " />
+    <nant buildfile="web_tk_FTPUpload.build"></nant> -->
+    
+  </target>
+
+  <target name="onfailure">
+  <xmlpoke
+    file="buildstatus.xml"
+    xpath="/BUILDSTATUS/APPBUILDSTATUS"
+    value="1" />
+
+ <!--   <nant buildfile="${webbuildcheck}\web_buildcheck.build" >
+      <properties>
+        <property name="webbuild" value="WEBBUILD" />
+        <property name="successstatus" value="1" />
+      </properties>
+    </nant> -->
+
+
+
+  </target>
+
+  <target name="init">
+
+  <loadtasks assembly="${phoenix.utilities.dir}\nantcontrib-0.92-bin\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
+
+    <script language="C#" >
+      <imports>
+        <import namespace="System.Xml" />
+        <import namespace="System.IO" />
+        <import namespace="System" />
+      </imports>
+      <references>
+              <include name="System.Data.dll" />
+              <include name="System.Xml.dll" />
+      </references>
+      <code>
+        <![CDATA[
+		[TaskName("vsstimestamp")]
+		public class DBVSSTimestamp : Task
+		{
+
+			protected override void ExecuteTask()			
+			{
+				System.IO.StreamWriter file = null;
+			        // Write the string to a file.
+				file = new System.IO.StreamWriter(@".\VSSTIMESTAMP.xml");
+				file.WriteLine("<vsstimestamp>");
+				file.WriteLine("<LASTRELEASEDATE>");
+				file.WriteLine(DateTime.Now);
+				file.WriteLine("</LASTRELEASEDATE>");
+			       	file.WriteLine("</vsstimestamp>");
+		        	file.Close();
+			}
+			
+		}
+		]]>
+      </code>
+    </script>
+
+    <!--<iisapppool action="Restart" pool="DefaultAppPool" server="ESMCHN0021" />-->
+
+
+  </target>
+
+  <target name="start" depends="init">
+
+    <echo message="${datetime::now()}"/>
+
+    <xmlpeek file="version.xml"
+      xpath="/RecordSet/row/Major"
+      property="last.build.major"/>
+
+    <xmlpeek file="version.xml"
+      xpath="/RecordSet/row/Minor"
+      property="last.build.minor"/>
+
+    <xmlpeek file="version.xml"
+      xpath="/RecordSet/row/Revision"
+      property="last.build.revision"/>
+
+    <property name="last.build.revision.1" value="${int::parse(last.build.revision) + 1}"/>
+
+    <xmlpoke file="version.xml"
+      xpath="/RecordSet/row/Revision"
+      value="${last.build.revision.1}"/>
+
+    <delete dir="${COMPILATION_TARGET_DIRECTORY}" />
+
+    <copy todir="${phoenix.build.bin.dir}" overwrite="true">
+      <fileset basedir="${phoenix.reference.dir}">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+    
+    <!-- <echo message = "..Copying to Control Diff Folder.." />
+    <copy todir="${cntrl.diff}\App_code" overwrite="true">
+      <fileset basedir="${phoenix.modules.dir}">
+        <include name="**/*" />
+      </fileset>
+    </copy> -->
+
+    <delete>
+      <fileset>
+        <include name="${phoenix.build.bin.dir}\SouthNests*.dll" />
+      </fileset>
+    </delete>
+    
+    <echo message="::..${datetime::now()}"/>
+
+  </target>
+
+  <target name = "Framework" depends="start">
+    <property name="CurrentModule" value="Framework"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll"  debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Framework\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\*.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Controls" depends="Framework">
+    <property name="CurrentModule" value="Custom"/>
+    <call target="make"/>
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Custom.dll"  debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Controls\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\*.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Common" depends="Controls">
+    <property name="CurrentModule" value="Common"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll"  debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Common\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "System.Web.dll" />
+        <include name = "${phoenix.charts.reference.dir}\System.Web.DataVisualization.Design.dll" />
+        <include name = "${phoenix.charts.reference.dir}\System.Web.DataVisualization.dll" />
+        <include name = "${phoenix.build.bin.dir}\*.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "PhoenixServiceWrapper" depends="Common">
+    <property name="CurrentModule" value="PhoenixServiceWrapper"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\PhoenixServiceWrapper.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Reference\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\EPPlus.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "PhoenixServicePurchase" depends="PhoenixServiceWrapper">
+    <property name="CurrentModule" value="PhoenixServicePurchase"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\PhoenixServicePurchase.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Service\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Registers" depends="PhoenixServicePurchase">
+    <property name="CurrentModule" value="Registers"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Registers\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "Inventory" depends="Registers">
+    <property name="CurrentModule" value="Inventory"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inventory.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Inventory\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\*.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Purchase" depends="Inventory">
+    <property name="CurrentModule" value="Purchase"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Purchase\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inventory.dll" />
+        <include name = "${phoenix.build.bin.dir}\PhoenixServiceWrapper.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+
+
+  <target name = "Inspection" depends="Purchase">
+    <property name="CurrentModule" value="Inspection"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inspection.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Inspection\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.reference.dir}\SgmlReaderDll.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "VesselAccounts" depends="Inspection">
+    <property name="CurrentModule" value="Crew"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselAccounts.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\VesselAccounts\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+      </references>
+    </csc>
+  </target>
+  <target name = "Crew" depends="VesselAccounts">
+    <property name="CurrentModule" value="Crew"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Crew.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\CrewManagement\*.cs"/>
+        <include name = "${phoenix.modules.dir}\CrewCommon\*.cs"/>
+        <include name = "${phoenix.modules.dir}\CrewOperation\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselAccounts.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Accounts" depends="Crew">
+    <property name="CurrentModule" value="Accounts"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Accounts.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Accounts\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.reference.dir}\itextsharp.dll" />
+      </references>
+    </csc>
+  </target>
+  <target name = "StandardForm" depends="Accounts">
+    <property name="CurrentModule" value="StandardForm"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.StandardForm.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\StandardForm\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "PlannedMaintenance" depends="StandardForm">
+    <property name="CurrentModule" value="PlannedMaintenance"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.PlannedMaintenance.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\PlannedMaintenance\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inventory.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "CrewReports" depends="PlannedMaintenance">
+    <property name="CurrentModule" value="CrewReports"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.CrewReports.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\CrewReports\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.CrystalReports.Engine.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.Web.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.Shared.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.ReportSource.dll" />
+        <include name = "${phoenix.application.dir}\Reference\CrystalDecisions.Data.AdoDotNetInterop.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.VSDesigner.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Crew.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "DataTransfer" depends="CrewReports">
+    <property name="CurrentModule" value="DataTransfer"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DataTransfer.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\DataTransfer\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+
+
+  <target name = "Owners" depends="DataTransfer">
+    <property name="CurrentModule" value="Owners"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Owners.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Owners\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Help" depends="Owners">
+    <property name="CurrentModule" value="Help"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Help.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Help\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "DryDock" depends="Help">
+    <property name="CurrentModule" value="DryDock"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DryDock.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\DryDock\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "DefectTracker" depends="DryDock">
+    <property name="CurrentModule" value="DefectTracker"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DefectTracker.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\DefectTracker\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "Integration" depends="DefectTracker">
+    <property name="CurrentModule" value="Integration"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Integration.dll" debug ="${debug}" rebuild ="true">
+      <sources>       
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+	<include name = "${phoenix.modules.dir}\Integration\*.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />      
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" />	
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Document" depends="Integration">
+    <property name="CurrentModule" value="Document"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Document.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Document\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Portal" depends="Document">
+    <property name="CurrentModule" value="Portal"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Portal.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Portal\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "DocumentManagement" depends="Portal">
+    <property name="CurrentModule" value="DocumentManagement"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DocumentManagement.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\DocumentManagement\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.reference.dir}\SgmlReaderDll.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+	<include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Integration.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "VesselPosition" depends="DocumentManagement">
+    <property name="CurrentModule" value="VesselPosition"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselPosition.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\VesselPosition\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+
+        <include name = "${phoenix.build.bin.dir}\EPPlus.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DefectTracker.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "PreSea" depends="VesselPosition">
+    <property name="CurrentModule" value="PreSea"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.PreSea.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\PreSea\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\EPPlus.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DefectTracker.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "OwnerBudget" depends="PreSea">
+    <property name="CurrentModule" value="OwnerBudget"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.OwnerBudget.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\OwnerBudget\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\EPPlus.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DefectTracker.dll" />
+        <include name = "${phoenix.reference.dir}\SgmlReaderDll.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "Export2XL" depends="OwnerBudget">
+    <property name="CurrentModule" value="Export2XL"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Export2XL.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Export2XL\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Crew.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DryDock.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Accounts.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.CrewReports.dll" />
+        <include name = "${phoenix.build.bin.dir}\EPPlus.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.DefectTracker.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselAccounts.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inspection.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.OwnerBudget.dll" />
+	<include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.PlannedMaintenance.dll" />
+	<include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+	<include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inventory.dll" />
+        <include name = "${phoenix.reference.dir}\Telerik.Web.UI.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+
+  <target name = "Administration" depends="Export2XL">
+    <property name="CurrentModule" value="Administration"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Administration.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Administration\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+      </references>
+    </csc>
+  </target>
+
+
+  <target name = "CrewOffshore" depends="Administration">
+    <property name="CurrentModule" value="CrewOffshore"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.CrewOffshore.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\CrewOffshore\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Crew.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.CrewOffshore.dll" />
+        <include name = "${phoenix.reference.dir}\SgmlReaderDll.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Dashboard" depends="CrewOffshore">
+    <property name="CurrentModule" value="Dashboard"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Dashboard.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Dashboard\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.PlannedMaintenance.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inspection.dll" />
+	<include name = "${phoenix.reference.dir}\Newtonsoft.Json.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inventory.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name = "Reports" depends="Dashboard">
+    <property name="CurrentModule" value="Reports"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Reports.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Reports\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.CrystalReports.Engine.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.Web.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.Shared.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.ReportSource.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.Data.AdoDotNetInterop.dll" />
+        <include name = "${phoenix.reference.dir}\CrystalDecisions.VSDesigner.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselAccounts.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.PlannedMaintenance.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Purchase.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Crew.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Accounts.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Inspection.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.CrewOffshore.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.VesselPosition.dll" />
+        <include name = "${phoenix.reference.dir}\Microsoft.ReportViewer.WebForms.dll" />
+        <include name = "${phoenix.reference.dir}\PdfSharp.dll" />
+        <include name = "${phoenix.reference.dir}\Telerik.Web.UI.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+  <target name = "EPSShelp" depends="Reports">
+    <property name="CurrentModule" value="EPSShelp"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.EPSShelp.dll" debug ="${debug}" rebuild ="true">
+      <sources>       
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />      
+      </references>
+    </csc>
+  </target>
+
+<target name = "Log" depends="EPSShelp">
+
+    <property name="CurrentModule" value="Log"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Log.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\Log\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+
+      </references>
+    </csc>
+  </target>
+
+  <target name = "HR" depends="Log">
+
+    <property name="CurrentModule" value="HR"/>
+    <call target="make"/>
+
+    <csc target = "library" output = "${phoenix.build.bin.dir}\SouthNests.Phoenix.HR.dll" debug ="${debug}" rebuild ="true">
+      <sources>
+        <include name = "${phoenix.modules.dir}\HR\*.cs"/>
+        <include name = "${phoenix.web.dir}\AssemblyInfo1.cs"/>
+      </sources>
+      <references basedir = "${phoenix.modules.dir}">
+        <include name = "System.dll" />
+        <include name = "System.Data.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Framework.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Common.dll" />
+        <include name = "${phoenix.build.bin.dir}\SouthNests.Phoenix.Registers.dll" />
+      </references>
+    </csc>
+
+  </target>
+
+  <target name="phoenixbuild" depends="HR">
+
+    <echo message="::..${datetime::now()}"/>
+    <copy todir="${phoenix.build.bin.dir}" overwrite="true">
+      <fileset basedir="${phoenix.reference.dir}">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+    <echo message="::..${datetime::now()}"/>
+    <delete dir="${phoenix.build.dir}\App_Code" />
+
+    <exec program="${net.dir}\aspnet_compiler.exe" commandline="-v ${COMPILATION_VIRTUAL_DIRECTORY}  -p ${phoenix.build.dir} -f ${COMPILATION_TARGET_DIRECTORY} -fixednames">
+    </exec>
+
+    <mkdir dir="${COMPILATION_TARGET_DIRECTORY}/js/temp" />
+    <echo message="::..${datetime::now()}"/>
+
+  </target>
+
+  <target name="make">
+    <!-- write the new file -->
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='using System.Reflection;'/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='using System.Runtime.CompilerServices;' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyTitle("eLog 2.0")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyDescription("eLog - ${CurrentModule} - ${datetime::now()}")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyConfiguration("${datetime::now()}")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyCompany("SouthNests Software Solutions")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyProduct("eLog 2.0")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyCopyright("SouthNests Software Solution")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyTrademark("")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyCulture("")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyVersion("${last.build.major}.0.${last.build.minor}.${last.build.revision.1}")]' append="true"/>
+    <echo file="${phoenix.web.dir}\AssemblyInfo1.cs" message='[assembly: AssemblyDelaySign(false)]' append="true"/>
+  </target>
+
+
+</project>
+
+

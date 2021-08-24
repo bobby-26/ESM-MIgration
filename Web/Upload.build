@@ -1,0 +1,18 @@
+<project name = "FTPUpload" default = "Upload">
+<include buildfile="web_property.build" />
+<target name = "Upload">
+<echo message = "SQL Patch FTP Upload............"/>
+
+<loadfile
+    file="${Drive_letter}\Phoenix\Working\Build\Sql\build.number"
+    property="build.number" />
+
+	<echo message = "Build Number :BUILD.${build.number}"/>
+
+	<zip zipfile="${phoenix.backup.dir}\FTP\BUILD.${build.number}.zip" includeemptydirs="true">
+      <fileset basedir="${Drive_letter}\Phoenix\Working\Build\Sql\TARGET" >
+        <include name="**\BUILD.${build.number}\**" />
+      </fileset>
+    </zip>
+</target>
+</project>

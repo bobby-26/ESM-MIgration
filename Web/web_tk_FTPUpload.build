@@ -1,0 +1,126 @@
+<project name = "WorkingPatch" default = "workingpatchdetails">
+
+  <include buildfile="web_property.build" />
+
+  <tstamp>
+    <formatter property = "timestamp" pattern = "yyyyMMdd" />
+  </tstamp>
+
+  <target name="init">
+    <property name = "webftpupload" value = "false" />
+    <loadtasks assembly = "${utilities.dir}\nantcontrib-0.85-bin\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+  </target>
+
+  <target name="webpatch" depends="init">
+
+    <echo message="Getting Latest Patch.. " />
+
+    <delete>
+      <fileset>
+        <include name="${FTP.uploaddir}\*.zip" />
+        <include name="${FTP.uploaddir}\tk_LatestPatch.txt" />
+      </fileset>
+    </delete>
+
+    <echo message = "Getting Application Version No.." />
+    <echo message = "" />
+
+    <xmlpeek
+       file="version.xml"
+       xpath="//RecordSet/row/Major"
+       property="Major"
+       verbose="true" />
+
+    <xmlpeek
+       file="version.xml"
+       xpath="//RecordSet/row/Minor"
+       property="Minor"
+       verbose="true" />
+
+    <xmlpeek
+       file="version.xml"
+       xpath="//RecordSet/row/Revision"
+       property="Version"
+       verbose="true" />
+
+    <property name = "appversion" value = "${Version}" />
+    <echo message = "AppVersion :: ${appversion}" />
+
+    <property name = "application.patch.filename" value = "${archive.compiled}.${Major}.0.${Minor}.${Version}.ZIP" />
+    <property name = "application.patch.file" value = "PHOENIXPUBLISH.${Major}.0.${Minor}.${Version}.ZIP" />
+
+    <if test = "${file::exists(application.patch.filename)}">
+
+      <property name = "webftpupload" value = "true" />
+
+      <copy todir="${FTP.uploaddir}">
+        <fileset basedir="${phoenix.compiled.backup}" >
+          <include name="${application.patch.file}" />
+        </fileset>
+      </copy>
+
+    </if>
+
+  </target>
+  
+  <target name="workingpatchdetails" depends="webpatch">
+
+    <script language="C#" prefix="packagefiles" >
+      <imports>
+        <import namespace="System.IO" />
+        <import namespace="System.Collections" />
+        <import namespace="System" />
+      </imports>
+      <code>
+        <![CDATA[
+          [Function("getpatchstatus")]
+          public static void GetPatchstatus(string webpatchname, string webversion, string uploadpath)  
+          {
+	            string timestamp = DateTime.Now.ToString("yyyyMMdd");
+	            String file = "tk_LatestPatch.txt";
+              	    String filename = Path.Combine(uploadpath,file);
+
+	            TextWriter objwr = new StreamWriter(filename);
+
+	            objwr.WriteLine(webpatchname + "," + webversion);
+	            objwr.Close();
+	        }
+	      ]]>
+      </code>
+    </script>
+
+   <echo message = "SQL Patch FTP Upload............"/>
+
+<loadfile
+    file="${Drive_letter}\Phoenix\Working\Build\Sql\build.number"
+    property="build.number" />
+
+	<echo message = "Build Number :BUILD.${build.number}"/>
+
+	<zip zipfile="${phoenix.backup.dir}\FTP\BUILD.${build.number}.zip" includeemptydirs="true">
+      <fileset basedir="${Drive_letter}\Phoenix\Working\Build\Sql\TARGET" >
+        <include name="**\BUILD.${build.number}\**" />
+      </fileset>
+    </zip>
+
+
+
+    <if test ="${webftpupload=='true'}">      
+        <if test ="${livepatch.ftpupload=='true'}">
+          <property name="Patchup" value="${packagefiles::getpatchstatus(application.patch.file, appversion, FTP.uploaddir)}" />
+          <echo message="Patch Uploaded in FTP........."> </echo>
+          <exec program="ftp_livepatchtransfer.bat"> </exec>
+        </if>
+    </if>
+
+    <if test ="${livepatch.ftpupload=='false'}">
+      <echo message = "LIVE PATCH FILES NOT UPLOADED......................"/>
+    </if>
+
+    <if test ="${webftpupload=='false'}">
+      <echo message = "Web version patch not exist in backup folder......................"/>
+    </if>
+
+  </target>
+
+</project>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Subreport Name="EngineDeparrtment">
+            <ReportName>ReportsEngineLogMonthlyEngineDeparrtment</ReportName>
+            <Top>0.10949in</Top>
+            <Height>0.6508in</Height>
+            <Width>3.21262in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="MaintenancePosistion">
+            <ReportName>ReportsEngineLogMonthlyMaintenance</ReportName>
+            <Top>0.10949in</Top>
+            <Left>3.37375in</Left>
+            <Height>0.6508in</Height>
+            <Width>8.05273in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsEngineLogMonthlyLoAnalysis">
+            <ReportName>ReportsEngineLogMonthlyLoAnalysis</ReportName>
+            <Top>0.82973in</Top>
+            <Height>0.5625in</Height>
+            <Width>3.21262in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsEngineLogMonthlySafetyEquipment">
+            <ReportName>ReportsEngineLogMonthlySafetyEquipment</ReportName>
+            <Top>1.44779in</Top>
+            <Height>3in</Height>
+            <Width>3.21262in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsEngineLogMonthlyTurboCharger">
+            <ReportName>ReportsEngineLogMonthlyTurboCharger</ReportName>
+            <Top>0.82973in</Top>
+            <Left>3.37375in</Left>
+            <Height>0.78318in</Height>
+            <Width>8.05273in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsEngineLogMonthlyAirCompressor">
+            <ReportName>ReportsEngineLogMonthlyAirCompressor</ReportName>
+            <Top>2.83861in</Top>
+            <Left>3.37375in</Left>
+            <Height>1.61278in</Height>
+            <Width>8.05273in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Subreport Name="ReportsEngineLogMonthlyAuxillaryEngine">
+            <ReportName>ReportsEngineLogMonthlyAuxillaryEngine</ReportName>
+            <Top>1.68236in</Top>
+            <Left>3.37375in</Left>
+            <Height>1.08681in</Height>
+            <Width>8.05273in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.06944in</Top>
+        <Height>4.45139in</Height>
+        <Width>11.42648in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>4.52083in</Height>
+    <Style />
+  </Body>
+  <Width>11.51042in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.01042in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>18in</PageHeight>
+    <PageWidth>9.5in</PageWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.35in</TopMargin>
+    <BottomMargin>0.35in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ReportEngineLogMonthlySummary">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>f34a6c0a-452c-4622-9aa7-310ec0652765</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>ReportEngineLogMonthlySummary</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FLDVESSEL">
+          <DataField>FLDVESSEL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDMONTH">
+          <DataField>FLDMONTH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FLDYEAR">
+          <DataField>FLDYEAR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ReportEngineLogMonthlySummary</rd:DataSetName>
+        <rd:SchemaPath>D:\PhoenixTelerik\Solution\Web\App_Code\Xsd\ReportEngineLogMonthlySummary.xsd</rd:SchemaPath>
+        <rd:TableName>DataTable4</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>a5a88d67-e952-49bc-8538-69287760f56d</rd:ReportID>
+</Report>

@@ -1,0 +1,245 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CrewOffshoreDMRMonthlyConsReport.aspx.cs"
+    Inherits="CrewOffshoreDMRMonthlyConsReport" %>
+
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="SouthNests.Phoenix.Registers" %>
+<%@ Import Namespace="SouthNests.Phoenix.Framework" %>
+<%@ Register Assembly="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="eluc" TagName="Error" Src="~/UserControls/UserControlErrorMessage.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="TabStrip" Src="~/UserControls/UserControlTabsTelerik.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Date" Src="~/UserControls/UserControlDate.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Title" Src="~/UserControls/UserControlTitleTelerik.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Tooltip" Src="~/UserControls/UserControlToolTip.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Number" Src="~/UserControls/UserControlMaskNumber.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Status" Src="~/UserControls/UserControlStatus.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Confirm" Src="~/UserControls/UserControlConfirmMessage.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="Vessel" Src="~/UserControls/UserControlVessel.ascx" %>
+<%@ Register TagPrefix="eluc" TagName="SeaPort" Src="~/UserControls/UserControlSeaPort.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>DMR Monthly Report</title>
+    <telerik:RadCodeBlock ID="ds" runat="server">
+        <link rel="stylesheet" type="text/css" href="<%=Session["sitepath"]%>/css/<%=Session["theme"]%>/phoenixPopup.css" />
+        <link rel="stylesheet" type="text/css" href="<%=Session["sitepath"]%>/css/<%=Session["theme"]%>/phoenix.css" />
+
+        <script type="text/javascript" language="javascript" src="<%=Session["sitepath"]%>/js/js_globals.aspx"></script>
+
+        <script type="text/javascript" language="javascript" src="<%=Session["sitepath"]%>/js/phoenixPopup.js"></script>
+
+        <script type="text/javascript" language="javascript" src="<%=Session["sitepath"]%>/js/phoenix.js"></script>
+
+    </telerik:RadCodeBlock>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
+        <telerik:RadSkinManager ID="RadSkinManager1" runat="server" />
+
+        <div class="navigation" id="navigation" style="top: 0px; margin-left: 0px; vertical-align: top; width: 100%">
+            <eluc:Error ID="ucError" runat="server" Text="" Visible="false"></eluc:Error>
+            <eluc:Status runat="server" ID="ucStatus" />
+
+
+            <eluc:TabStrip ID="MenuReportTap" TabStrip="true" runat="server" OnTabStripCommand="ReportTapp_TabStripCommand"></eluc:TabStrip>
+
+            <%--<eluc:TabStrip ID="MenuNewSaveTabStrip" runat="server" OnTabStripCommand="NewSaveTap_TabStripCommand">
+                        </eluc:TabStrip>--%>
+
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <telerik:RadLabel ID="lblVessel" runat="server" Text="Vessel"></telerik:RadLabel>
+                        </td>
+                        <td>
+                            <eluc:Vessel ID="ucVessel" runat="server" CssClass="input_mandatory" VesselsOnly="true"
+                                AppendDataBoundItems="true" Width="150px" AutoPostBack="true" OnTextChangedEvent="ucVessel_OnTextChangedEvent" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <telerik:RadLabel ID="lblmMonthandYear" runat="server" Text="Select Month and Year"></telerik:RadLabel>
+                        </td>
+                        <td colspan="3">
+                            <telerik:RadDropDownList ID="ddlMonth" runat="server"  AutoPostBack="true"
+                                OnTextChanged="ddlMonth_TextChangedEvent">
+                                <Items>
+
+
+                                    <telerik:DropDownListItem Value="" Text="--Select--"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="1" Text="Jan"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="2" Text="Feb"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="3" Text="Mar"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="4" Text="Apr"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="5" Text="May"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="6" Text="Jun"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="7" Text="Jul"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="8" Text="Aug"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="9" Text="Sep"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="10" Text="Oct"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="11" Text="Nov"></telerik:DropDownListItem>
+                                    <telerik:DropDownListItem Value="12" Text="Dec"></telerik:DropDownListItem>
+                                </Items>
+                            </telerik:RadDropDownList>
+                            &nbsp;&nbsp;
+                                  <telerik:RadDropDownList ID="ddlYear" runat="server"  AutoPostBack="true"
+                                      OnTextChanged="ddlMonth_TextChangedEvent">
+                                  </telerik:RadDropDownList>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+                <table width="100%">
+                    <tr valign="top">
+                        <td width="60%" colspan="2">
+                            <%--  <asp:GridView ID="gvOperationalSummary" runat="server" AutoGenerateColumns="False"
+                                    Font-Size="11px" Width="100%" CellPadding="2" AllowSorting="true" ShowHeader="true"
+                                    ShowFooter="false" EnableViewState="false" OnRowDataBound="gvOperationalSummary_ItemDataBound"
+                                    OnRowCommand="gvOperationalSummary_RowCommand" OnRowEditing="gvOperationalSummary_RowEditing">
+                                    <FooterStyle CssClass="datagrid_footerstyle" />
+                                    <HeaderStyle CssClass="DataGrid-HeaderStyle" />
+                                    <AlternatingRowStyle CssClass="datagrid_alternatingstyle" />
+                                    <SelectedRowStyle CssClass="datagrid_selectedstyle" Font-Bold="true" />
+                                    <Columns>--%>
+                            <telerik:RadGrid RenderMode="Lightweight" ID="gvOperationalSummary" runat="server" AllowCustomPaging="true" AllowSorting="true" AllowPaging="true"
+                                CellSpacing="0" GridLines="None"
+                                OnNeedDataSource="gvOperationalSummary_NeedDataSource"
+                                OnItemCommand="gvOperationalSummary_ItemCommand"
+                                OnItemDataBound="gvOperationalSummary_ItemDataBound">
+                                <SortingSettings SortedBackColor="#FFF6D6" EnableSkinSortStyles="false"></SortingSettings>
+
+                                <MasterTableView EditMode="InPlace" InsertItemPageIndexAction="ShowItemOnCurrentPage" HeaderStyle-Font-Bold="true" ShowHeadersWhenNoRecords="true" AllowNaturalSort="false"
+                                    AutoGenerateColumns="false" DataKeyNames="FLDENGINETYPE" TableLayout="Fixed" Height="10px">
+                                    <HeaderStyle Width="102px" />
+                                    <CommandItemSettings ShowRefreshButton="false" ShowPrintButton="false" ShowExportToExcelButton="false" ShowAddNewRecordButton="false" ShowExportToPdfButton="false"></CommandItemSettings>
+                                    <Columns>
+                                        <telerik:GridTemplateColumn>
+                                            <ItemStyle Wrap="False" HorizontalAlign="Left" Width="30%"></ItemStyle>
+                                            <FooterStyle Wrap="false" HorizontalAlign="Right" />
+                                            <HeaderTemplate>
+                                                <telerik:RadLabel ID="lblEngineHeader" runat="server" Text="Engine"></telerik:RadLabel>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <telerik:RadLabel ID="lblEngineTypeId" runat="server" Visible="false" Text='<%# ((DataRowView)Container.DataItem)["FLDENGINETYPE"]%>'></telerik:RadLabel>
+                                                <telerik:RadLabel ID="lblEngineName" runat="server" Text='<%# ((DataRowView)Container.DataItem)["FLDENGINETYPENAME"]%>'></telerik:RadLabel>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <telerik:RadLabel ID="lblTotal" runat="server" Text="Total:"></telerik:RadLabel>
+                                            </FooterTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridTemplateColumn>
+                                            <ItemStyle Wrap="False" HorizontalAlign="Right" Width="20%"></ItemStyle>
+                                            <FooterStyle Wrap="false" HorizontalAlign="Right" />
+                                            <HeaderTemplate>
+                                                <telerik:RadLabel ID="lblHoursRunHeader" runat="server" Text="Hours Run"></telerik:RadLabel>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <telerik:RadLabel ID="lblHoursRun" runat="server" Text='<%# ((DataRowView)Container.DataItem)["FLDHOURSRUN"]%>'></telerik:RadLabel>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <telerik:RadLabel ID="lblTotalHoursRun" runat="server"></telerik:RadLabel>
+                                            </FooterTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridTemplateColumn>
+                                            <ItemStyle Wrap="False" HorizontalAlign="Right" Width="20%"></ItemStyle>
+                                            <FooterStyle Wrap="false" HorizontalAlign="Right" />
+                                            <HeaderTemplate>
+                                                <telerik:RadLabel ID="lblFuelConsumptionHeader" runat="server" Text="Fuel Cons (ltrs)"></telerik:RadLabel>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <telerik:RadLabel ID="lblFuelConsumption" runat="server" Text='<%# ((DataRowView)Container.DataItem)["FLDFUELOILCONSUMPTION"]%>'></telerik:RadLabel>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <telerik:RadLabel ID="lblTotalFuelConsumption" runat="server"></telerik:RadLabel>
+                                            </FooterTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridTemplateColumn>
+                                            <ItemStyle Wrap="False" HorizontalAlign="Right" Width="20%"></ItemStyle>
+                                            <FooterStyle Wrap="false" HorizontalAlign="Right" />
+                                            <HeaderTemplate>
+                                                <telerik:RadLabel ID="lblConsumptionRateHeader" runat="server" Text="Average Cons (ltrs/hr)"></telerik:RadLabel>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <telerik:RadLabel ID="lblConsumptionRate" runat="server" Text='<%# ((DataRowView)Container.DataItem)["FLDAVERAGECONS"]%>'></telerik:RadLabel>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <telerik:RadLabel ID="lblTotalConsumptionRate" runat="server"></telerik:RadLabel>
+                                            </FooterTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <%--<asp:TemplateField>
+                                            <ItemStyle Wrap="False" HorizontalAlign="Center" Width="10%"></ItemStyle>
+                                            <FooterStyle Wrap="false" HorizontalAlign="Center" />
+                                            <HeaderTemplate>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:ImageButton runat="server" AlternateText="Edit" ImageUrl="<%$ PhoenixTheme:images/BarChart.png %>"
+                                                    CommandName="EDIT" CommandArgument="<%# Container.DataItemIndex %>" ID="cmdEdit"
+                                                    ToolTip="Trend Graph"></asp:ImageButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>--%>
+                                    </Columns>
+                                    <PagerStyle Mode="NextPrevNumericAndAdvanced" PageButtonCount="10" PagerTextFormat="{4}<strong>{5}</strong> Records matching your search criteria"
+                                        PageSizeLabelText="Records per page:" />
+                                </MasterTableView>
+                                <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="true" ReorderColumnsOnClient="true" AllowColumnHide="true" ColumnsReorderMethod="Reorder">
+                                    <Selecting AllowRowSelect="true" EnableDragToSelectRows="false" UseClientSelectColumnOnly="true" />
+                                    <Scrolling AllowScroll="true" ScrollHeight="" />
+                                    <Resizing EnableRealTimeResize="true" AllowResizeToFit="true" AllowColumnResize="true" />
+                                </ClientSettings>
+                            </telerik:RadGrid>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Chart ID="ChartFuelConsRateME1" runat="server" Height="300px" Width="1000px">
+                            </asp:Chart>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnExportME1" runat="server" Text="Export To PDF" OnClick="btnExportME1_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Chart ID="ChartFuelConsRateME2" runat="server" Height="300px" Width="1000px">
+                            </asp:Chart>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnExportME2" runat="server" Text="Export To PDF" OnClick="btnExportME2_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Chart ID="ChartFuelConsRateAE1" runat="server" Height="300px" Width="1000px">
+                            </asp:Chart>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnExportAE1" runat="server" Text="Export To PDF" OnClick="btnExportAE1_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Chart ID="ChartFuelConsRateAE2" runat="server" Height="300px" Width="1000px">
+                            </asp:Chart>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnExportAE2" runat="server" Text="Export To PDF" OnClick="btnExportAE2_Click" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <%-- </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnExportME1" />
+            <asp:PostBackTrigger ControlID="btnExportME2" />
+            <asp:PostBackTrigger ControlID="btnExportAE1" />
+            <asp:PostBackTrigger ControlID="btnExportAE2" />
+        </Triggers>
+    </asp:UpdatePanel>--%>
+    </form>
+</body>
+</html>

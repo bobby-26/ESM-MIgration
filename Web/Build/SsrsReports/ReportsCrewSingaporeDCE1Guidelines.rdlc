@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle2">
+        <ReportItems>
+          <Textbox Name="Textbox47">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>MARITIME AND PORT AUTHORITY OF SINGAPORE
+ TRAINING DIVISION</Value>
+                    <Style>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox47</rd:DefaultName>
+            <Top>0.04862in</Top>
+            <Left>1.99875in</Left>
+            <Height>0.41667in</Height>
+            <Width>4.20833in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox48">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>APPLICATION FOR TANKER ENDORSEMENT(STCW'95 - REG V/1.1)</Value>
+                    <Style>
+                      <FontSize>9.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox48</rd:DefaultName>
+            <Top>0.49306in</Top>
+            <Left>1.69667in</Left>
+            <Height>0.20833in</Height>
+            <Width>5.08333in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox49">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>(SUPPORT LEVEL AND OPERATIONAL LEVEL)</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox49</rd:DefaultName>
+            <Top>0.74306in</Top>
+            <Left>1.69667in</Left>
+            <Height>0.25in</Height>
+            <Width>5.08333in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox50">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>NOTE</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>:Application should be made together with the supporting documents and a non-refundable processing fee.(*See fees schedule)</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox50</rd:DefaultName>
+            <Top>0.97222in</Top>
+            <Left>0.45488in</Left>
+            <Height>0.38542in</Height>
+            <Width>6.77304in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="Image1">
+            <Source>Embedded</Source>
+            <Value>mpa_singapore</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.03473in</Top>
+            <Left>0.25855in</Left>
+            <Height>0.79513in</Height>
+            <Width>0.80208in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.40279in</Top>
+        <Left>0.02208in</Left>
+        <Height>1.38194in</Height>
+        <Width>7.62202in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>GUIDELINES</Value>
+                    <Style>
+                      <FontSize>9.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.42361in</Top>
+            <Left>0.45488in</Left>
+            <Height>0.25in</Height>
+            <Width>1.71875in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox167">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of current /valid Passport;</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of Fire-Fighting Course Certificate;</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of Tanker Familiarization Course Certificate </Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>or</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Provide copy of  3 months of sea service onboard tankers (watching-keeping            cert or testimonial).</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox167</rd:DefaultName>
+            <Top>0.96528in</Top>
+            <Left>0.28063in</Left>
+            <Height>1.28473in</Height>
+            <Width>6.12625in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>TO APPLY FOR TANKER ENDORSEMENT FOR SUPPORT LEVEL (RATINGS)</Value>
+                    <Style>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.70139in</Top>
+            <Left>0.45488in</Left>
+            <Height>0.25in</Height>
+            <Width>6.08333in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>TO APPLY TANKER ENDORSEMENT FOR OPERATIONAL LEVEL
+(OFFICER OF THE WATCH / JUNIOR OFFICER)</Value>
+                    <Style>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>2.31945in</Top>
+            <Left>0.45488in</Left>
+            <Height>0.41667in</Height>
+            <Width>4.92708in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox168">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of current / valid Passport;</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of Certificate of  Competency; (Class 3, 4 or 5 etc for Deck or </Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>                 Engineering)</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of Fire-Fighting Course Certificate;</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of Tanker Familiarization Course Certificate;</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>       Photocopy of  sea service on board tanker (watching-keeping certificate or          testimonial).</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Bulleted</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox167</rd:DefaultName>
+            <Top>2.73611in</Top>
+            <Left>0.28063in</Left>
+            <Height>1.83333in</Height>
+            <Width>5.845in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>1.82639in</Top>
+        <Height>4.8611in</Height>
+        <Width>7.68911in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle3">
+        <ReportItems>
+          <Textbox Name="Textbox51">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>               GL-03</Value>
+                    <Style>
+                      <FontSize>7pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox51</rd:DefaultName>
+            <Left>0.30208in</Left>
+            <Height>0.15973in</Height>
+            <Width>0.85417in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox52">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>        Dated 1 Nov 2004</Value>
+                    <Style>
+                      <FontSize>7pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox52</rd:DefaultName>
+            <Top>0.17361in</Top>
+            <Height>0.17361in</Height>
+            <Width>1.15625in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.04167in</Top>
+        <Left>6.27083in</Left>
+        <Height>0.34723in</Height>
+        <Width>1.26737in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>9.26735in</Height>
+    <Style />
+  </Body>
+  <Width>7.68911in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.55208in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <EmbeddedImages>
+    <EmbeddedImage Name="mpa_singapore">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportID>cf4ca86f-7be8-4f19-beec-5f267b1680f4</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

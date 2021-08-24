@@ -1,0 +1,145 @@
+﻿using System;
+using System.Data;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using SouthNests.Phoenix.Framework;
+using SouthNests.Phoenix.VesselPosition;
+using SouthNests.Phoenix.Registers;
+using Telerik.Web.UI;
+
+public partial class VesselPositionEUMRVProcedureDetailD1 : PhoenixBasePage
+{
+    protected override void Render(HtmlTextWriter writer)
+    {
+        base.Render(writer);
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            SessionUtil.PageAccessRights(this.ViewState);
+
+            PhoenixToolbar toolbarmain = new PhoenixToolbar();
+            if (Request.QueryString["Lanchfrom"].ToString() == "0")
+                MenuProcedureDetailList.Title = "Company Procedure Edit";
+            if (Request.QueryString["Lanchfrom"].ToString() == "1")
+                MenuProcedureDetailList.Title = "Ship Specific Procedure Edit";
+
+            if (Request.QueryString["Lanchfrom"].ToString() == "0")
+                toolbarmain.AddButton("EUMRV Procedure", "PROCEDUREDETAIL",ToolBarDirection.Right);
+            if (Request.QueryString["Lanchfrom"].ToString() == "1")
+                toolbarmain.AddButton("Ship Specific Procedure", "PROCEDUREDETAIL", ToolBarDirection.Right);
+            MenuProcedureDetailList.AccessRights = this.ViewState;
+            MenuProcedureDetailList.MenuList = toolbarmain.Show();
+
+            PhoenixToolbar toolbartab = new PhoenixToolbar();
+            toolbartab.AddButton("Save", "SAVE",ToolBarDirection.Right);
+            TabProcedure.AccessRights = this.ViewState;
+            TabProcedure.MenuList = toolbartab.Show();
+
+            if (!IsPostBack)
+            {
+                DataSet ds = PhoenixRegistersEUMRVDeterminationofdestination.ListEVMRVDeterminationCategory(3);
+                ddlBackupmethod.DataSource = ds;
+                ddlBackupmethod.DataTextField = "FLDNAME";
+                ddlBackupmethod.DataValueField = "FLDNAME";
+                ddlBackupmethod.DataBind();
+                ddlBackupmethod.Items.Insert(0, new RadComboBoxItem("--Select--", ""));
+                ddlBackupmethod.SelectedIndex = 0;
+                ProcedureDetailEdit();
+            }
+            int companyid = PhoenixSecurityContext.CurrentSecurityContext.CompanyID;
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+    protected void TabProcedure_TabStripCommand(object sender, EventArgs e)
+    {
+        try
+        {
+            RadToolBarEventArgs dce = (RadToolBarEventArgs)e;
+            string CommandName = ((RadToolBarButton)dce.Item).CommandName;
+
+            if (CommandName.ToUpper().Equals("SAVE"))
+            {
+                    PhoenixVesselPositionEUMRV.InsertEUMRVProcedureDetail(PhoenixSecurityContext.CurrentSecurityContext.UserCode,
+                                                                            General.GetNullableGuid(Request.QueryString["ProcedureID"].ToString()),
+                                                                            null,
+                                                                            General.GetNullableInteger(txtVersion.Text.Trim()),
+                                                                            null,
+                                                                            General.GetNullableString(txtxpersonreponsible.Text.Trim()),
+                                                                            General.GetNullableString(txtlocation.Text.Trim()),
+                                                                            General.GetNullableString(txtSystemUsed.Text.Trim()),
+                                                                            "NEW", null,
+                                                                            General.GetNullableString(txtFormulae.Text.Trim()),
+                                                                            General.GetNullableString(txtDatasource.Text.Trim()),
+                                                                            General.GetNullableString(ddlBackupmethod.SelectedValue),
+                                                                            General.GetNullableString(txtMethodTreat.Text.Trim()), null, null);
+
+                ucStatus.Text = "Procedure saved successfully.";
+            }
+        }
+
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+    private void ProcedureDetailEdit()
+    {
+        if (Request.QueryString["Table"] != null && General.GetNullableString(Request.QueryString["Table"].ToString()) != null)
+        {
+            DataSet ds = PhoenixVesselPositionEUMRVConfig.EUMRVProcedureConfigDetailEdit(Request.QueryString["Table"].ToString());
+            DataTable dt = ds.Tables[0];
+            DataTable dt2 = ds.Tables[1];
+            if (dt.Rows.Count > 0)
+            {
+
+                txtVersion.Text = dt.Rows[0]["FLDPROCEDUREVERSION"].ToString();
+                txtxpersonreponsible.Text = dt.Rows[0]["FLDRESPONSIBLEPERSION"].ToString();
+                txtlocation.Text = dt.Rows[0]["FLDRECORDLOCATION"].ToString();
+                txtSystemUsed.Text = dt.Rows[0]["FLDITSYSTEMNAME"].ToString();
+                ViewState["PROCEDUREID"] = dt.Rows[0]["FLDPROCEDUREID"].ToString();
+                txtFormulae.Text = dt.Rows[0]["FLDFORMULAE"].ToString();
+                txtDatasource.Text = dt.Rows[0]["FLDDATASOURCE"].ToString();
+                string Guidance = General.GetNullableString(dt.Rows[0]["FLDGUIDANCE"].ToString()) != null ? " (" + dt.Rows[0]["FLDGUIDANCE"].ToString() + ")" : "";
+                lblProceduretxt.Text = dt.Rows[0]["FLDNEWCODE"].ToString() + "-" + dt.Rows[0]["FLDPROCEDURE"].ToString() + Guidance;
+                txtMethodTreat.Text = dt.Rows[0]["FLDTREATDATAGAPS"].ToString();
+                ddlBackupmethod.SelectedValue = dt.Rows[0]["FLDBACKUPMONITORMETHOD"].ToString();
+            }
+            else
+            {
+                if (dt2.Rows.Count > 0)
+                {
+                    txtVersion.Text = "0";// dt2.Rows[0]["FLDVERSION"].ToString();
+                    ViewState["PROCEDUREID"] = dt2.Rows[0]["FLDEUMRVPROCEDUREID"].ToString();
+                    //string Guidance = General.GetNullableString(dt.Rows[0]["FLDGUIDANCE"].ToString()) != null ? " (" + dt.Rows[0]["FLDGUIDANCE"].ToString() + ")" : "";
+                    lblProceduretxt.Text = dt2.Rows[0]["FLDNEWCODE"].ToString() + "-" + dt2.Rows[0]["FLDPROCEDURE"].ToString(); //+ Guidance;
+
+                }
+            }
+        }
+    }
+    protected void txtDocumentName_OnTextChanged(object sender, EventArgs e)
+    { 
+        
+    }
+    protected void MenuProcedureDetailList_TabStripCommand(object sender, EventArgs e)
+    {
+        RadToolBarEventArgs dce = (RadToolBarEventArgs)e;
+        string CommandName = ((RadToolBarButton)dce.Item).CommandName;
+        if (CommandName.ToUpper().Equals("PROCEDUREDETAIL"))
+        {
+            if (Request.QueryString["Lanchfrom"].ToString() == "1")
+                Response.Redirect("../VesselPosition/VesselPositionEUMRVShipSpecificProcedure.aspx?Lanchfrom=1");
+            else
+                Response.Redirect("../VesselPosition/VesselPositionEUMRVProcedure.aspx?Lanchfrom=0");
+        }   
+    }
+}

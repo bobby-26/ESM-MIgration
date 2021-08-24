@@ -1,0 +1,10 @@
+open 121.200.251.215
+ftpuser78
+asdas
+cd PhoenixTelerik
+pwd
+bin
+prompt n
+mdel *
+mput E:\PhoenixTelerik\Working\Backup\FTP\"*.*"
+bye

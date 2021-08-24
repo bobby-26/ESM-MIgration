@@ -1,0 +1,3 @@
+﻿function UploadComplete() {
+    location.reload();
+}

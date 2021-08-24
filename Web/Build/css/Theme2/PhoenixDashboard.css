@@ -1,0 +1,125 @@
+﻿	.db_container {
+		width:100%;
+		background-color:#EEEEEE;
+	}
+	.db_header {
+		width:100%;
+		height:20px;
+		background-color:#EFEFEF;
+		background-image:url('images/toolbar_bg.png');
+		background-repeat:repeat-x;
+		position:fixed;	
+		z-index: 11;	
+	}
+	.db_condition 
+	{
+		font-family: Tahoma, Arial, Helvetica, Verdana, sans-serif;
+		font-size: 11px;
+		font-weight: bold;	    
+	    float:left;
+		left: 0px;
+		color: #10428c;
+		z-index: 12;
+	}
+	.db_toolbar {
+		right: 0px;
+		float:right; 
+		background-color:#eeeeee;
+		text-align:right;
+		z-index: 12;
+	}
+	.db_empty {
+		width:100%;
+		height:20px;
+	}
+	.db_dashboard {
+		height:50%;
+		background-color:#FFFFFF;
+	}
+	.db_leftpanel {
+		border: 1px solid #eeeeee;
+		float:left;
+		width:50%;
+		height:300px;
+		margin-left:0px;
+		overflow: auto;
+	}
+	.db_rightpanel {
+		border: 1px solid #eeeeee;
+		float:right;
+		width:49%;
+		height:300px;
+		margin-right:0px;
+		overflow: auto;
+	}
+    object
+   {
+		width:100%;
+		height:50%;
+    border:solid 1px #000000;
+   }	
+	.db_title {
+		background-image:url('images/toolbar_bg.png');
+		background-repeat:repeat-x;
+		color: Navy;
+		height:20px;
+		width:100%;
+		margin-top:0px;
+	}
+	.db_results {
+		border: 1px solid #eeeeee;
+		width:99.9%;
+		float:left;
+	}
+	
+	.db_resultdatadiv {
+		width: 100%; 
+		height: 300px;
+		overflow: auto;
+	}
+
+	.divMenuCss 
+	{
+	    width: 200px;
+	    height: 0px;
+	    position: fixed;
+	    top: 20px;
+	    z-index: 12;
+	    right: 0px;
+	    color: White;
+	}
+	
+	.divMenuCssVisible
+	{
+	    width: 200px;
+	    height: 0px;
+	    position: absolute;
+	    top: 20px;
+	    z-index: 12;
+	    overflow:inherit;
+	    right: 0px;
+	    background-color:Blue;
+	    color: White;
+	}	
+	
+	.divOptionCssVisible
+	{
+	    width: 200px;
+	    z-index: 9;
+	    overflow:inherit;
+	    right: 0px;
+	    background-color:Blue;
+	    color: White;
+	}
+	
+	.divOptionCss
+	{
+	    width: 200px;
+	    height: 0px;
+	    z-index: 10;
+	    overflow: hidden;
+	    right: 0px;
+	    background-color: Navy;
+	    color: White;
+	}
+

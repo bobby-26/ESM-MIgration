@@ -1,0 +1,35 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_vss_get.build
+Target framework: Microsoft .NET Framework 2.0
+Target(s) specified: phoenixbuildxsdclass 
+
+
+init:
+
+     [echo] 02/18/2021 16:39:57
+[loadtasks] Scanning assembly "NAnt.Contrib.Tasks" for extensions.
+
+phoenixbuildxsdclass:
+
+     [echo] ******************************************
+     [echo] BUILD CONFIGURATION
+     [echo] ******************************************
+     [echo] Vss Get...:: true
+     [echo] SourceSafe:: E:\Vss\srcsafe.ini
+     [echo] ******************************************
+   [script] Scanning assembly "z0g7jdzv" for extensions.
+     [echo] Deleting E:\\Phoenix\Working\Solution\Web Folder Files...
+     [echo] ::..02/18/2021 16:39:57
+   [delete] Deleting directory 'E:\Phoenix\Working\Solution\Web'.
+   [vssget] Getting '$/Phoenix/Solution/Web' to 'E:\Phoenix\Working\Solution\Web'...
+     [echo] ::..02/18/2021 16:45:36
+   [delete] Deleting directory 'E:\Phoenix\Working\Build\Web\Build'.
+    [mkdir] Creating directory 'E:\Phoenix\Working\Build\Web\Build'.
+    [mkdir] Creating directory 'E:\Phoenix\Working\Build\Web\Build\bin'.
+     [copy] Copying 18158 files to 'E:\\Phoenix\Working\Build\Web\Build'.
+     [copy] Copying 1 file to 'E:\\Phoenix\Working\Build\Web\Build'.
+     [echo] ::..02/18/2021 16:48:07
+
+BUILD SUCCEEDED
+
+Total time: 490.7 seconds.
+

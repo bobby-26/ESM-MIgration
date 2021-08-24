@@ -1,0 +1,33 @@
+<project name = "Webbuildproperty">
+
+  <property name = "working.build" value="true" />
+  <property name = "control.build" value="false" />
+  <property name = "release.build" value="false" />
+
+  <!-- Vss Config -->
+  <property name = "vss.get.required" value="true" />
+  <property name = "ss.path" value="E:\Vss\srcsafe.ini" />
+  <property name = "ss.username" value = "guest" />
+  <property name = "ss.password" value = "guest$" />
+  
+  <property name="current_directory" value="${directory::get-current-directory()}" />
+  <property name="Drive_letter" value="${directory::get-directory-root(current_directory)}" />
+
+  <!-- Directory Path-->
+  <property name = "hosted.drive" value="${Drive_letter}" />
+  <property name = "deployment.dir" value="${Drive_letter}\Phoenix\Working" />
+  <property name = "product.dir" value="${deployment.dir}\Build"/>
+
+  <property name = "phoenix.dir" value = "${deployment.dir}\Solution" />
+
+  <property name = "phoenix.solution.web.dir" value="${deployment.dir}\Solution\Web"/>
+
+  <property name = "phoenix.web.dir" value = "${product.dir}\Web\Build" />
+  <property name = "phoenix.web.dir.xsd" value = "${phoenix.web.dir}\App_Code\Xsd" />
+  <property name = "phoenix.modules.dir" value="${phoenix.web.dir}\App_Code"/>  
+
+  <property name = "phoenix.utilities85.dir" value="${Drive_letter}\Phoenix\Utilities\nantcontrib-0.85-bin"/>
+
+   <property name = "vss.diff.dir" value="E:\Phoenix\PhoenixSourcesafeDiff\TelerikWeb\Phoenix\Solution\Web"/>
+
+</project>

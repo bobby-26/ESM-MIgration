@@ -1,0 +1,28 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_buildcheck.build
+Target framework: Microsoft .NET Framework 4.0
+Target(s) specified: build.validation 
+
+   [tstamp] 18 February 2021 17:48:53.
+ [property] Target framework changed to "Microsoft .NET Framework 3.5".
+   [tstamp] 18 February 2021 17:48:53.
+
+init:
+
+
+success:
+
+
+build.validation:
+
+     [echo] Working Build...
+     [echo] Build Start Date Today : True
+     [echo] WEB Build : 0
+     [echo] 
+     [echo] SQL Build : 2
+     [echo] 
+     [echo] SQL Build Running...........
+
+BUILD SUCCEEDED
+
+Total time: 0.3 seconds.
+

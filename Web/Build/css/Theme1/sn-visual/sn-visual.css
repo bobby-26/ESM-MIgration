@@ -1,0 +1,325 @@
+﻿
+/* this is for temporary arrangement - need to incorporate in js */
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: darkslategray;
+    color: white;
+}
+
+.v-text-noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.v-text-overflow-hide {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* visual holder related styles start */ 
+.vh-default {   
+    border: 1px solid rgb(46, 75, 109); 
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 0px 4px gray;
+    float: left;
+}
+
+.vh-full {
+    position: fixed;
+}
+
+.vh-default:hover {
+    background-color: #46b4af;
+    box-shadow: 0px 0px 15px slategray;    
+    
+}
+.vh-invisible, .vh-invisible:hover {
+    border: none;
+    box-shadow : none;
+}
+.vh-header-invisible {
+    display: none;
+}
+/* visual holder related styles end */ 
+
+/* visual element related styles start */ 
+.ve-default {
+    fill: #46b4af;
+    opacity: 1;
+    stroke: lightgray;
+    stroke-width: 1;
+}
+
+.ve-default:hover {
+    box-shadow: 2px 2px 4px 4px black;
+    opacity: 0.7;
+}
+
+.ve-default-1 {
+    fill: #46b4af;
+    opacity: 1;
+    stroke: lightgray;
+    stroke-width: 1;
+}
+
+.ve-default-if-zero {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.ve-pie-default {
+    stroke: white;
+}
+
+.ve-doughnut-default {
+    stroke: white;
+}
+
+.ve-connector-default {
+    fill: none;
+    fill-opacity: 0.4;
+    stroke: steelblue; /*rgb(2, 30, 94);*/
+    stroke-opacity: 1;
+    stroke-width: 1;
+}
+
+.ve-text-default {
+    font-family: 'Segoe UI';
+    font-size: x-small;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.ve-text-default-1 {
+    font-family: 'Segoe UI';
+    font-size: x-small;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.ve-mouse-on {
+    opacity: 0.9;
+}
+
+/* visual element interactive styles starts */
+.ve-inter-group-default {
+    font-size: inherit; /*smaller;*/
+/*????????????????????*/    /*overflow: scroll;*/ 
+}
+.ve-inter-default {
+    cursor: pointer;
+}
+.ve-inter-table-default {
+    font-weight: bold;
+}
+.ve-inter-unselected {
+    opacity: 0.2;
+}
+.ve-inter-table-unselected {
+    opacity: 0.2; /*0.4*/
+}
+.ve-inter-selected {
+    opacity: 1; /*0.9;*/
+    font-weight: bold;
+}
+.ve-grabbing {
+    cursor: -webkit-grabbing;
+}
+/* visual element interactive styles ends */
+
+.ve-inactive {
+    opacity: 0.4;
+}
+.ve-active {
+    opacity: 1;
+}
+/* visual element related styles end */ 
+
+/* visual axis related styles start */
+
+.v-head-text-holder {
+    /* do not delete */    
+}
+
+.va-text-plotaxis-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    /*fill-opacity: 0.5;*/
+}
+
+.va-text-baseaxis-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    /*fill-opacity: 0.5;*/
+}
+
+.va-text-plotaxis {
+    font-family: 'Segoe UI';
+    font-size: 7px;
+    font-weight: bold;
+}
+
+.va-text-baseaxis {
+    font-family: 'Segoe UI';
+    font-size: 7px;
+    font-weight: bold;
+}
+/* visual axis related styles end */ 
+
+/* visual related styles start */
+.vv-text-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    fill-opacity: 0.5;
+}
+/* visual related styles end */
+
+
+/* visual table related styles start */
+.vt-head {
+    font-size: 10px; /*inherit;*/
+    border-bottom: 1px solid darkslategray; /* note: normally this color should match with the default value set in 'param.scale.tile.hostColor' */
+    opacity: 0.7;
+}
+
+.vt-default {
+    font-family: 'Segoe UI';
+    opacity: 1;
+    font-size: 8px; /*x-small;*/
+}
+
+.vt-caption {
+    border-radius: 4px 4px 0px 0px;
+    margin-left: -3px;
+    margin-top: -3px;
+    margin-right: -3px;
+    font-size: 12px;
+    font-weight: 900; 
+    background-color: #727272;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 2px;
+}
+
+.vt-r-data {
+
+}
+
+.vt-r-data-even {
+    background-color: #efefef;
+}
+
+.vt-cell-mouseover {
+    background-color: darkgray;
+}
+
+.vt-foot {
+    border-top: 1px solid darkslategray; /* note: normally this color should match with the default value set in 'param.scale.tile.hostColor' */
+    font-weight: bold;
+    font-size: inherit;
+    /*opacity: 0.7;*/
+}
+
+.vt-c-text {
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.vt-c-number {
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.vt-c-summary {
+    font-size: 12px;
+    font-weight: bolder;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/* visual table related styles end*/
+
+/* check-list related */
+.v-check-list-item-group {
+    list-style: none;
+    margin-left: -35px;
+    
+}
+.v-check-list-item-default {
+    height: 14px;
+    margin-top: 2px;
+    /*opacity: 1;*/
+}
+
+.v-check-box {
+    height: 12px;
+    width: 12px;
+}
+
+/* visual legend related styles start */
+.v-legend {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: xx-small;
+}
+/* visual legend related styles end */
+
+/*.toolTip {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    display: block;
+    height: auto;
+    min-width: 80px;
+    padding: 14px;
+    position: absolute;
+    text-align: center;
+}*/
+
+.ve-tooltip-compact {
+    font-family: 'Segoe UI';
+    position: absolute;
+    display: none;
+    width: auto;
+    height: 25px;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    font-size: larger;
+    padding: 1px;
+    text-align: center;
+    z-index: 99999;
+}
+
+.ve-inner-left-tooltip {
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.ve-inner-right-tooltip {
+    height: 100%;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.v-polyline {
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}

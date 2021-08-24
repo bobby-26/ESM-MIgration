@@ -1,0 +1,31 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_vss_get.build
+Target framework: Microsoft .NET Framework 2.0
+Target(s) specified: phoenixbuildxsdclass 
+
+
+init:
+
+     [echo] 02/13/2021 09:52:55
+[loadtasks] Scanning assembly "NAnt.Contrib.Tasks" for extensions.
+
+phoenixbuildxsdclass:
+
+     [echo] ******************************************
+     [echo] BUILD CONFIGURATION
+     [echo] ******************************************
+     [echo] Vss Get...:: true
+     [echo] SourceSafe:: E:\Vss\srcsafe.ini
+     [echo] ******************************************
+   [script] Scanning assembly "x6_odv3z" for extensions.
+     [echo] Deleting E:\\Phoenix\Working\Solution\Web Folder Files...
+     [echo] ::..02/13/2021 09:52:55
+   [delete] Deleting directory 'E:\Phoenix\Working\Solution\Web'.
+
+BUILD FAILED
+
+E:\Phoenix\Working\Build\Web\web_vss_get.build(91,8):
+Failed to open database "E:\Vss\srcsafe.ini".
+    Retrieving the COM class factory for component with CLSID {783CD4E4-9D54-11CF-B8EE-00608CC9A71F} failed due to the following error: 8007052e.
+
+Total time: 8.6 seconds.
+

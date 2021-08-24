@@ -1,0 +1,69 @@
+﻿.display-none {
+    display: none;
+}
+
+input[type=radio] {
+    height: 15px;
+    width: 15px;
+}
+
+    input[type=radio] + span {
+        font-size: 15px;
+    }
+
+.row {
+    margin-right: 0px !important;
+}
+
+.formio-errors P {
+    background-color: green;
+    color: White;
+    font-size: 12px;
+}
+
+.col-form-label {
+    font-size: 14px;
+}
+
+.formio-component {
+    font-size: 14px;
+}
+
+@media print {
+    @-moz-document url-prefix() {
+
+        .row {
+            display: block;
+        }
+
+        .col-sm-8 {
+            display: block;
+        }
+
+        .card {
+            display: block;
+        }
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    @page {
+        size: A4;
+        margin: 0mm;
+    }
+    .printhide {
+        visibility:hidden;
+    }
+   .col-sm-8 {
+        -ms-flex: 0 0 88.666667%;
+        flex: 0 0 88.666667%;
+        max-width: 88.666667%;
+    }
+    .offset-sm-2 {
+        margin-left: 6.666667%;
+    }
+}

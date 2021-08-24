@@ -1,0 +1,34 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_compile.build
+Target framework: Microsoft .NET Framework 4.0
+Target(s) specified: phoenixbuild 
+
+   [tstamp] 14 February 2021 13:33:59.
+
+init:
+
+
+start:
+
+     [echo] 02/14/2021 13:34:00
+  [xmlpoke] Found '1' nodes matching XPath expression '/RecordSet/row/Revision'.
+     [copy] Copying 82 files to 'E:\\Phoenix\Working\Build\Web\Build\bin'.
+     [echo] ::..02/14/2021 13:34:00
+
+Framework:
+
+
+make:
+
+
+onfailure:
+
+  [xmlpoke] Found '1' nodes matching XPath expression '/BUILDSTATUS/APPBUILDSTATUS'.
+
+BUILD FAILED
+
+E:\Phoenix\Working\Build\Web\web_compile.build(940,6):
+Failed to write message to file 'E:\Phoenix\Working\Build\Web\Build\AssemblyInfo1.cs'.
+    Access to the path 'E:\Phoenix\Working\Build\Web\Build\AssemblyInfo1.cs' is denied.
+
+Total time: 0.3 seconds.
+

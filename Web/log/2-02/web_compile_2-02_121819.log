@@ -1,0 +1,354 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_compile.build
+Target framework: Microsoft .NET Framework 4.0
+Target(s) specified: phoenixbuild 
+
+   [tstamp] 18 February 2021 12:18:20.
+
+init:
+
+
+start:
+
+     [echo] 02/18/2021 12:18:20
+  [xmlpoke] Found '1' nodes matching XPath expression '/RecordSet/row/Revision'.
+   [delete] Deleting directory 'E:\Phoenix\Working\Deploy\Web'.
+     [copy] Copying 82 files to 'E:\\Phoenix\Working\Build\Web\Build\bin'.
+   [delete] Deleting 33 files.
+     [echo] ::..02/18/2021 12:18:20
+
+Framework:
+
+
+make:
+
+      [csc] Compiling 38 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Framework.dll'.
+
+Controls:
+
+
+make:
+
+      [csc] Compiling 2 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Custom.dll'.
+
+Common:
+
+
+make:
+
+      [csc] Compiling 44 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Common.dll'.
+
+PhoenixServiceWrapper:
+
+
+make:
+
+      [csc] Compiling 3 files to 'E:\Phoenix\Working\Build\Web\Build\bin\PhoenixServiceWrapper.dll'.
+
+PhoenixServicePurchase:
+
+
+make:
+
+      [csc] Compiling 3 files to 'E:\Phoenix\Working\Build\Web\Build\bin\PhoenixServicePurchase.dll'.
+
+Registers:
+
+
+make:
+
+      [csc] Compiling 299 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Registers.dll'.
+
+Inventory:
+
+
+make:
+
+      [csc] Compiling 28 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Inventory.dll'.
+
+Purchase:
+
+
+make:
+
+      [csc] Compiling 57 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Purchase.dll'.
+
+Inspection:
+
+
+make:
+
+      [csc] Compiling 182 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Inspection.dll'.
+
+VesselAccounts:
+
+
+make:
+
+      [csc] Compiling 41 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.VesselAccounts.dll'.
+
+Crew:
+
+
+make:
+
+      [csc] Compiling 158 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Crew.dll'.
+
+Accounts:
+
+
+make:
+
+      [csc] Compiling 116 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Accounts.dll'.
+
+StandardForm:
+
+
+make:
+
+      [csc] Compiling 3 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.StandardForm.dll'.
+
+PlannedMaintenance:
+
+
+make:
+
+      [csc] Compiling 49 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.PlannedMaintenance.dll'.
+
+CrewReports:
+
+
+make:
+
+      [csc] Compiling 62 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.CrewReports.dll'.
+
+DataTransfer:
+
+
+make:
+
+      [csc] Compiling 5 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.DataTransfer.dll'.
+
+Owners:
+
+
+make:
+
+      [csc] Compiling 15 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Owners.dll'.
+
+Help:
+
+
+make:
+
+      [csc] Compiling 2 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Help.dll'.
+
+DryDock:
+
+
+make:
+
+      [csc] Compiling 16 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.DryDock.dll'.
+
+DefectTracker:
+
+
+make:
+
+      [csc] Compiling 4 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.DefectTracker.dll'.
+
+Integration:
+
+
+make:
+
+      [csc] Compiling 4 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Integration.dll'.
+
+Document:
+
+
+make:
+
+      [csc] Compiling 7 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Document.dll'.
+
+Portal:
+
+
+make:
+
+      [csc] Compiling 5 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Portal.dll'.
+
+DocumentManagement:
+
+
+make:
+
+      [csc] Compiling 18 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.DocumentManagement.dll'.
+
+VesselPosition:
+
+
+make:
+
+      [csc] Compiling 43 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.VesselPosition.dll'.
+
+PreSea:
+
+
+make:
+
+      [csc] Compiling 78 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.PreSea.dll'.
+
+OwnerBudget:
+
+
+make:
+
+      [csc] Compiling 5 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.OwnerBudget.dll'.
+
+Export2XL:
+
+
+make:
+
+      [csc] Compiling 21 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Export2XL.dll'.
+
+Administration:
+
+
+make:
+
+      [csc] Compiling 12 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Administration.dll'.
+
+CrewOffshore:
+
+
+make:
+
+      [csc] Compiling 54 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.CrewOffshore.dll'.
+
+Dashboard:
+
+
+make:
+
+      [csc] Compiling 29 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Dashboard.dll'.
+
+Reports:
+
+
+make:
+
+      [csc] Compiling 18 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Reports.dll'.
+
+EPSShelp:
+
+
+make:
+
+      [csc] Compiling 1 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.EPSShelp.dll'.
+
+Log:
+
+
+make:
+
+      [csc] Compiling 16 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.Log.dll'.
+
+HR:
+
+
+make:
+
+      [csc] Compiling 3 files to 'E:\Phoenix\Working\Build\Web\Build\bin\SouthNests.Phoenix.HR.dll'.
+
+phoenixbuild:
+
+     [echo] ::..02/18/2021 12:18:34
+     [copy] Copying 82 files to 'E:\\Phoenix\Working\Build\Web\Build\bin'.
+     [echo] ::..02/18/2021 12:18:34
+   [delete] Deleting directory 'E:\Phoenix\Working\Build\Web\Build\App_Code'.
+     [exec] Microsoft (R) ASP.NET Compilation Tool version 4.8.3752.0
+     [exec] Utility to precompile an ASP.NET application
+     [exec] Copyright (C) Microsoft Corporation. All rights reserved.
+     [exec] 
+     [exec] e:\Phoenix\Working\Build\Web\Build\Common\CommonPickListStockItemWithLocation.aspx.cs(12): warning CS0108: 'CommonPickListStockItemWithLocation.Page_Init(object, System.EventArgs)' hides inherited member 'SouthNests.Phoenix.Framework.PhoenixBasePage.Page_Init(object, System.EventArgs)'. Use the new keyword if hiding was intended.
+     [exec] e:\Phoenix\Working\Build\Web\Build\Dashboard\DashboardRestHourDuty.aspx.cs(95): warning CS0219: The variable 'j' is assigned but its value is never used
+     [exec] e:\Phoenix\Working\Build\Web\Build\Registers\RegisterProsperCardstatusMapping.aspx.cs(262): warning CS0108: 'RegisterProsperCardstatusMapping.IsValid(string)' hides inherited member 'System.Web.UI.Page.IsValid'. Use the new keyword if hiding was intended.
+     [exec] e:\Phoenix\Working\Build\Web\Build\Reports\CrystalReportsView.aspx.cs(117): warning CS0612: 'CrystalDecisions.Web.CrystalReportViewer.DisplayGroupTree' is obsolete
+     [exec] e:\Phoenix\Working\Build\Web\Build\Reports\CrystalReportsViewWithSubReport.aspx.cs(160): warning CS0612: 'CrystalDecisions.Web.CrystalReportViewer.DisplayGroupTree' is obsolete
+     [exec] e:\Phoenix\Working\Build\Web\Build\SsrsReports\SsrsReportsView.aspx.cs(27): warning CS0108: 'SSRSReports_SsrsReportsView.Page_Init(object, System.EventArgs)' hides inherited member 'SouthNests.Phoenix.Framework.PhoenixBasePage.Page_Init(object, System.EventArgs)'. Use the new keyword if hiding was intended.
+     [exec] e:\Phoenix\Working\Build\Web\Build\SsrsReports\SsrsReportsViewWithSubReport.aspx.cs(29): warning CS0108: 'SSRSReports_SsrsReportsViewWithSubReport.Page_Init(object, System.EventArgs)' hides inherited member 'SouthNests.Phoenix.Framework.PhoenixBasePage.Page_Init(object, System.EventArgs)'. Use the new keyword if hiding was intended.
+    [mkdir] Creating directory 'E:\Phoenix\Working\Deploy\Web\js\temp'.
+     [echo] ::..02/18/2021 13:18:46
+
+onsuccess:
+
+     [echo] phoenix working ss
+      [zip] Zipping 21750 files to 'E:\Phoenix\Working\Backup\Application\Published\PHOENIXPUBLISH.2.0.0.5604.ZIP'.
+      [zip] Zipping 0 files to 'E:\Phoenix\Working\Backup\Application\Source\PHOENIXSOURCE.2.0.0.5604.ZIP'.
+     [echo] Configuring.For.One.Drive.Upload...
+     [nant] E:\Phoenix\Working\Build\Web\Vss_OneDriveUpload.build 
+            Buildfile: file:///E:/Phoenix/Working/Build/Web/Vss_OneDriveUpload.build
+            Target framework: Microsoft .NET Framework 4.0
+            Target(s) specified: GetData 
+            
+            
+            GetData:
+            
+                  [sql] 1 records affected
+            
+            BUILD SUCCEEDED
+            
+            Total time: 0.1 seconds.
+            
+     [nant] E:\Phoenix\Working\Build\Web\web_buildcheck.build 
+            Buildfile: file:///E:/Phoenix/Working/Build/Web/web_buildcheck.build
+            Target framework: Microsoft .NET Framework 4.0
+            Target(s) specified: build.validation 
+            
+               [tstamp] 18 February 2021 13:22:32.
+             [property] Target framework changed to "Microsoft .NET Framework 3.5".
+               [tstamp] 18 February 2021 13:22:32.
+            
+            init:
+            
+            
+            success:
+            
+            
+            build.validation:
+            
+                 [echo] Working Build...
+                 [echo] Build Start Date Today : False
+                 [echo] WEB Build : 1
+                 [echo] 
+                 [echo] SQL Build : 0
+                 [echo] 
+                 [echo] APP Failed
+                 [echo] E:\\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_121819.log
+                 [echo] \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_121819.log
+                  [sql] web failed
+                  [sql] E:\Phoenix\Working\Build\Web\web_buildcheck.build(263,7):
+                  [sql] Error while executing SQL statement.
+                  [sql]     A .NET Framework error occurred during execution of user defined routine or aggregate 'PRCLRPROCESSSENDMAILWITHHTMLBODY': 
+                  [sql] System.Exception: WARNING! MAIL NOT SENT - \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_121819.log Error:Could not find a part of the path '\\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_121819.log'.
+                  [sql] System.Exception: 
+                  [sql]    at SouthNests.Phoenix.Mail.MailSmtp.SendSmtpMailWithHtmlBody(String ipaddress, Int32 port, String username, String password, String from, String to, String mailsubject, String mailbody, String fileentry)
+                  [sql]    at SouthNests.Phoenix.Mail.MailSmtp.SendMailWithHtmlBody(String ipaddress, Int32 port, String username, String password, String from, String to, String subject, String body, String attachments)
+                  [sql] .
+                  [sql] Adding File: \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_121819.log
+                  [sql] Subect: !!URGENT!! WEB BUILD FAILED (WORKING SOURCE SAFE) - PLEASE RESPOND IMMEDIATELY
+                  [sql] Recipient: developers@southnests.com
+                  [sql] Method: SendSmtpMail...
+                 [echo] Trying to Apply and upload a OldPatch
+            
+            BUILD SUCCEEDED - 1 non-fatal error(s), 0 warning(s)
+            
+            Total time: 0.4 seconds.
+            
+  [xmlpoke] Found '1' nodes matching XPath expression '/BUILDSTATUS/APPBUILDSTATUS'.
+
+BUILD SUCCEEDED
+
+Total time: 3853.3 seconds.
+

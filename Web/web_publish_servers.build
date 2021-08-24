@@ -1,0 +1,33 @@
+<project name ="phoenix" default = "phoenixelogbuild">
+
+  <property name="current_directory" value="${directory::get-current-directory()}" />
+  <property name="Drive_letter" value="${directory::get-directory-root(current_directory)}" />
+  <property name = "COMPILATION_TARGET_DIRECTORY" value = "E:\Phoenix\Working\Deploy" />
+  <property name = "phoenix.utilities.dir" value = "${Drive_letter}\PhoenixTelerik\Utilities" />
+  <target name="phoenixelogbuild">
+
+   <foreach item="Line" in="deployment.txt" delim="," property="servername,targetdir">
+    <do>
+     <echo message="********************************" />
+     <echo message="::..ServerName.: ${servername}" />
+     <echo message="::..TargetDir..: ${targetdir}" />
+     <echo message="********************************" />
+     <copy todir="${targetdir}" overwrite="true">
+       <fileset basedir="${COMPILATION_TARGET_DIRECTORY}">
+         <include name="**/*" />	 
+         <exclude name="**/*.config" /> 
+       </fileset>
+     </copy>        
+    </do>
+   </foreach>
+   <echo message="Configuring.For.One.Drive.Upload..." />
+    <nant buildfile="Vss_OneDriveUpload.build" >
+      <properties>      
+	<property name="status" value="0" />
+	<property name="utilities" value="${phoenix.utilities.dir}" />
+      </properties>
+    </nant>
+
+  </target>
+
+</project>

@@ -1,0 +1,141 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <title>
+        Forms
+    </title>
+    <script type="text/javascript" language="javascript" src="../js/js_globals.aspx"></script>
+    <script type="text/javascript" language="javascript" src="../js/phoenix.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/Theme1/phoenixPopup.css" />
+    <link rel="stylesheet" type="text/css" href="../css/Theme1/phoenix.css" />
+    <script type="text/javascript">
+        var o;
+        function Load() {
+            o = findGetParameter("o");
+
+            if (o == null)
+            {
+                o = "TRAFIGURA";
+            }
+
+            if (o != null) {
+                var obj = document.getElementById(o);
+                obj.style.display = "block";
+                var a = obj.getElementsByTagName("a");
+                for (var i = 0; i < a.length; i++) {
+                    a[i].href = a[i].href + o;
+                }
+            }
+	   else
+		{
+}
+        }
+        function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            var items = location.search.substr(1).split("&");
+            for (var index = 0; index < items.length; index++) {
+                tmp = items[index].split("=");
+                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            }
+            return result;
+        }
+    </script>
+    <style type="text/css" media="print">
+        BODY {
+            display: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0px;" onload="Load();">
+    <div>
+        <a href="Dashboard.aspx">Back</a>
+    </div>
+    <form name="frmCategory" method="post" id="frmCategory" autocomplete="off">
+        <div style="top: 100px; margin-left: auto; margin-right: auto; vertical-align: middle;
+        width: 80%;">
+            <div class="subHeader" style="position: relative">
+
+                <table>
+                    <tr valign="top">
+                        <td></td>
+                        <td>
+                            <span id="ucTitle_lblTitle" style="display:inline-block;width:100%;">Chart</span>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="navSelect" style="top: 0px; right: 0px; position: absolute">
+
+                <div class="navAppSelect" style="position:relative">
+
+                </div>
+
+
+            </div>
+            <div class="navSelect* " style="position: relative; width: 15px">
+
+                <div class="navAppSelect" style="position:relative">
+
+                </div>
+
+            </div>
+            <div id="TRAFIGURA" style="display:none;">
+                <table cellspacing="0" cellpadding="3" rules="all" border="1" style="font-size:11px;width:100%;border-collapse:collapse;">
+                    <tr class="DataGrid-HeaderStyle">
+                        <th scope="col" width="40px">S. No.</th>
+                        <th scope="col">
+                            Chart
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="GroupHeaderRowStyle" colspan="2"><font size="2"><b>Quality</b></font></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="QualityPBIChart.html?c=PSC&o=">PSC</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="QualityPBIChart.html?c=SIRE&o=">Sire</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="DashboardInspectionChapterWiseDeficiency.aspx?o=">PSC Chapter Wise</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="GNMTC" style="display:none;">
+                <table cellspacing="0" cellpadding="3" rules="all" border="1" style="font-size:11px;width:100%;border-collapse:collapse;">
+                    <tr class="DataGrid-HeaderStyle">
+                        <th scope="col" width="40px">S. No.</th>
+                        <th scope="col">
+                            Chart
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="GroupHeaderRowStyle" colspan="2"><font size="2"><b>Quality</b></font></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="QualityPBIChart.html?c=PSC&o=">PSC</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="QualityPBIChart.html?c=SIRE&o=">Sire</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="DashboardInspectionChapterWiseDeficiency.aspx?o=">PSC Chapter Wise</a></td>
+                    </tr>
+                </table>
+            </div>
+            <input name="isouterpage" type="button" id="isouterpage" style="display:none" />
+        </div>
+    </form>
+</body>
+</html>

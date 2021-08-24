@@ -1,0 +1,228 @@
+using SouthNests.Phoenix.Common;
+using SouthNests.Phoenix.Framework;
+using SouthNests.Phoenix.Registers;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Data;
+using System.Drawing;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using Telerik.Web.UI;
+
+public partial class DashboardOfficeV2CrewReadytoJoin : PhoenixBasePage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            SessionUtil.PageAccessRights(this.ViewState);
+            PhoenixToolbar toolbar = new PhoenixToolbar();
+            toolbar.AddFontAwesomeButton("../Dashboard/DashboardOfficeV2CrewReadytoJoin.aspx", "Export to Excel", "<i class=\"fas fa-file-excel\"></i>", "Excel");
+            toolbar.AddFontAwesomeButton("javascript:CallPrint('gvcrew')", "Print Grid", "<i class=\"fas fa-print\"></i>", "PRINT");
+            gvcrewTab.AccessRights = this.ViewState;
+            gvcrewTab.MenuList = toolbar.Show();
+
+            cmdHiddenSubmit.Attributes.Add("style", "display:none");
+
+            if (!IsPostBack)
+            {
+                ViewState["PAGENUMBER"] = 1;
+                ViewState["SORTEXPRESSION"] = null;
+                ViewState["SORTDIRECTION"] = null;
+                ViewState["RANKID"] = null;
+                if (Request.QueryString["RANKID"] != null)
+                    ViewState["RANKID"] = Request.QueryString["RANKID"].ToString();
+                gvcrew.PageSize = int.Parse(PhoenixGeneralSettings.CurrentGeneralSetting.Records);
+            }
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+
+    }
+
+    protected void gvcrewTab_TabStripCommand(object sender, EventArgs e)
+    {
+        try
+        {
+            RadToolBarEventArgs dce = (RadToolBarEventArgs)e;
+            string CommandName = ((RadToolBarButton)dce.Item).CommandName;
+
+            if (CommandName.ToUpper().Equals("EXCEL"))
+            {
+                ShowExcel();
+            }
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+
+
+    protected void ShowExcel()
+    {
+        int iRowCount = 0;
+        int iTotalPageCount = 0;
+
+        DataSet ds = new DataSet();
+
+        string[] alColumns = { "FLDEMPLOYEENAME", "FLDRANKNAME", "FLDBATCHNO", "FLDLASTVESSELNAME" };
+        string[] alCaptions = { "Name", "Rank", "Batch", "Last Vessel" };
+
+        string sortexpression;
+        int? sortdirection = null;
+
+        sortexpression = (ViewState["SORTEXPRESSION"] == null) ? null : (ViewState["SORTEXPRESSION"].ToString());
+        if (ViewState["SORTDIRECTION"] != null)
+            sortdirection = Int32.Parse(ViewState["SORTDIRECTION"].ToString());
+        if (ViewState["ROWCOUNT"] == null || Int32.Parse(ViewState["ROWCOUNT"].ToString()) == 0)
+            iRowCount = 10;
+        else
+            iRowCount = Int32.Parse(ViewState["ROWCOUNT"].ToString());
+
+        ds = PhoenixDashboardOfficeV2Crew.DashboardCrewReadyToJoinSearch(General.GetNullableString(ViewState["RANKID"].ToString())
+                         , sortexpression, sortdirection,
+                         1,
+                         gvcrew.PageSize,
+                         ref iRowCount,
+                         ref iTotalPageCount);
+
+        if (ds.Tables.Count > 0)
+            General.ShowExcel("Crew Ready to Join", ds.Tables[0], alColumns, alCaptions, sortdirection, sortexpression);
+
+    }
+
+    protected void cmdHiddenSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            gvcrew.Rebind();
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+
+
+    protected void gvcrew_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+    {
+        try
+        {
+            ViewState["PAGENUMBER"] = ViewState["PAGENUMBER"] != null ? ViewState["PAGENUMBER"] : gvcrew.CurrentPageIndex + 1;
+            BindData();
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+
+    private void BindData()
+    {
+        int iRowCount = 0;
+        int iTotalPageCount = 0;
+
+        string[] alColumns = { "FLDEMPLOYEENAME", "FLDRANKNAME", "FLDBATCHNO", "FLDLASTVESSELNAME" };
+        string[] alCaptions = { "Name", "Rank", "Batch" , "Last Vessel" };
+
+        string sortexpression = (ViewState["SORTEXPRESSION"] == null) ? null : (ViewState["SORTEXPRESSION"].ToString());
+        int? sortdirection = null;
+        if (ViewState["SORTDIRECTION"] != null)
+            sortdirection = Int32.Parse(ViewState["SORTDIRECTION"].ToString());
+
+        DataSet ds = PhoenixDashboardOfficeV2Crew.DashboardCrewReadyToJoinSearch(General.GetNullableString(ViewState["RANKID"].ToString())
+                 , sortexpression, sortdirection,
+                 int.Parse(ViewState["PAGENUMBER"].ToString()),
+                     gvcrew.PageSize,
+                     ref iRowCount,
+                     ref iTotalPageCount);
+
+        General.SetPrintOptions("gvcrew", "Crew Ready to Join", alCaptions, alColumns, ds);
+
+        gvcrew.DataSource = ds;
+        gvcrew.VirtualItemCount = iRowCount;
+
+        ViewState["ROWCOUNT"] = iRowCount;
+    }
+
+    protected void gvcrew_ItemCommand(object sender, GridCommandEventArgs e)
+    {
+        try
+        {
+            if (e.CommandName.ToUpper().Equals("SORT"))
+                return;
+
+            else if (e.CommandName == "Page")
+            {
+                ViewState["PAGENUMBER"] = null;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ucError.ErrorMessage = ex.Message;
+            ucError.Visible = true;
+        }
+    }
+
+
+    protected void gvcrew_ItemDataBound(object sender, GridItemEventArgs e)
+    {
+        if (e.Item is GridDataItem)
+        {
+            DataRowView drv = (DataRowView)e.Item.DataItem;
+            LinkButton lnkname = (LinkButton)e.Item.FindControl("lnkname");
+
+            if (PhoenixSecurityContext.CurrentSecurityContext.DatabaseCode.ToUpper() == "OFFSHORE")
+            {
+                if (drv["FLDISNEWAPPLICANT"].ToString() == "1")
+                {
+                    lnkname.Attributes.Add("onclick", "javascript:openNewWindow('chml','','" + Session["sitepath"] + "/CrewOffshore/CrewOffshoreNewApplicantPersonalGeneral.aspx?empid=" + drv["FLDEMPLOYEEID"].ToString() + "',false,800,500); return false;");
+                }
+                else
+                {
+                    lnkname.Attributes.Add("onclick", "javascript:openNewWindow('chml','','" + Session["sitepath"] + "/CrewOffshore/CrewOffshorePersonalGeneral.aspx?empid=" + drv["FLDEMPLOYEEID"].ToString() + "',false,800,500); return false;");
+                }
+
+            }
+            else
+            {
+                if (drv["FLDISNEWAPPLICANT"].ToString() == "1")
+                {
+                    lnkname.Attributes.Add("onclick", "javascript:openNewWindow('chml','','" + Session["sitepath"] + "/Crew/CrewNewApplicantPersonalGeneral.aspx?empid=" + drv["FLDEMPLOYEEID"].ToString() + "',false,800,500); return false;");
+                }
+                else
+                {
+                    lnkname.Attributes.Add("onclick", "javascript:openNewWindow('chml','','" + Session["sitepath"] + "/Crew/CrewPersonalGeneral.aspx?empid=" + drv["FLDEMPLOYEEID"].ToString() + "',false,800,500); return false;");
+                }
+            }
+        }
+
+    }
+
+    protected void gvcrew_SortCommand(object sender, GridSortCommandEventArgs e)
+    {
+        ViewState["SORTEXPRESSION"] = e.SortExpression.Replace("ASC", "").Replace("DESC", "");
+        switch (e.NewSortOrder)
+        {
+            case GridSortOrder.Ascending:
+                ViewState["SORTDIRECTION"] = "0";
+                break;
+            case GridSortOrder.Descending:
+                ViewState["SORTDIRECTION"] = "1";
+                break;
+        }
+    }
+
+
+}

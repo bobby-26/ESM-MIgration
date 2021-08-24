@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="50px" height="39px" viewBox="-2.677 -2.559 50 39" enable-background="new -2.677 -2.559 50 39"
+	 xml:space="preserve">
+<defs>
+</defs>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="3.306" y1="33.305" x2="3.306" y2="5.674"/>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="11.297" y1="33.305" x2="11.297" y2="5.674"/>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="19.289" y1="33.305" x2="19.289" y2="5.674"/>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="27.28" y1="33.305" x2="27.28" y2="5.674"/>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="35.271" y1="33.305" x2="35.271" y2="5.674"/>
+<line opacity="0.31" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="43.263" y1="33.305" x2="43.263" y2="5.674"/>
+<line opacity="0.29" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="1.568" y1="5.532" x2="46.072" y2="5.532"/>
+<line opacity="0.29" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="1.568" y1="13.854" x2="46.072" y2="13.854"/>
+<line opacity="0.29" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="1.568" y1="22.179" x2="46.072" y2="22.179"/>
+<line opacity="0.29" fill="none" stroke="#4F4F4F" stroke-width="0.25" x1="1.568" y1="30.503" x2="46.072" y2="30.503"/>
+<rect x="5.283" y="20.894" fill="#61BE72" width="8.798" height="9.87"/>
+<rect x="5.283" y="18.183" fill="#FFC74A" width="8.798" height="3.036"/>
+<rect x="18.428" y="17.707" fill="#FFC74A" width="9.713" height="5.611"/>
+<rect x="5.283" y="15.417" fill="#EF4723" width="8.798" height="2.767"/>
+<rect x="18.428" y="3.282" fill="#61BE72" width="9.713" height="14.425"/>
+<rect x="35.271" fill="#61BE72" width="9.711" height="30.694"/>
+<rect x="35.271" y="7.188" fill="#FFC74A" width="9.711" height="5.61"/>
+<rect x="35.271" fill="#EF4723" width="9.711" height="7.188"/>
+<rect x="18.428" y="23.195" fill="#EF4723" width="9.713" height="7.186"/>
+<line fill="#969592" stroke="#4F4F4F" stroke-width="2" x1="1" y1="0" x2="1" y2="33.664"/>
+<line fill="#969592" stroke="#4F4F4F" stroke-width="2" x1="46.479" y1="33.271" x2="0.09" y2="33.271"/>
+</svg>

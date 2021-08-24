@@ -1,0 +1,66 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_buildcheck.build
+Target framework: Microsoft .NET Framework 4.0
+Target(s) specified: build.validation 
+
+   [tstamp] 19 February 2021 11:59:08.
+ [property] Target framework changed to "Microsoft .NET Framework 3.5".
+   [tstamp] 19 February 2021 11:59:08.
+
+init:
+
+
+success:
+
+
+build.validation:
+
+     [echo] Working Build...
+     [echo] Build Start Date Today : True
+     [echo] WEB Build : 0
+     [echo] 
+     [echo] SQL Build : 0
+     [echo] 
+     [exec] A subdirectory or file .\log\2-02 already exists.
+     [exec] NAnt 0.85 (Build 0.85.2478.0; release; 14-10-2006)
+     [exec] Copyright (C) 2001-2006 Gerry Shaw
+     [exec] http://nant.sourceforge.net
+     [exec] 
+     [exec] Buildfile: file:///E:/Phoenix/Working/Build/Web/web_publish_dll.build
+     [exec] Target framework: Microsoft .NET Framework 2.0
+     [exec] Target(s) specified: phoenixelogbuild 
+     [exec] 
+     [exec]    [tstamp] 19 February 2021 11:59:08.
+     [exec]  [property] Target framework changed to "Microsoft .NET Framework 3.5".
+     [exec] 
+     [exec] phoenixelogbuild:
+     [exec] 
+     [exec]      [echo] ***********************************************************
+     [exec]      [echo]    Databasename       :: PhoenixUACCEAGLE
+     [exec]      [echo]    Execute Status     :: true
+     [exec]      [echo]    Deploy folder Path :: F:\PhoenixRelease\PhoenixTest
+     [exec]      [echo]    IISRESET status    :: 0
+     [exec]      [echo] ***********************************************************
+     [exec]      [echo] Patch deploying in F:\PhoenixRelease\PhoenixTest...
+     [exec]      [exec] Starting 'powershell ( .\powerstop.ps1)' in 'E:\Phoenix\Working\Build\Web'
+     [exec]      [exec] .\powerstop.ps1 : File E:\Phoenix\Working\Build\Web\powerstop.ps1 cannot be loaded because running scripts is disabled 
+     [exec]      [exec] on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+     [exec]      [exec] At line:1 char:1
+     [exec]      [exec] + .\powerstop.ps1
+     [exec]      [exec] + ~~~~~~~~~~~~~~~
+     [exec]      [exec]     + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+     [exec]      [exec]     + FullyQualifiedErrorId : UnauthorizedAccess
+     [exec] 
+     [exec] BUILD FAILED - 0 non-fatal error(s), 7 warning(s)
+     [exec] 
+     [exec] E:\Phoenix\Working\Build\Web\web_publish_dll.build(20,2):
+     [exec] External Program Failed: powershell (return code was 1)
+     [exec] 
+     [exec] Total time: 0.6 seconds.
+     [exec] 
+     [exec] E:\Phoenix\Working\Build\Web\web_buildcheck.build(191,7):
+     [exec] External Program Failed: E:\\Phoenix\Working\Build\Web\web_publish_dll.bat (return code was 1)
+
+BUILD SUCCEEDED - 1 non-fatal error(s), 1 warning(s)
+
+Total time: 1.2 seconds.
+

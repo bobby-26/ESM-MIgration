@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<title>file:///C:/Users/developer14/Downloads/office manual.html#1c47d9d7-c3b0-e311-9d1f-0050569c5c05</title>
+<style type="text/css">
+html, body, div {
+margin:0;
+padding:0;
+height:100%;
+width:100%;
+overflow:hidden;
+}
+</style>
+</head>
+
+<body>
+<!-- Start of document code -->
+<script type="text/javascript" language="JavaScript1.1">
+ <!--
+
+ var requiredIEVersion="10";
+ var requiredFirefoxVersion="11";
+ var requiredOperaVersion="9";
+ var requiredSafariVersion="5.1.7"; // 6
+ var requiredChromeVersion="18";
+
+ var br=detectBrowser();
+ var browser=br[0];
+ var brversion = br[1];
+
+ var appVersion=navigator.appVersion.toLowerCase()
+ var isIE  = browser=="MSIE";
+ var isWin = (appVersion.indexOf("win") != -1) ? true : false;
+ var isMac = /mac/.test(appVersion);
+ var isSafari = browser=="Safari";
+ var isOpera = browser=="Opera";
+ 
+function detectBrowser() {
+    var ua=navigator.userAgent, tem,
+    M=ua.match(/(opera|chrome|safari|firefox|msie|trident\/)\/?\s*([\d\.]+)/i) || [];
+    if (/trident/i.test(M[1])) {
+        tem=  /\brv[ :]+(\d+(\.\d+)?)/g.exec(ua) || [];
+        return 'IE '+(tem[1] || '');
+    }
+    M= M[2]? [M[1], M[2]]:[navigator.appName, navigator.appVersion];
+    if((tem= ua.match(/version\/([\.\d]+)/i))!= null) M[1]= tem[1];
+    return M;
+};
+
+function CheckBrowserVer() {
+	var reqVersion;
+	if (isIE) reqVersion=requiredIEVersion;
+		else if (isSafari) reqVersion=requiredSafariVersion;
+			else if (isOpera) reqVersion=requiredOperaVersion;
+				else if (browser=="Firefox") reqVersion=requiredFirefoxVersion;
+					else if (browser=="Chrome") reqVersion=requiredChromeVersion;
+						else return true;
+	return CompVersions(brversion,reqVersion)>=0;
+}
+
+function CompVersions(ver1,ver2){
+	ver1=ver1.split(".");
+	ver2=ver2.split(".");
+	for (var i=0;i<Math.max(ver1.length,ver2.length);i++) {
+		var v1 = i<ver1.length ? parseInt(ver1[i]) : 0;
+		var v2 = i<ver2.length ? parseInt(ver2[i]) : 0;
+		if (v1<v2) return -1;
+			else if (v1>v2) return 1;
+	}
+	return 0;
+}
+
+function GetBrowserUpgradePage(){
+	if (isIE) return "http://windows.microsoft.com/en-US/internet-explorer/downloads/ie";
+		else if (isSafari) return "https://www.apple.com/safari/";
+			else if (isOpera) return "http://www.opera.com/browser/";
+				else if (browser=="Firefox") return "http://www.mozilla.com/firefox/";
+					else if (browser=="Chrome") return "http://www.google.com/chrome";
+						else return "";
+}
+
+function GetHTMLDoc(movieName) {
+    return document.getElementById(movieName).contentDocument;
+}
+// -->
+</script>
+
+<!-- Start of document placement code -->
+<script language="JavaScript" type="text/javascript">
+ <!--
+ var width = "100%"
+ var height = "100%"
+ var name = "Print2FlashDoc"
+ var htmldocurl ="doc.xml"
+ var htmlviewerurl = "office manual flash_files/docviewer.html"
+
+ if (CheckBrowserVer()) {
+     document.write("<iframe src='" + htmlviewerurl + "#" + htmldocurl + "' border='1' allowfullscreen webkitAllowFullScreen='yes' width='" + width + "' height='" + height + "' id='" + name + "'></iframe>");
+ } else {
+     var BrowserUpgradePage = GetBrowserUpgradePage();
+     document.write("This content is not supported by your browser. Please upgrade your browser" + (BrowserUpgradePage ? " by <a target='_parent' href='" + BrowserUpgradePage + "'>clicking here</a>" : ""));
+ }
+  //-->
+ </script>
+ <noscript>
+     This content requires scripts to be enabled in your browser. Please enable scripts in your browser settings.
+ </noscript>
+<!-- End of document placement code -->
+
+<!-- End of document code -->
+
+</body>
+</html>

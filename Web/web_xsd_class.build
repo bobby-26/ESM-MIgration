@@ -1,0 +1,26 @@
+<project name ="phoenix" default = "phoenixbuildxsdclass">
+
+ <include buildfile = "web_configuration.build" />
+
+ <target name="init">
+   <loadtasks assembly="${phoenix.utilities85.dir}\nantcontrib-0.85\bin\NAnt.Contrib.Tasks.dll" />
+ </target>
+
+ <target name="phoenixbuildxsdclass" depends="init">
+	
+   <echo message="Visual Source safe get for XSD"/>
+   <vssget
+	username="${ss.username}"
+	password="${ss.password}"
+	localpath="${phoenix.web.dir}\App_code\Xsd"
+	recursive="true"
+	replace="true"
+	writable="true"
+	removedeleted="true"
+	dbpath="${ss.path}"
+	path="$/Phoenix/Solution/Web/App_Code/Xsd"
+    />
+
+ </target>
+
+</project>

@@ -1,0 +1,616 @@
+/*======================================Sn-Library-CSS-Starts============================================*/
+.v-display-none {
+    display: none;
+}
+
+.v-display-block {
+    display: block;
+}
+
+.v-cursor-default {
+    cursor: default;
+}
+
+.v-cursor-pointer {
+    cursor: pointer;
+}
+
+.v-text-anchor-start {
+    text-anchor: start;
+}
+
+.v-text-anchor-middle {
+    text-anchor: middle;
+}
+
+.v-text-anchor-end {
+    text-anchor: end;
+}
+
+.v-font-weight-bold {
+    font-weight: bold;
+}
+
+.v-font-weight-bolder {
+    font-weight: bolder;
+}
+
+.v-font-weight-normal {
+    font-weight: normal;
+}
+
+.v-opacity-0 {
+    opacity: 0;
+}
+
+.v-opacity-1 {
+    opacity: 1;
+}
+
+.v-normal-font {
+    font-size:8px !important;
+}
+
+.v-transition-font {
+    font-size:10px;
+}
+
+.v-normal-font-full {
+    font-size: 10px !important;
+}
+
+.v-transition-font-full {
+    font-size: 12px;
+}
+
+
+
+
+/*======================================Sn-Library-CSS-Ends============================================*/
+
+/*======================================Sn-Library-Axis-Starts============================================*/
+.v-base-axis {
+    text-anchor: end;
+}
+
+/*======================================Sn-Library-Axis-Ends============================================*/
+
+
+/*.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: darkslategray;
+    color: white;
+}*/
+
+.v-header {
+    width: 100%;
+    font-size: x-small;
+    display: inline-block;
+}
+
+.v-title {
+    float: left;
+}
+
+.v-interaction-icon {
+    margin: 2px;
+    display: none;
+    float: left;
+}
+
+.v-text-default {
+    font-family: 'Segoe UI';
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.v-title {
+    font-family: 'Segoe UI';
+    font-size: small;
+    font-weight: bold;
+}
+
+.v-text-noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.v-text-center {
+    text-align: justify; /* For Edge */
+    -moz-text-align-last: center; /* For Firefox prior 58.0 */
+    text-align-last: center;
+}
+
+.v-text-overflow-hide {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* visual holder related styles start */ 
+.vh-default {   
+    /* border: 1px solid rgb(46, 75, 109);  */
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 0px 4px gray;
+    float: left;
+}
+
+.vh-full {
+    position: fixed;
+}
+
+.vh-default:hover {
+    background-color: #46b4af;
+    box-shadow: 0px 0px 15px slategray;    
+    
+}
+.vh-invisible, .vh-invisible:hover {
+    border: none;
+    box-shadow : none;
+}
+.vh-header-invisible {
+    display: none;
+}
+/* visual holder related styles end */ 
+
+/* visual about start */
+.v-about {
+    float: left;
+    display: none;
+    width: 25%;
+    padding-left: 10px;
+    margin-right: 20px;
+    padding-left: 10px;
+    border-right: 1px solid lightgray;
+    overflow-y: scroll;
+    font-family: monospace;
+    font-size: small;
+    border-top: 1px solid lightgray;
+    margin-top: 10px;
+}
+
+/* visual about end */
+
+/* visual element related styles start */ 
+.ve-default {
+    /* fill: #46b4af;     */
+    stroke: lightgray;
+    stroke-width: 1;
+    box-shadow: 2px 2px 4px 4px black;
+    opacity: 0.7;
+}
+
+.ve-default:hover {
+    box-shadow: 2px 2px 4px 4px black;
+    opacity: 0.8;
+}
+
+.ve-default-1 {
+    fill: #46b4af;
+    opacity: 1;
+    stroke: lightgray;
+    stroke-width: 1;
+}
+
+.ve-default-if-zero {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.ve-pie-default {
+    stroke: white;
+}
+
+.ve-doughnut-default {
+    stroke: white;
+}
+
+.ve-connector-default {
+    fill: none;
+    fill-opacity: 0.4;
+    stroke: steelblue; /*rgb(2, 30, 94);*/
+    stroke-opacity: 1;
+    stroke-width: 1;
+}
+
+.ve-text-default {
+    font-family: 'Segoe UI';
+    font-size: x-small;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.ve-text-default-1 {
+    font-family: 'Segoe UI';
+    font-size: x-small;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.ve-mouse-on {
+    opacity: 0.9;
+}
+
+/* visual element interactive styles starts */
+.ve-inter-group-default {
+    font-size: inherit; /*smaller;*/
+/*????????????????????*/    /*overflow: scroll;*/ 
+}
+
+.ve-inter-table-default {
+    font-weight: bold;
+}
+.ve-inter-unselected {
+    opacity: 0.2;
+    fill-opacity: 0.5;
+}
+.ve-inter-table-unselected {
+    opacity: 0.2; /*0.4*/
+}
+.ve-inter-selected {
+    opacity: 0.7; /*1; 0.9;*/
+    font-weight: bold;
+    fill-opacity: 1;
+}
+.ve-grabbing {
+    cursor: -webkit-grabbing;
+}
+/* visual element interactive styles ends */
+
+.ve-inactive {
+    opacity: 0.4;
+}
+.ve-active {
+    opacity: 1;
+}
+/* visual element related styles end */ 
+
+/* visual axis related styles start */
+
+.v-head-text-holder {
+    /* do not delete */    
+}
+
+.va-text-plotaxis-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    /*fill-opacity: 0.5;*/
+}
+
+.va-text-baseaxis-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    /*fill-opacity: 0.5;*/
+}
+
+.va-text-plotaxis {
+    font-family: 'Segoe UI';
+    font-size: 7px;
+    font-weight: bold;
+}
+
+.va-text-baseaxis {
+    font-family: 'Segoe UI';
+    font-size: 7px;
+    font-weight: bold;
+}
+/* visual axis related styles end */ 
+
+/* visual related styles start */
+.vv-text-title {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    text-anchor: middle;
+    fill-opacity: 0.7;
+}
+/* visual related styles end */
+
+
+/* visual table related styles start */
+.vt-head {
+    /*font-size: 10px;*/ /*inherit;*/
+    border-bottom: 1px solid darkslategray; /* note: normally this color should match with the default value set in 'param.scale.tile.hostColor' */
+    opacity: 0.7;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.vt-body {
+    display: block;
+    overflow-y: scroll;
+}
+
+.vt-default {
+    font-family: 'Segoe UI';
+    opacity: 1;
+    font-size: 8px; /*x-small;*/
+}
+
+.vt-caption {
+    border-radius: 4px 4px 0px 0px;
+    margin-left: -3px;
+    margin-top: -3px;
+    margin-right: -3px;
+    font-size: 12px;
+    font-weight: 900; 
+    background-color: #727272;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 2px;
+}
+
+.vt-r-data {
+
+}
+
+.vt-r-data-even {
+    background-color: #efefef;
+}
+
+.vt-cell-mouseover {
+    background-color: darkgray;
+}
+
+.vt-foot {
+    border-top: 1px solid darkslategray; /* note: normally this color should match with the default value set in 'param.scale.tile.hostColor' */
+    font-weight: bold;
+    font-size: inherit;
+    width: 100%;
+    display: table;
+    table-layout:fixed;
+    /*opacity: 0.7;*/
+}
+
+
+
+.vt-c-text {
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.vt-c-number {
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.vt-c-summary {
+    font-size: 12px;
+    font-weight: bolder;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.vt-editable-text,.vt-editable-icon {
+    background-color: #fbfb7c;
+}
+
+.vt-editable-text :focus {
+    outline: none;
+    border: none;
+}
+
+.vt-element-checked {
+    background-color: black;
+    color: white;
+}
+
+.vt-element-un-checked {
+    background-color: white;
+    color: black;
+}
+/* visual table related styles end*/
+
+/* check-list related */
+.v-check-list-item-group {
+    list-style: none;
+    margin-left: -35px;
+    
+}
+.v-check-list-item-default {
+    height: 14px;
+    margin-top: 2px;
+    /*opacity: 1;*/
+}
+
+.v-check-box {
+    height: 12px;
+    width: 12px;
+}
+
+.v-check-list-label {
+    margin-left: 2px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding-left: 1px;
+    padding-right: 2px;
+}
+
+/* visual legend related styles start */
+.v-legend {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: xx-small;
+}
+/* visual legend related styles end */
+
+/*.toolTip {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    display: block;
+    height: auto;
+    min-width: 80px;
+    padding: 14px;
+    position: absolute;
+    text-align: center;
+}*/
+
+.ve-tooltip-compact {
+    font-family: 'Segoe UI';
+    position: absolute;
+    display: none;
+    width: auto;
+    height: 25px;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -3px 3px 15px #888888;
+    font-size: larger;
+    padding: 1px;
+    text-align: center;
+    z-index: 99999;
+}
+
+.ve-inner-left-tooltip {
+    height: 100%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding-left: 4px;
+    padding-right: 2px;
+}
+
+.ve-inner-right-tooltip {
+    height: 100%;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-right: 4px;
+}
+
+.v-polyline {
+    opacity: .3;
+    stroke: gray;
+    stroke-width: 0.5px;
+    fill: none;
+}
+
+.v-shadow {
+    -webkit-filter: drop-shadow( 4px 4px 4px gray );
+    -moz-filter: drop-shadow( 4px 4px 4px gray );
+    filter: drop-shadow( 4px 4px 4px gray );
+}
+
+.vh-default:hover {
+      box-shadow: 0px 0px 16px slategray;    
+}
+
+/*.v-loader {
+  border: 3px solid lightgray; 
+  border-radius: 50%;
+  border-top: 3px solid #3498db;
+  width: 18px;
+  height: 18px;
+  -webkit-animation: spin 1s linear infinite; 
+  animation: spin 1s linear infinite;
+}*/
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* visual bar chart realted styles start*/
+.v-bar {
+    stroke: gray;
+    stroke-width: 1px;
+}
+/* visual bar chart realted styles end*/
+
+/* visual total related styles start */
+.v-plot-total {
+    font-family: 'Segoe UI';
+    text-anchor: end;
+    cursor: default,
+}
+
+.v-plot-total-label {
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.v-plot-total-value {
+    font-weight: bold;
+    fill: black;
+    stroke: black;
+}
+
+
+/* visual total related styles ends */
+
+/*visual line grouped releated style starts*/
+.vl-line {
+    stroke: lightgray;
+    stroke-width: 1;
+    stroke-dasharray: 5,5;
+}
+
+.vl-line-moving-text {
+    fill: black;
+    font-family: 'Segoe UI';
+}
+
+.vl-line-text-tspan {
+    font-weight: bold;
+    opacity: 0.6;
+}
+
+.vl-line-path {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 2px;
+}
+
+/*visual line grouped releated style ends*/
+
+/* visual bubble related class starts*/
+.vl-line-bubble {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 1px;
+}
+
+/* visual bubble related class ends*/
+
+/* visual table related class starts*/
+
+
+
+/* print related css starts*/
+@media print {
+
+}
+/* print related css ends*/
+
+/* Temp Code */
+
+.sn-tooltip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    z-index: 10000000000;
+  }

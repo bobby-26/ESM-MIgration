@@ -1,0 +1,1725 @@
+﻿body {
+}
+
+.fa-search:before {
+    /*content: "\f002";*/
+    content: url(../css/Theme1/images/search.png) !important;
+}
+
+.fa-file-excel:before {
+    /*content: "\f1c3";*/
+    content: url(../css/Theme1/images/icon_xls.png) !important;
+}
+
+.fa-print:before {
+    /*content: "\f02f";*/
+    content: url(../css/Theme1/images/icon_print.png) !important;
+}
+.fas-envelop-open:before {
+    content: url(../css/Theme1/images/48.png) !important;
+}
+.fa-exclamation-triangle:before {
+    /*content: "\f071";*/
+    content: url(../css/Theme1/images/green-symbol.png) !important;
+}
+
+.fa-trash-alt:before {
+    content: url(../css/Theme1/images/Delete.png) !important;
+}
+
+.fa-edit:before {
+    content: url(../css/Theme1/images/te_edit.png) !important;
+}
+
+.fa-save:before {
+    content: url(../css/Theme1/images/save.png) !important;
+}
+.fa-gallery:before {
+    content: url(../css/Theme1/images/view_gallery.png) !important;
+}
+
+.fa-times-circle:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-eraser:before {
+    content: url(../css/Theme1/images/clear-filter.png) !important;
+}
+
+.fa-plus-circle:before {
+    content: url(../css/Theme1/images/add.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-Info:before {
+    content: url(../css/Theme1/images/Detail-Section.png) !important;
+}
+
+.fa-calendar-alt:before {
+    content: url(../css/Theme1/images/31.png) !important;
+}
+
+.fa-calendar-alt:before {
+    content: url(../css/Theme1/images/31.png) !important;
+}
+
+.fa-calendar-alt:before {
+    content: url(../css/Theme1/images/31.png) !important;
+}
+
+.fa-ban:before {
+    content: url(../css/Theme1/images/Discontinue.png) !important;
+}
+
+.fa-arrow-alt-circle-right:before {
+    content: url(../css/Theme1/images/move-confirm.png) !important;
+}
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/unplan-inspection.png) !important;
+}*/
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/Faculty-Contact.png) !important;
+}*/
+
+.fa-calendar-plus:before {
+    content: url(../css/Theme1/images/Batch-Plan.png) !important;
+}
+
+.fa-flag:before {
+    content: url(../css/Theme1/images/Flag-Change.png) !important;
+}
+
+/*.fa-exclamation:before {
+    content: url(../css/Theme1/images/Batch-Cancel.png) !important;
+}*/
+
+.fa-plane-arrival:before {
+    content: url(../css/Theme1/images/Off-Signer-Request.png) !important;
+}
+
+.fa-plane-departure:before {
+    content: url(../css/Theme1/images/On-Signer-Request.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-award:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+/*.fa-times-circle:before {
+    content: url(../css/Theme1/images/red-symbol.png) !important;
+}*/
+
+.fa-users:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-bell:before {
+    content: url(../css/Theme1/images/remainder-mail.png) !important;
+}
+
+.fa-Quora:before {
+    content: url(../css/Theme1/images/query.png) !important;
+}
+
+.fa-comments:before {
+    content: url(../css/Theme1/images/communication.png) !important;
+}
+
+.fa-comments-dollar:before {
+    content: url(../css/Theme1/images/quotation-requote.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/copy.png) !important;
+}
+
+.fa-user:before {
+    content: url(../css/Theme1/images/vendor-detail.png) !important;
+}
+
+.fa-plane-departure:before {
+    content: url(../css/Theme1/images/de-select.png) !important;
+}
+
+.fa-elementor:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-plane-departure:before {
+    content: url(../css/Theme1/images/initiate-travel.png) !important;
+}
+
+.fa-tag:before {
+    content: url(../css/Theme1/images/ticket.png) !important;
+}
+
+
+.fa-undo:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+.fa-plane:before {
+    content: url(../css/Theme1/images/existing-travel.png) !important;
+}
+
+.fa-redo:before {
+    content: url(../css/Theme1/images/refresh.png) !important;
+}
+
+.fa-user-minus:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-sync-alt:before {
+    content: url(../css/Theme1/images/move-confirm.png) !important;
+}
+
+.fa-sync-alt:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+.fa-user-plus:before {
+    content: url(../css/Theme1/images/add.png) !important;
+}
+
+.fa-file:before {
+    content: url(../css/Theme1/images/pr.png) !important;
+}
+
+.fa-user-astronaut:before {
+    content: url(../css/Theme1/images/crew-suitability-check.png) !important;
+}
+
+.fa-pencil-ruler:before {
+    content: url(../css/Theme1/images/72.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-glasses:before {
+    content: url(../css/Theme1/images/no-remarks.png) !important;
+}
+
+.fa-archive:before {
+    content: url(../css/Theme1/images/show-archive.png) !important;
+}
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/notepad.png) !important;
+}*/
+
+.fa-star:before {
+    content: url(../css/Theme1/images/14.png) !important;
+}
+
+.fa-briefcase-medical:before {
+    content: url(../css/Theme1/images/medical-request.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-book:before {
+    content: url(../css/Theme1/images/course-request.png) !important;
+}
+
+.fa-ship:before {
+    content: url(../css/Theme1/images/cargo-ship.png) !important;
+}
+
+.fa-calendar-times:before {
+    content: url(../css/Theme1/images/deplan.png) !important;
+}
+
+.fa-comment-alt:before {
+    content: url(../css/Theme1/images/communication.png) !important;
+}
+
+.fa-sync:before {
+    content: url(../css/Theme1/images/refresh.png) !important;
+}
+
+.fa-lock:before {
+    content: url(../css/Theme1/images/Lock.png) !important;
+}
+
+.fa-unlock:before {
+    content: url(../css/Theme1/images/.png) !important;
+}
+
+/*.fa-user-circle-showlist:before {
+    content: url(../css/Theme1/images/showlist.png) !important;
+}*/
+
+.fa-list-ul:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-bell-slash:before {
+    content: url(../css/Theme1/images/alert.png) !important;
+}
+
+.fa-user-alt:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+.fa-chart-bar:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-check:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+.fa-coins:before {
+    content: url(../css/Theme1/images/Payment.png) !important;
+}
+
+.fa-exclamation-circle:before {
+    content: url(../css/Theme1/images/Make-Inactive.png) !important;
+}
+
+.fa-share:before {
+    content: url(../css/Theme1/images/24.png) !important;
+}
+
+.fa-file-contract:before {
+    content: url(../css/Theme1/images/Contract.png) !important;
+}
+
+.fa-plane-departure:before {
+    content: url(../css/Theme1/images/initiate-travel.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/document_view.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/Planned.png) !important;
+}
+
+.fa-users:before {
+    content: url(../css/Theme1/images/vendor.png) !important;
+}
+
+.fa-file-signature:before {
+    content: url(../css/Theme1/images/Joining-Letters.png) !important;
+}
+
+.fa-passport:before {
+    content: url(../css/Theme1/images/License-Request.png) !important;
+}
+
+.fa-book:before {
+    content: url(../css/Theme1/images/course-request.png) !important;
+}
+
+.fa-briefcase-medical:before {
+    content: url(../css/Theme1/images/medical-request.png) !important;
+}
+
+.fa-tshirt:before {
+    content: url(../css/Theme1/images/workgear_issue.png) !important;
+}
+
+.fa-file-contract:before {
+    content: url(../css/Theme1/images/Generate-Contract.png) !important;
+}
+
+.fa-coins:before {
+    content: url(../css/Theme1/images/edit-info.png) !important;
+}
+
+.fa-list-ul:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/Licence-Detail.png) !important;
+}
+
+.fa-coins:before {
+    content: url(../css/Theme1/images/generate-po.png) !important;
+}
+
+.fa-envelope-open-text:before {
+    content: url(../css/Theme1/images/covering-letter.png) !important;
+}
+.fa-part-detail:before {
+    content: url(../css/Theme1/images/part-detail.png) !important;
+}
+
+.fa-file-contract:before {
+    content: url(../css/Theme1/images/application-form.png) !important;
+}
+
+.fa-file-signature:before {
+    content: url(../css/Theme1/images/applying-CRA.png) !important;
+}
+
+.fa-landmark:before {
+    content: url(../css/Theme1/images/bank-info.png) !important;
+}
+
+.fa-coins:before {
+    content: url(../css/Theme1/images/generate-po.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-bell:before {
+    content: url(../css/Theme1/images/remainder-mail.png) !important;
+}
+
+.fa-star:before {
+    content: url(../css/Theme1/images/red.png) !important;
+}
+
+.fa-star:before {
+    content: url(../css/Theme1/images/yellow.png) !important;
+}
+
+.fa-star:before {
+    content: url(../css/Theme1/images/blue.png) !important;
+}
+
+.fa-id-card:before {
+    content: url(../css/Theme1/images/id-card.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}
+
+.fa-graduation-cap:before {
+    content: url(../css/Theme1/images/View-Course-Done.png) !important;
+}
+
+.fa-plane-departure:before {
+    content: url(../css/Theme1/images/generate-travelreq.png) !important;
+}
+
+/* Data Synchronizer */
+
+.fa-file-download:before {
+    content: url(../css/Theme1/images/import-history.png) !important;
+}
+
+.fa-file-upload:before {
+    content: url(../css/Theme1/images/export-history.png) !important;
+}
+
+.fa-business-time:before {
+    content: url(../css/Theme1/images/scheduled-tasks-icon.png) !important;
+}
+
+.fa-clipboard-list:before {
+    content: url(../css/Theme1/images/72.png) !important;
+}
+
+.fa-times:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-redo-alt:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+/*Purchase*/
+
+.fa-plus:before {
+    content: url(../css/Theme1/images/add.png) !important;
+}
+
+.fa-edit:before {
+    content: url(../css/Theme1/images/te_edit.png) !important;
+}
+
+.fa-save:before {
+    content: url(../css/Theme1/images/save.png) !important;
+}
+
+.fa-times:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/copy-requisition.png) !important;
+}
+
+.fa-receipt:before {
+    content: url(../css/Theme1/images/Vessel-Receipt-Report.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}
+
+.fa-database:before {
+    content: url(../css/Theme1/images/bulk_save.png) !important;
+}
+
+.fa-bell:before {
+    content: url(../css/Theme1/images/remainder-mail.png) !important;
+}
+
+.fa-quora:before {
+    content: url(../css/Theme1/images/query.png) !important;
+}
+
+.fa-user-md:before {
+    content: url(../css/Theme1/images/send-approval.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-check:before {
+    content: url(../css/Theme1/images/select.png) !important;
+}
+
+.fa-address-book:before {
+    content: url(../css/Theme1/images/vendor-detail.png) !important;
+}
+
+/*Quality*/
+
+.fa-eye:before {
+    content: url(../css/Theme1/images/deficiency-action.png) !important;
+}
+
+.fa-eye-na:before {
+    content: url(../css/Theme1/images/deficiency-noaction.png) !important;
+}
+
+.fa-book:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-unlock:before {
+    content: url(../css/Theme1/images/unlock.png) !important;
+}
+
+.fa-comments-blue:before {
+    content: url(../css/Theme1/images/Comments.png) !important;
+}
+.fa-Chat:before {
+    content: url(../css/Theme1/images/Chat.png) !important;
+}
+.fa-history:before {
+    content: url(../css/Theme1/images/Reschedule-History.png) !important;
+}
+.fa-audittrail:before {
+    content: url(../css/Theme1/images/te_pqtes.png) !important;
+}
+
+.fa-paint-brush:before {
+    content: url(../css/Theme1/images/clear.png) !important;
+}
+
+.fa-user-tie:before {
+    content: url(../css/Theme1/images/73.png) !important;
+}
+
+.fa-address-book:before {
+    content: url(../css/Theme1/images/supplier-address.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-registered:before {
+    content: url(../css/Theme1/images/risk-assessment.png) !important;
+}
+
+.fa-chart-bar:before {
+    content: url(../css/Theme1/images/BarChart.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/copy.png) !important;
+}
+
+.fa-file-import:before {
+    content: url(../css/Theme1/images/create-licence.png) !important;
+}
+
+.fa-calendar-alt:before {
+    content: url(../css/Theme1/images/scheduled-tasks-icon.png) !important;
+}
+
+.fa-clipboard:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-calendar-times:before {
+    content: url(../css/Theme1/images/unplan-inspection.png) !important;
+}
+
+.fa-award:before {
+    content: url(../css/Theme1/images/RA-Request-for-Approval.png) !important;
+}
+
+.fa-user-check:before {
+    content: url(../css/Theme1/images/approved.png) !important;
+}
+
+.fa-equals:before {
+    content: url(../css/Theme1/images/Non-Routine-RA-and-Standard-Comparison.png) !important;
+}
+
+.fa-network-wired:before {
+    content: url(../css/Theme1/images/detail-flag.png) !important;
+}
+
+/*.fa-clipboard-list:before {
+    content: url(../css/Theme1/images/Job-Description.png) !important;
+}*/
+
+/*DMS*/
+
+.fa-search-minus:before {
+    content: url(../css/Theme1/images/document_view.png) !important;
+}
+
+.fa-check-square:before {
+    content: url(../css/Theme1/images/edit-confirm.png) !important;
+}
+
+.fa-download:before {
+    content: url(../css/Theme1/images/archive.png) !important;
+}
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/te_notes.png) !important;
+}*/
+
+.fa-edit:before {
+    content: url(../css/Theme1/images/te_edit.png) !important;
+}
+
+.fa-trash:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/publish-document.png) !important;
+}*/
+
+.fa-receipt:before {
+    content: url(../css/Theme1/images/te_view.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/requisition.png) !important;
+}
+
+.fa-ship:before {
+    content: url(../css/Theme1/images/vessel.png) !important;
+}
+
+.fa-plus-circle:before {
+    content: url(../css/Theme1/images/te_check.png) !important;
+}
+
+.fa-angle-double-down:before {
+    content: url(../css/Theme1/images/import-history.png) !important;
+}
+
+.fa-user-edit:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-clipboard-check:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/requisition.png) !important;
+}
+
+.fa-angle-double-up:before {
+    content: url(../css/Theme1/images/export-history.png) !important;
+}
+
+.fa-receipt:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+/*.fa-file:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}*/
+
+.fa-receipt:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+/*Vessel Accounts*/
+
+.fa-award:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+.fa-copy:before {
+    content: url(../css/Theme1/images/copy.png) !important;
+}
+
+.fa-coins:before {
+    content: url(../css/Theme1/images/CBA-Components.png) !important;
+}
+
+.fa-money-check-alt:before {
+    content: url(../css/Theme1/images/View-BOW.png) !important;
+}
+
+.fa-currency-converter:before {
+    content: url(../css/Theme1/images/currency_mismatch.png) !important;
+}
+
+.fa-owner:before {
+    content: url(../css/Theme1/images/owner.png) !important;
+}
+
+.fa-calculator-alt:before {
+    content: url(../css/Theme1/images/te_calc.png) !important;
+}
+
+.fa-upload:before {
+    content: url(../css/Theme1/images/upload.png) !important;
+}
+
+.fa-refund-letter:before {
+    content: url(../css/Theme1/images/refund-letter.png) !important;
+}
+
+.fa-sidearrow:before {
+    content: url(../css/Theme1/images/sidearrow.png) !important;
+}
+
+
+/*Vessel Position*/
+
+.fa-paperclip:before {
+    content: url(../css/Theme1/images/attachment.png) !important;
+}
+
+.fa-shopping-basket:before {
+    content: url(../css/Theme1/images/cargo.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-file-pdf:before {
+    content: url(../css/Theme1/images/pdf.png) !important;
+}
+/*.fa-exclamation:before {
+    content: url(../css/Theme1/images/red-symbol.png) !important;
+}*/
+
+.fa-exclamation-triangle:before {
+    content: url(../css/Theme1/images/red.png) !important;
+}
+
+.fa-redo:before {
+    content: url(../css/Theme1/images/refresh.png) !important;
+}
+
+.fa-gas-pump:before {
+    content: url(../css/Theme1/images/bunkering.png) !important;
+}
+/*.fa-info-circle:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}*/
+.fa-copy:before {
+    content: url(../css/Theme1/images/copy.png) !important;
+}
+
+.fa-share-square:before {
+    content: url(../css/Theme1/images/24.png) !important;
+}
+
+.fa-paint-brush:before {
+    content: url(../css/Theme1/images/clear.png) !important;
+}
+
+.fa-download:before {
+    content: url(../css/Theme1/images/download_1.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/48.png) !important;
+}
+
+.fa-docker:before {
+    content: url(../css/Theme1/images/cargo-ship.png) !important;
+}
+/*.fa-info-circle:before {
+    content: url(../css/Theme1/images/infoIcon.svg) !important;
+}*/
+
+
+
+.fa-shipping-fast:before {
+    content: url(../css/Theme1/images/data-export.png) !important;
+}
+
+.fa-angle-double-up:before {
+    content: url(../css/Theme1/images/arrowUp.png) !important;
+}
+
+.fa-angle-double-down:before {
+    content: url(../css/Theme1/images/arrowDown.png) !important;
+}
+
+.fa-user:before {
+    content: url(../css/Theme1/images/owner.png) !important;
+}
+
+.fa-docker:before {
+    content: url(../css/Theme1/images/Initiate-Docking.png) !important;
+}
+
+.fa-binoculars:before {
+    content: url(../css/Theme1/images/view_task.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-glasses:before {
+    content: url(../css/Theme1/images/te_view.png) !important;
+}
+
+.fa-envelope:before {
+    content: url(../css/Theme1/images/Email.png) !important;
+}
+
+.fa-file-alt:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}
+
+.fa-quora:before {
+    content: url(../css/Theme1/images/te_quote.png) !important;
+}
+
+.fa-star:before {
+    content: url(../css/Theme1/images/Ticket-Cancelled.png) !important;
+}
+
+.fa-sync:before {
+    content: url(../css/Theme1/images/refresh.png) !important;
+}
+
+.fa-file-invoice-dollar:before {
+    content: url(../css/Theme1/images/generate-po.png) !important;
+}
+
+.fa-calculator:before {
+    content: url(../css/Theme1/images/view-po-detail.png) !important;
+}
+
+.fa-docker:before {
+    content: url(../css/Theme1/images/Initiate-Docking.png) !important;
+}
+
+.fa-clipboard:before {
+    content: url(../css/Theme1/images/Compare-Quotation.png) !important;
+}
+
+.fa-tasks:before {
+    content: url(../css/Theme1/images/audit_start.png) !important;
+}
+
+.fa-check-circle:before {
+    content: url(../css/Theme1/images/select.png) !important;
+}
+
+
+/*New icon class for repeating icons*/
+
+.fa-star-14:before {
+    content: url(../css/Theme1/images/14.png) !important;
+}
+
+.fa-share-square-24:before {
+    content: url(../css/Theme1/images/24.png) !important;
+}
+
+.fa fa-pencil-ruler-72:before {
+    content: url(../css/Theme1/images/72.png) !important;
+}
+
+.fa-table-72:before {
+    content: url(../css/Theme1/images/72.png) !important;
+}
+
+.fa-clipboard-list-72:before {
+    content: url(../css/Theme1/images/72.png) !important;
+}
+
+.fa-user-tie-73:before {
+    content: url(../css/Theme1/images/73.png) !important;
+}
+
+.fa-user-plus-add:before {
+    content: url(../css/Theme1/images/add.png) !important;
+}
+
+.fa-check-circle-aptl:before {
+    content: url(../css/Theme1/images/Add-Participant-to-List.png) !important;
+}
+
+.fa-exclamation-circle-aa:before {
+    content: url(../css/Theme1/images/alert_active.png) !important;
+}
+
+.fa-list-alt-annexure:before {
+    content: url(../css/Theme1/images/annexure.png) !important;
+}
+
+.fa-file-contract-af:before {
+    content: url(../css/Theme1/images/application-form.png) !important;
+}
+
+.fa-file-signature-ac:before {
+    content: url(../css/Theme1/images/applying-CRA.png) !important;
+}
+
+.fa-clipboard-check-approve:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+.fa-file-approve:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+
+.fa-user-check-approved:before {
+    content: url(../css/Theme1/images/approved.png) !important;
+}
+
+.fa-download-archive:before {
+    content: url(../css/Theme1/images/archive.png) !important;
+}
+
+.fa-chart-bar-bc:before {
+    content: url(../css/Theme1/images/BarChart.png) !important;
+}
+
+.fa-star-blue:before {
+    content: url(../css/Theme1/images/blue.png) !important;
+}
+
+.fa-database-bs:before {
+    content: url(../css/Theme1/images/bulk_save.png) !important;
+}
+
+.fa-gas-pump-bunkering:before {
+    content: url(../css/Theme1/images/bunkering.png) !important;
+}
+
+.fa-times-circle-cancel:before {
+    content: url(../css/Theme1/images/cancel.png) !important;
+}
+
+.fa-window-close-cancel:before {
+    content: url(../css/Theme1/images/cancel.png) !important;
+}
+
+.fa-shopping-basket-cargo:before {
+    content: url(../css/Theme1/images/cargo.png) !important;
+}
+
+.fab fa-docker-cs:before {
+    content: url(../css/Theme1/images/cargo-ship.png) !important;
+}
+
+.fa-coins-cbac:before {
+    content: url(../css/Theme1/images/CBA-Components.png) !important;
+}
+
+.fa-list-alt-cba:before {
+    content: url(../css/Theme1/images/CBA-Components-Wages.png) !important;
+}
+
+.fa-tasks-checklist:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+
+.fa-eraser-cf:before {
+    content: url(../css/Theme1/images/clear-filter.png) !important;
+}
+
+.fa-check-circle-completed:before {
+    content: url(../css/Theme1/images/completed.png) !important;
+}
+
+.fa-copy-cr:before {
+    content: url(../css/Theme1/images/copy-requisition.png) !important;
+}
+
+.fa-file-import-cl:before {
+    content: url(../css/Theme1/images/create-licence.png) !important;
+}
+
+.fa-users-crew:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+.fa fa-pencil-ruler-crew:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+.fa-user-alt-crew:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+. fa-user-astronaut-csc:before {
+    content: url(../css/Theme1/images/crew-suitability-check.png) !important;
+}
+
+.fa-eye-da:before {
+    content: url(../css/Theme1/images/deficiency-action.png) !important;
+}
+
+.fa fa-trash-Delete:before {
+    content: url(../css/Theme1/images/Delete.png) !important;
+}
+
+.fa-calendar-times-deplan:before {
+    content: url(../css/Theme1/images/deplan.png) !important;
+}
+
+.fa-plane-departure-de-select:before {
+    content: url(../css/Theme1/images/de-select.png) !important;
+}
+
+.fa-network-wired-df:before {
+    content: url(../css/Theme1/images/detail-flag.png) !important;
+}
+
+.fa-file-alt-dv:before {
+    content: url(../css/Theme1/images/document_view.png) !important;
+}
+
+.fa-search-minus-dv:before {
+    content: url(../css/Theme1/images/document_view.png) !important;
+}
+
+.fa-download-d:before {
+    content: url(../css/Theme1/images/download_1.png) !important;
+}
+
+.fa-check-square-ec:before {
+    content: url(../css/Theme1/images/edit-confirm.png) !important;
+}
+
+.fa-check-circle-ei:before {
+    content: url(../css/Theme1/images/edit-info.png) !important;
+}
+
+.fa-coins-ei:before {
+    content: url(../css/Theme1/images/edit-info.png) !important;
+}
+
+.fa-angle-double-up-eh:before {
+    content: url(../css/Theme1/images/export-history.png) !important;
+}
+
+.fa-file-upload-eh:before {
+    content: url(../css/Theme1/images/export-history.png) !important;
+}
+
+.fa-file-fc:before {
+    content: url(../css/Theme1/images/Faculty-Contact.png) !important;
+}
+
+.fa-file-fc:before {
+    content: url(../css/Theme1/images/Faculty-Contact.png) !important;
+}
+
+.fa-check-circle-fq:before {
+    content: url(../css/Theme1/images/final-quotation.png) !important;
+}
+
+.fa-coins-gp:before {
+    content: url(../css/Theme1/images/generate-po.png) !important;
+}
+
+.fa-plane-departure-gt:before {
+    content: url(../css/Theme1/images/generate-travelreq.png) !important;
+}
+
+.fa-angle-double-down-ih:before {
+    content: url(../css/Theme1/images/import-history.png) !important;
+}
+
+.fa-file-download-ih:before {
+    content: url(../css/Theme1/images/import-history.png) !important;
+}
+
+.fa-file-alt-ir:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-book-ir:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-chart-bar-ir:before {
+    content: url(../css/Theme1/images/incident-report.png) !important;
+}
+
+.fa-plane-departure-it:before {
+    content: url(../css/Theme1/images/initiate-travel.png) !important;
+}
+
+.fa-plane-it:before {
+    content: url(../css/Theme1/images/initiate-travel.png) !important;
+}
+
+.fa-sync-alt-ip:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+.fa-copy-ip:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+.fa-redo-alt-ip:before {
+    content: url(../css/Theme1/images/in-progress.png) !important;
+}
+
+.fa-list-alt-Itinerary:before {
+    content: url(../css/Theme1/images/Itinerary.png) !important;
+}
+
+.fa-clipboard-list-jd:before {
+    content: url(../css/Theme1/images/Job-Description.png) !important;
+}
+
+.fa-list-alt-jd:before {
+    content: url(../css/Theme1/images/Job-Description.png) !important;
+}
+
+.fa-file-signature-jl:before {
+    content: url(../css/Theme1/images/Joining-Letters.png) !important;
+}
+
+.fa-tasks-ld:before {
+    content: url(../css/Theme1/images/Licence-Detail.png) !important;
+}
+
+.fa-envelope-open-text-Messages:before {
+    content: url(../css/Theme1/images/Messages.png) !important;
+}
+
+.fa-clipboard-Modify:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-receipt-Modify:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-user-edit-Modify:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-sync-alt-mc:before {
+    content: url(../css/Theme1/images/move-confirm.png) !important;
+}
+
+.fa-sign-out-alt-mc:before {
+    content: url(../css/Theme1/images/move-confirm.png) !important;
+}
+
+.fa-paperclip-na:before {
+    content: url(../css/Theme1/images/no-attachment.png) !important;
+}
+
+.fa-equals-nrrasc:before {
+    content: url(../css/Theme1/images/Non-Routine-RA-and-Standard-Comparison.png) !important;
+}
+
+.fa-glasses-nr:before {
+    content: url(../css/Theme1/images/no-remarks.png) !important;
+}
+
+.fa-file-notepad:before {
+    content: url(../css/Theme1/images/notepad.png) !important;
+}
+
+.fa-clipboard-list-Occassional:before {
+    content: url(../css/Theme1/images/Occassional.png) !important;
+}
+
+.fa-file-signature-ol:before {
+    content: url(../css/Theme1/images/offer-letter.png) !important;
+}
+
+.fa-plane-departure-On-Signer-Request:before {
+    content: url(../css/Theme1/images/On-Signer-Request.png) !important;
+}
+
+.fa-coins-Payment:before {
+    content: url(../css/Theme1/images/Payment.png) !important;
+}
+
+.fa-file-pdf-pdf:before {
+    content: url(../css/Theme1/images/pdf.png) !important;
+}
+
+.fa-list-alt-picklist:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-tasks-picklist:before {
+    content: url(../css/Theme1/images/picklist.png) !important;
+}
+
+.fa-tasks-Planned:before {
+    content: url(../css/Theme1/images/Planned.png) !important;
+}
+
+.fa-file-pr:before {
+    content: url(../css/Theme1/images/pr.png) !important;
+}
+
+.fa-redo-Progress:before {
+    content: url(../css/Theme1/images/Progress.png) !important;
+}
+
+.fa-file-pd:before {
+    content: url(../css/Theme1/images/publish-document.png) !important;
+}
+
+.fa-quora-query:before {
+    content: url(../css/Theme1/images/query.png) !important;
+}
+
+.fa-star-red:before {
+    content: url(../css/Theme1/images/red.png) !important;
+}
+
+.fa-exclamation-triangle-red:before {
+    content: url(../css/Theme1/images/red.png) !important;
+}
+
+.fa-exclamation-rs:before {
+    content: url(../css/Theme1/images/red-symbol.png) !important;
+}
+
+.fa-times-circle-rs:before {
+    content: url(../css/Theme1/images/red-symbol.png) !important;
+}
+
+.fa-redo-refresh:before {
+    content: url(../css/Theme1/images/refresh.png) !important;
+}
+
+.fa-copy-requisition:before {
+    content: url(../css/Theme1/images/requisition.png) !important;
+}
+
+.fa-copy-requisition:before {
+    content: url(../css/Theme1/images/requisition.png) !important;
+}
+
+.fa-history-rh:before {
+    content: url(../css/Theme1/images/Reschedule-History.png) !important;
+}
+
+.fa-registered-ra:before {
+    content: url(../css/Theme1/images/risk-assessment.png) !important;
+}
+
+.fa-calendar-alt-sti:before {
+    content: url(../css/Theme1/images/scheduled-tasks-icon.png) !important;
+}
+
+.fa-business-time-sti:before {
+    content: url(../css/Theme1/images/scheduled-tasks-icon.png) !important;
+}
+
+.fa-check-select:before {
+    content: url(../css/Theme1/images/select.png) !important;
+}
+
+.fa-user-md-sa:before {
+    content: url(../css/Theme1/images/send-approval.png) !important;
+}
+
+.fa-check-circle-sd:before {
+    content: url(../css/Theme1/images/Set-Departure.png) !important;
+}
+
+.fa-check-circle-shd:before {
+    content: url(../css/Theme1/images/Set-Home-Destination.png) !important;
+}
+
+.far fa-list-alt-showall:before {
+    content: url(../css/Theme1/images/showall.png) !important;
+}
+
+.fa-check-square-showlist:before {
+    content: url(../css/Theme1/images/showlist.png) !important;
+}
+
+.fa-list-alt-sptin:before {
+    content: url(../css/Theme1/images/Show-Pending-Tasks-in-Vessel.png) !important;
+}
+
+.fa-address-book-sa:before {
+    content: url(../css/Theme1/images/supplier-address.png) !important;
+}
+
+.fa-info-circle-tl:before {
+    content: url(../css/Theme1/images/task-list.png) !important;
+}
+
+.fa fa-plus-circle-tc:before {
+    content: url(../css/Theme1/images/te_check.png) !important;
+}
+
+.fa-plus-circle-check:before {
+    content: url(../css/Theme1/images/te_check.png) !important;
+}
+
+.fa-times-del:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-trash-del:before {
+    content: url(../css/Theme1/images/te_del.png) !important;
+}
+
+.fa-edit-te:before {
+    content: url(../css/Theme1/images/te_edit.png) !important;
+}
+
+.fa-file-tn:before {
+    content: url(../css/Theme1/images/te_notes.png) !important;
+}
+
+.fa-binoculars-tv:before {
+    content: url(../css/Theme1/images/te_view.png) !important;
+}
+
+.fa-receipt-v:before {
+    content: url(../css/Theme1/images/te_view.png) !important;
+}
+
+.fa-glasses-tv:before {
+    content: url(../css/Theme1/images/te_view.png) !important;
+}
+
+.fa-unlock-unlock:before {
+    content: url(../css/Theme1/images/unlock.png) !important;
+}
+
+.fa-file-ui:before {
+    content: url(../css/Theme1/images/unplan-inspection.png) !important;
+}
+
+.fa-calendar-times-ui:before {
+    content: url(../css/Theme1/images/unplan-inspection.png) !important;
+}
+
+.fa-users-vendor:before {
+    content: url(../css/Theme1/images/vendor.png) !important;
+}
+
+.fa-address-book-vd:before {
+    content: url(../css/Theme1/images/vendor-detail.png) !important;
+}
+
+.fa-ship-vessel:before {
+    content: url(../css/Theme1/images/vessel.png) !important;
+}
+
+.fa-receipt-vrr:before {
+    content: url(../css/Theme1/images/Vessel-Receipt-Report.png) !important;
+}
+
+.fa-money-check-alt-vb:before {
+    content: url(../css/Theme1/images/View-BOW.png) !important;
+}
+
+.fa-check-circle-vi:before {
+    content: url(../css/Theme1/images/visa-issued.png) !important;
+}
+
+.fa-star-yellow:before {
+    content: url(../css/Theme1/images/yellow.png) !important;
+}
+
+.fa-postcomment:before {
+    content: url(../css/Theme1/images/post-comment.png) !important;
+}
+
+.fa-cogs:before {
+    content: url(../css/Theme1/images/part.png) !important;
+}
+
+.fa-biohazard:before {
+    content: url(../css/Theme1/images/multiselect-item.png) !important;
+}
+
+.fa-notuse:before {
+    content: url(../css/Theme1/images/de-select.png) !important;
+}
+
+.fa-clipboard:before {
+    content: url(../css/Theme1/images/Modify.png) !important;
+}
+
+.fa-proposeST:before {
+    content: url(../css/Theme1/images/ProposeStandardTemplate.png) !important;
+}
+
+.fa-administration:before {
+    content: url(../css/Theme1/images/administration.png) !important;
+}
+
+.fa-docking:before {
+    content: url(../css/Theme1/images/docking.png) !important;
+}
+
+.fa-vesselposition:before {
+    content: url(../css/Theme1/images/VesselPosition.png) !important;
+}
+
+.fa-timeschedule:before {
+    content: url(../css/Theme1/images/time-schedule.png) !important;
+}
+
+.fa-binoculars:before {
+    content: url(../css/Theme1/images/view-task.png) !important;
+}
+
+.fa-multiplepo:before {
+    content: url(../css/Theme1/images/multiple_po.png) !important;
+}
+
+.fa-usermap:before {
+    content: url(../css/Theme1/images/usermap.png) !important;
+}
+
+.fa-28:before {
+    content: url(../css/Theme1/images/28.png) !important;
+}
+
+.fa-imagefile:before {
+    content: url(../css/Theme1/images/imagefile.png) !important;
+}
+
+.fa-email:before {
+    content: url(../css/Theme1/images/email.png ) !important;
+}
+
+.fa-user-cog-add:before {
+    content: url(../css/Theme1/images/charterer.png) !important;
+}
+
+.fa-sign-in-alt-user:before {
+    content: url(../css/Theme1/images/usermap.png) !important;
+}
+
+.fa-list-alt:before {
+    content: url(../css/Theme1/images/checklist.png) !important;
+}
+.fa-badge-check:before {
+    content: url(../css/Theme1/images/approve.png) !important;
+}
+.fa-plane-approval:before {
+    content: url(../css/Theme1/images/travel-approval.png) !important;
+}
+.fa-times-circle-tc:before {
+    content: url(../css/Theme1/images/ticket_cancel.png) !important;
+}
+.fa-debunker:before {
+    content: url(../css/Theme1/images/DeBunker.png) !important;
+}
+.fa-tachometer-alt:before {
+    content: url(../css/Theme1/images/51.png) !important;
+}
+.fa-spare-move:before {
+    content: url(../css/Theme1/images/move_items.png) !important;
+}
+.fa-component:before {
+    content: url(../css/Theme1/images/component.png) !important;
+}
+.fa-Inspection-mapp:before {
+    content: url(../css/Theme1/images/add_task.png) !important;
+}
+.fa-exclamation-triangle-green:before {
+    /*content: "\f071";*/
+    content: url(../css/Theme1/images/green.png) !important;
+}
+
+.fa-Inspection-Job:before {
+    content: url(../css/Theme1/images/Jobs.png) !important;
+}
+.fa-40:before {
+    content: url(../css/Theme1/images/40.png) !important;
+}
+.fa-exclamation-orange:before {
+    /*content: "\f071";*/
+    content: url(../css/Theme1/images/Orange-symbol.png) !important;
+}
+.fa-certificate:before {
+    content: url(../css/Theme1/images/Certificates.png) !important;
+}
+.fa-checklist_green:before {    
+    content: url(../css/Theme1/images/checklist_green.png) !important;
+}
+.fa-checklist_yellow:before {    
+    content: url(../css/Theme1/images/checklist_yellow.png) !important;
+}
+.fa-checklist_red:before {    
+    content: url(../css/Theme1/images/checklist_red.png) !important;
+}
+.fa-checklist_blue:before {    
+    content: url(../css/Theme1/images/checklist_blue.png) !important;
+}
+.fa-checklist_black:before {    
+    content: url(../css/Theme1/images/checklist_black.png) !important;
+}
+.fa-checklist_lightblue:before {    
+    content: url(../css/Theme1/images/checklist_lightblue.png) !important;
+}
+.fa-appletter_green:before {    
+    content: url(../css/Theme1/images/appletter_green.png) !important;
+}
+.fa-appletter_yellow:before {    
+    content: url(../css/Theme1/images/appletter_yellow.png) !important;
+}
+.fa-appletter_red:before {    
+    content: url(../css/Theme1/images/appletter_red.png) !important;
+}
+.fa-appletter_blue:before {    
+    content: url(../css/Theme1/images/appletter_blue.png) !important;
+}
+.fa-appletter_black:before {    
+    content: url(../css/Theme1/images/appletter_black.png) !important;
+}
+.fa-envelope_yellow:before {    
+    content: url(../css/Theme1/images/envelope_yellow.png) !important;
+}
+.fa-envelope_black:before {    
+    content: url(../css/Theme1/images/envelope_black.png) !important;
+}
+.fa-envelope_green:before {    
+    content: url(../css/Theme1/images/envelope_green.png) !important;
+}
+.fa-envelope_blue:before {    
+    content: url(../css/Theme1/images/envelope_blue.png) !important;
+}
+.fa-envelope_red:before {    
+    content: url(../css/Theme1/images/envelope_red.png) !important;
+}
+.fa-plane_black:before {    
+    content: url(../css/Theme1/images/plane_black.png) !important;
+}
+.fa-plane_blue:before {    
+    content: url(../css/Theme1/images/plane_blue.png) !important;
+}
+.fa-plane_red:before {    
+    content: url(../css/Theme1/images/plane_red.png) !important;
+}
+.fa-plane_yellow:before {    
+    content: url(../css/Theme1/images/plane_yellow.png) !important;
+}
+.fa-plane_green:before {    
+    content: url(../css/Theme1/images/plane_green.png) !important;
+}
+.fa-medical_black:before {    
+    content: url(../css/Theme1/images/medical_black.png) !important;
+}
+.fa-medical_blue:before {    
+    content: url(../css/Theme1/images/medical_blue.png) !important;
+}
+.fa-medical_red:before {    
+    content: url(../css/Theme1/images/medical_red.png) !important;
+}
+.fa-medical_yellow:before {    
+    content: url(../css/Theme1/images/medical_yellow.png) !important;
+}
+.fa-medical_green:before {    
+    content: url(../css/Theme1/images/medical_green.png) !important;
+}
+.fa-course_black:before {    
+    content: url(../css/Theme1/images/course_black.png) !important;
+}
+.fa-course_blue:before {    
+    content: url(../css/Theme1/images/course_blue.png) !important;
+}
+.fa-course_red:before {    
+    content: url(../css/Theme1/images/course_red.png) !important;
+}
+.fa-course_yellow:before {    
+    content: url(../css/Theme1/images/course_yellow.png) !important;
+}
+.fa-course_green:before {    
+    content: url(../css/Theme1/images/course_green.png) !important;
+}
+.fa-visa:before {    
+    content: url(../css/Theme1/images/visa.png) !important;
+}
+.fa-visa_black:before {    
+    content: url(../css/Theme1/images/visa_black.png) !important;
+}
+.fa-visa_blue:before {    
+    content: url(../css/Theme1/images/visa_blue.png) !important;
+}
+.fa-visa_red:before {    
+    content: url(../css/Theme1/images/visa_red.png) !important;
+}
+.fa-visa_yellow:before {    
+    content: url(../css/Theme1/images/visa_yellow.png) !important;
+}
+.fa-visa_green:before {    
+    content: url(../css/Theme1/images/visa_green.png) !important;
+}
+.fa-workinggear_yellow:before {    
+    content: url(../css/Theme1/images/workinggear_yellow.png) !important;
+}
+.fa-workinggear_black:before {    
+    content: url(../css/Theme1/images/workinggear_black.png) !important;
+}
+.fa-workinggear_blue:before {    
+    content: url(../css/Theme1/images/workinggear_blue.png) !important;
+}
+.fa-workinggear_red:before {    
+    content: url(../css/Theme1/images/workinggear_red.png) !important;
+}
+.fa-workinggear_green:before {    
+    content: url(../css/Theme1/images/workinggear_green.png) !important;
+}
+.fa-flagdoc:before {    
+    content: url(../css/Theme1/images/flagdoc.png) !important;
+}
+.fa-flagdoc_black:before {    
+    content: url(../css/Theme1/images/flagdoc_black.png) !important;
+}
+.fa-flagdoc_blue:before {    
+    content: url(../css/Theme1/images/flagdoc_blue.png) !important;
+}
+.fa-flagdoc_red:before {    
+    content: url(../css/Theme1/images/flagdoc_red.png) !important;
+}
+.fa-flagdoc_yellow:before {    
+    content: url(../css/Theme1/images/flagdoc_yellow.png) !important;
+}
+.fa-flagdoc_green:before {    
+    content: url(../css/Theme1/images/flagdoc_green.png) !important;
+}
+.fa-crew:before {
+    content: url(../css/Theme1/images/crew.png) !important;
+}
+
+.fa-Inspector-plan:before {
+    content: url(../css/Theme1/images/plan.png) !important;
+}
+
+.fa-Options:before {
+    content: url(../css/Theme1/images/Options.png) !important;
+}
+
+.fa-Question:before {
+    content: url(../css/Theme1/images/54.png) !important;
+}
+.fa-on-signer:before {
+    content: url(../css/Theme1/images/on-signer.png) !important;
+}
+.fa-off-signer:before {
+    content: url(../css/Theme1/images/off-signer.png) !important;
+}
+.fa-select:before {
+    content: url(../css/Theme1/images/45.png) !important;
+}
+.fa-LinkedForms:before {
+    content: url(../css/Theme1/images/application-form.png) !important;
+}
+.fa-red-tick-mark:before{
+     content: url(../css/Theme1/images/red-tick-mark.png) !important;
+}
+.fa-yellow-tick-mark:before{
+     content: url(../css/Theme1/images/yellow-tick-mark.png) !important;
+}
+
+.fa-PPE:before {
+    content: url(../css/Theme1/images/Boiler_suit_1.png) !important;
+}
+
+.fa-Health:before {
+    content: url(../css/Theme1/images/HSEQA_1.png) !important;
+}
+
+.fa-Environmental:before {
+    content: url(../css/Theme1/images/EnvironmentalManagement_1.png) !important;
+}
+
+.fa-PMS:before {
+    content: url(../css/Theme1/images/PlannedMaintenance_1.png) !important;
+}
+
+.fa-process:before {
+    content: url(../css/Theme1/images/process.png) !important;
+}
+
+.fa-Elog:before {
+    content: url(../css/Theme1/images/Electronic-Log_1.png) !important;
+}
+
+.fa-next:before {
+    content: url(../css/Theme1/images/next.png) !important;
+}
+
+.fa-previous:before {
+    content: url(../css/Theme1/images/previous.png) !important;
+}

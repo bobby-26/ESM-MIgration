@@ -1,0 +1,44 @@
+Buildfile: file:///E:/Phoenix/Working/Build/Web/web_buildcheck.build
+Target framework: Microsoft .NET Framework 4.0
+Target(s) specified: build.validation 
+
+   [tstamp] 15 February 2021 05:13:33.
+ [property] Target framework changed to "Microsoft .NET Framework 3.5".
+   [tstamp] 15 February 2021 05:13:33.
+
+init:
+
+
+success:
+
+
+build.validation:
+
+     [echo] Working Build...
+     [echo] Build Start Date Today : False
+     [echo] WEB Build : 1
+     [echo] 
+     [echo] SQL Build : 0
+     [echo] 
+     [echo] APP Failed
+     [echo] E:\\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_051330.log
+     [echo] \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_051330.log
+      [sql] web failed
+      [sql] E:\Phoenix\Working\Build\Web\web_buildcheck.build(263,7):
+      [sql] Error while executing SQL statement.
+      [sql]     A .NET Framework error occurred during execution of user defined routine or aggregate 'PRCLRPROCESSSENDMAILWITHHTMLBODY': 
+      [sql] System.Exception: WARNING! MAIL NOT SENT - \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_051330.log Error:Could not find a part of the path '\\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_051330.log'.
+      [sql] System.Exception: 
+      [sql]    at SouthNests.Phoenix.Mail.MailSmtp.SendSmtpMailWithHtmlBody(String ipaddress, Int32 port, String username, String password, String from, String to, String mailsubject, String mailbody, String fileentry)
+      [sql]    at SouthNests.Phoenix.Mail.MailSmtp.SendMailWithHtmlBody(String ipaddress, Int32 port, String username, String password, String from, String to, String subject, String body, String attachments)
+      [sql] .
+      [sql] Adding File: \\30.30.30.8\Phoenix\Working\Build\Web\log\2-02\web_compile_2-02_051330.log
+      [sql] Subect: !!URGENT!! WEB BUILD FAILED (WORKING SOURCE SAFE) - PLEASE RESPOND IMMEDIATELY
+      [sql] Recipient: developers@southnests.com
+      [sql] Method: SendSmtpMail...
+     [echo] Trying to Apply and upload a OldPatch
+
+BUILD SUCCEEDED - 1 non-fatal error(s), 0 warning(s)
+
+Total time: 0.7 seconds.
+
